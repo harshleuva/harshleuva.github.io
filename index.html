@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Leuva | Student & Innovator</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        /* Custom styles to apply the Poppins font and theme variables */
+        :root {
+            /* Default: Light Theme */
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --text-muted-color: #6b7280;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #f1f5f9;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6); /* cyan-600 to blue-500 */
+            --button-primary-bg: #0891b2;
+            --button-primary-hover-bg: #0e7490;
+            --footer-bg: #1f2937;
+            --icon-color: #0891b2;
+        }
+
+        html[data-theme='dark'] {
+            /* Dark Theme (Black & Orange) */
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --text-muted-color: #9ca3af;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316); /* orange-400 to orange-500 */
+            --button-primary-bg: #f97316;
+            --button-primary-hover-bg: #ea580c;
+            --footer-bg: #0a0a0a;
+            --icon-color: #fb923c;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border-radius: 0.75rem; /* rounded-xl */
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(100, 116, 139, 0.1);
+        }
+        html[data-theme='dark'] .card:hover {
+             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+        footer {
+            background-color: var(--footer-bg);
+        }
+        .button-primary {
+            background-color: var(--button-primary-bg);
+        }
+        .button-primary:hover {
+            background-color: var(--button-primary-hover-bg);
+        }
+        .icon {
+            color: var(--icon-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header & Navigation -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="transition-colors duration-300">About</a>
+                <a href="#education" class="transition-colors duration-300">Education</a>
+                <a href="#skills" class="transition-colors duration-300">Skills</a>
+                <a href="#projects" class="transition-colors duration-300">Projects</a>
+                <a href="#experience" class="transition-colors duration-300">Experience</a>
+                <a href="social-work.html" class="transition-colors duration-300">Social Work</a>
+                <a href="#contact" class="transition-colors duration-300">Contact</a>
+                <button id="theme-toggle" class="ml-4">
+                    <i data-feather="sun" id="theme-icon" class="w-5 h-5"></i>
+                </button>
+            </nav>
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-feather="menu"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
+            <a href="#about" class="block py-2">About</a>
+            <a href="#education" class="block py-2">Education</a>
+            <a href="#skills" class="block py-2">Skills</a>
+            <a href="#projects" class="block py-2">Projects</a>
+            <a href="#experience" class="block py-2">Experience</a>
+            <a href="social-work.html" class="block py-2">Social Work</a>
+            <a href="#contact" class="block py-2">Contact</a>
+        </div>
+    </header>
+
+    <main class="pt-24">
+        <!-- Hero Section -->
+        <section class="container mx-auto px-6 py-20 md:py-24 text-center">
+            <img src="https://i.pinimg.com/736x/df/87/05/df870548568cd460652f7544acdf4347.jpg" 
+                 alt="Profile picture of Harsh Leuva" 
+                 class="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-white object-cover"
+                 onerror="this.onerror=null;this.src='https://placehold.co/160x160/e5e7eb/1f2937?text=HL';">
+            <h1 class="text-4xl md:text-6xl font-bold leading-tight">Harsh Vishalkumar Leuva</h1>
+            <p class="mt-4 text-xl md:text-2xl text-gradient font-semibold">BS-MS Student at IISER Pune | Innovator & Builder</p>
+            <p class="mt-6 max-w-3xl mx-auto text-lg">
+                A self-driven and meticulous student with a passion for the natural sciences, skilled in hands-on practical work, critical thinking, and project development.
+            </p>
+            <div class="mt-8 flex justify-center gap-4">
+                <a href="#projects" class="button-primary text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 shadow-lg">View My Projects</a>
+                <a href="#contact" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-lg hover:bg-slate-300 transition-colors duration-300">Get In Touch</a>
+            </div>
+        </section>
+
+        <!-- About Me Section -->
+        <section id="about" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">About Me</h2>
+                <p class="max-w-3xl mx-auto text-lg leading-relaxed">
+                    I am a first-year BS-MS student at the Indian Institute of Science Education and Research (IISER), Pune. My academic journey is fueled by a deep curiosity for the natural sciences and a drive to innovate. I thrive on interdisciplinary learning, combining theoretical knowledge with hands-on application to build and create.
+                </p>
+            </div>
+        </section>
+
+        <!-- Education Section -->
+        <section id="education" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">My Academic Journey</h2>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
+                    <div class="card p-6 shadow-sm">
+                        <h3 class="font-bold text-xl">Indian Institute of Science Education and Research (IISER), Pune</h3>
+                        <p class="font-semibold my-2 text-cyan-700">BS-MS Dual Degree Program (1st Year)</p>
+                        <p class="text-sm">
+                            Currently exploring a comprehensive curriculum including Mathematics, Physics, Chemistry, Biology, and Basic Programming.
+                        </p>
+                    </div>
+                    <div class="card p-6 shadow-sm">
+                        <h3 class="font-bold text-xl">Puna International School, Gandhinagar</h3>
+                        <p class="font-semibold my-2 text-cyan-700">High School Education</p>
+                        <p class="text-sm">
+                            Completed my Class 10 and Class 12, building a strong foundation for my scientific pursuits.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-12">My Skillset</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
+                    <div class="p-6 flex flex-col items-center">
+                        <i data-feather="tool" class="w-10 h-10 icon mb-4"></i>
+                        <h3 class="font-semibold text-lg">Technical & Practical</h3>
+                        <p class="text-sm">Robotics, Project Design</p>
+                    </div>
+                    <div class="p-6 flex flex-col items-center">
+                        <i data-feather="code" class="w-10 h-10 icon mb-4"></i>
+                        <h3 class="font-semibold text-lg">Coding</h3>
+                        <p class="text-sm">HTML, CSS, Basic Python</p>
+                    </div>
+                    <div class="p-6 flex flex-col items-center">
+                        <i data-feather="edit-3" class="w-10 h-10 icon mb-4"></i>
+                        <h3 class="font-semibold text-lg">Artistic</h3>
+                        <p class="text-sm">Sketching, Painting</p>
+                    </div>
+                    <div class="p-6 flex flex-col items-center">
+                        <i data-feather="shield" class="w-10 h-10 icon mb-4"></i>
+                        <h3 class="font-semibold text-lg">Other Interests</h3>
+                        <p class="text-sm">Ethical Hacking (Learning)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <a href="electronics-projects.html" class="card rounded-lg overflow-hidden shadow-md block">
+                        <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Electronics" alt="Electronics Project" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Mechanical & Electronics</h3>
+                            <p class="text-sm">Hands-on builds exploring fundamental physics and engineering principles.</p>
+                        </div>
+                    </a>
+                    <a href="rocketry-projects.html" class="card rounded-lg overflow-hidden shadow-md block">
+                        <img src="https://placehold.co/600x400/cffafe/0e7490?text=Rocketry" alt="Rocketry Project" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">Rocketry</h3>
+                            <p class="text-sm">Designing and building rockets with various propulsion systems.</p>
+                        </div>
+                    </a>
+                    <a href="creations-projects.html" class="card rounded-lg overflow-hidden shadow-md block">
+                        <img src="https://placehold.co/600x400/d1fae5/065f46?text=Creations" alt="Other Projects" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <h3 class="font-bold text-xl mb-2">More Creations</h3>
+                            <p class="text-sm">Exploring concepts across different scientific domains.</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Achievements Section -->
+        <section id="experience" class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-3xl font-bold text-center mb-12">Experience & Achievements</h2>
+                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
+                    <div class="card p-6 shadow-sm">
+                        <h3 class="font-bold text-xl mb-4">Work Experience</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-start gap-3">
+                                <i data-feather="briefcase" class="w-5 h-5 icon mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold">Manager, Vardayini Medicare Skin Clinic</h4>
+                                    <p class="text-sm">Gained practical management and client-facing skills.</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start gap-3">
+                                <i data-feather="briefcase" class="w-5 h-5 icon mt-1"></i>
+                                <div>
+                                    <h4 class="font-semibold">Contractor Assistant, Civil Construction</h4>
+                                    <p class="text-sm">Assisted in on-site project coordination for 3 months.</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="card p-6 shadow-sm">
+                        <h3 class="font-bold text-xl mb-4">Achievements</h3>
+                        <ul class="space-y-3">
+                            <li class="flex items-center gap-3">
+                                <i data-feather="award" class="w-5 h-5 text-green-500"></i>
+                                <span>Qualified NEET 2024 with 86th percentile</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-feather="award" class="w-5 h-5 text-green-500"></i>
+                                <span>Member of the Indian Red Cross Society</span>
+                            </li>
+                            <li class="flex items-center gap-3">
+                                <i data-feather="award" class="w-5 h-5 text-green-500"></i>
+                                <span>Played at State Level Gymnastics</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Community Involvement Section -->
+        <section id="community" class="py-20">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl font-bold mb-4">Community Involvement</h2>
+                <p class="max-w-3xl mx-auto text-lg leading-relaxed mb-8">
+                    Beyond my academic and technical projects, I am deeply committed to giving back to the community. Click below to see some of the initiatives I've been a part of.
+                </p>
+                <a href="social-work.html" class="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-600 transition-colors duration-300 shadow-lg shadow-green-500/20">Explore My Social Work</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="container mx-auto px-6 py-12 text-center">
+            <h2 class="text-2xl font-bold mb-4">Get In Touch</h2>
+            <p class="mb-6">I'm always open to new opportunities and collaborations.</p>
+            <a href="mailto:hh6060348@gmail.com" class="button-primary text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
+                Say Hello
+            </a>
+            <div class="mt-8">
+                <p class="mb-4">Connect with me on social media:</p>
+                <div class="flex justify-center space-x-6">
+                    <a href="#" class="transition-colors duration-300" aria-label="Instagram"><i data-feather="instagram" class="w-6 h-6"></i></a>
+                    <a href="#" class="transition-colors duration-300" aria-label="LinkedIn"><i data-feather="linkedin" class="w-6 h-6"></i></a>
+                    <a href="#" class="transition-colors duration-300" aria-label="GitHub"><i data-feather="github" class="w-6 h-6"></i></a>
+                </div>
+            </div>
+            <div class="mt-10 pt-6 border-t text-sm">
+                <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Feather Icons Initialization
+        feather.replace();
+
+        // Mobile Menu Toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Theme Switcher Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+        const htmlEl = document.documentElement;
+        
+        // Function to set the theme
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.setAttribute('data-theme', 'dark');
+                themeIcon.setAttribute('data-feather', 'sun');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+                themeIcon.setAttribute('data-feather', 'moon');
+                localStorage.setItem('theme', 'light');
+            }
+            feather.replace(); // Re-render icons
+        }
+
+        // Event listener for the toggle button
+        themeToggle.addEventListener('click', () => {
+            const currentTheme = localStorage.getItem('theme') || 'light';
+            setTheme(currentTheme === 'light' ? 'dark' : 'light');
+        });
+
+        // Check for saved theme on page load and set default
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        setTheme(savedTheme);
+
+        // Set current year in footer
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

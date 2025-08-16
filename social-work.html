@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Leuva | Social Work</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f3f4f6; /* bg-gray-100 */
+            color: #1f2937; /* text-gray-800 */
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        .text-gradient-blue {
+            background: linear-gradient(to right, #3b82f6, #2563eb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient-blue">.</span></a>
+            <a href="index.html" class="font-semibold text-gray-600 hover:text-blue-600 transition-colors duration-300 flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Main Portfolio
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6">
+            <section class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Community Involvement</h1>
+                <p class="max-w-2xl mx-auto text-lg text-gray-600">Making a difference, one act of kindness at a time. Here are some of the initiatives I've been proud to be a part of.</p>
+            </section>
+
+            <!-- Social Work Entries -->
+            <div class="space-y-16">
+
+                <!-- Work 1: Food Distribution -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden md:grid md:grid-cols-2 md:gap-8 items-center">
+                    <div class="md:order-2">
+                        <img src="https://i.pinimg.com/736x/7b/1d/e2/7b1de2091cd37c0262c8533b8f3b5fdb.jpg" 
+                             alt="Volunteers distributing food to people in need" 
+                             class="w-full h-64 md:h-full object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/dbeafe/1e3a8a?text=Image+Error';">
+                    </div>
+                    <div class="p-8 md:order-1">
+                        <h2 class="text-sm font-bold uppercase text-blue-600 mb-2">Roti Bank Initiative</h2>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Nourishing Communities in Gandhinagar</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            For three consecutive months, I dedicated my Sundays to a food distribution drive across various parts of Gandhinagar, Gujarat. This initiative focused on providing warm, nutritious meals to homeless and underprivileged individuals. It was a deeply humbling experience that reinforced the importance of direct community action, compassion, and ensuring no one goes hungry.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Work 2: Teaching Children -->
+                <div class="bg-white rounded-lg shadow-xl overflow-hidden md:grid md:grid-cols-2 md:gap-8 items-center">
+                    <div>
+                        <img src="https://i.pinimg.com/736x/03/70/69/037069cd6419dfbfa3f868b0c082a92e.jpg" 
+                             alt="Teaching children in a local community" 
+                             class="w-full h-64 md:h-full object-cover"
+                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/d1fae5/064e3b?text=Image+Error';">
+                    </div>
+                    <div class="p-8">
+                        <h2 class="text-sm font-bold uppercase text-blue-600 mb-2">Educational Outreach</h2>
+                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Empowering Young Minds in Pune</h3>
+                        <p class="text-gray-700 leading-relaxed">
+                            Believing in the transformative power of education, I volunteer to teach fundamental subjects to children in a small basti here in Pune. The goal is to create a joyful and supportive learning environment, sparking curiosity and building a strong foundation for their future academic journeys. Witnessing their enthusiasm to learn is my greatest motivation.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
