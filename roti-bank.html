@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Leuva | Roti Bank Initiative</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #97b803; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+        html[data-theme='dark'] {
+            --bg-color: #121212; --bg-image: none; --text-color: #ffffff; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
+        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+        
+        /* Animation styles */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="social-work.html" class="font-semibold flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Social Work
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT SECTION -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="h-screen flex items-center justify-center text-center relative">
+            <div class="absolute inset-0 bg-black/50">
+                <img src="https://i.pinimg.com/736x/6c/85/36/6c85369567a346593f399faad8a310e9.jpg" class="w-full h-full object-cover opacity-30">
+            </div>
+            <div class="relative z-10 p-6">
+                <h1 class="text-5xl md:text-7xl font-bold text-white mb-4">Roti Bank Initiative</h1>
+                <p class="text-xl text-gray-300">Nourishing Communities in Gandhinagar</p>
+            </div>
+        </section>
+
+        <div class="pt-20 pb-20 bg-gray-50 dark:bg-black">
+            <div class="container mx-auto px-6 max-w-4xl">
+                
+                <!-- VIDEO SHOWCASE -->
+                
+
+                <!-- PHOTO GALLERY SECTION -->
+                <section class="mb-20 fade-in-section">
+                    <h2 class="text-3xl font-bold text-center mb-12">Photo Gallery</h2>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <div class="grid gap-4">
+                            <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://i.pinimg.com/736x/e8/00/cd/e800cd8ef5315f5f5cb6b4cc8eca4919.jpg" alt=""></div>
+                            <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://i.pinimg.com/736x/6a/f2/8e/6af28efcf72f1abd872b6dadc99ed2ae.jpg" alt=""></div>
+                        </div>
+                        <div class="grid gap-4">
+                            <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://i.pinimg.com/736x/38/eb/6f/38eb6f08588acf37a8bd662792e4d3e4.jpg" alt=""></div>
+                            <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://i.pinimg.com/736x/45/45/1d/45451d8a4f908ec4fd4305b0a16dfeb1.jpg" alt=""></div>
+                        </div>
+                        <div class="grid gap-4">
+                            <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://i.pinimg.com/736x/a5/5a/a0/a55aa03a0909d56444024707a423a1cf.jpg" alt=""></div>
+                            <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://i.pinimg.com/736x/23/54/5e/23545e9cae7d8503b825ba4f3c98997b.jpg" alt=""></div>
+                        </div>
+                        <div class="grid gap-4">
+                            <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://i.pinimg.com/736x/f7/4d/6d/f74d6d2aae80ff56a3ad92e90256d959.jpg" alt=""></div>
+                            <div><img class="h-auto max-w-full rounded-lg shadow-md" src="https://i.pinimg.com/736x/15/26/65/1526653d7d9f01262cf8200401f9f734.jpg" alt=""></div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- REFLECTION SECTION -->
+                <section class="fade-in-section">
+                    <h2 class="text-3xl font-bold text-center mb-12">What This Experience Taught Me</h2>
+                    <div class="max-w-2xl mx-auto bg-white dark:bg-gray-900 p-8 rounded-lg shadow-xl">
+                        <p class="leading-relaxed text-lg">Working with the Roti Bank was a deeply humbling and eye-opening experience. It reinforced the importance of direct community action and compassion. Spending my Sundays distributing meals taught me invaluable lessons about the realities of food insecurity and the profound impact that a simple, warm meal can have on someone's day. It was a privilege to be a part of this initiative and connect with so many people from different walks of life.</p>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+    </main>
+    <script>
+        // Theme consistency script
+        const htmlEl = document.documentElement; 
+        function setTheme(theme) { 
+            if (theme === 'dark') { 
+                htmlEl.setAttribute('data-theme', 'dark');
+                htmlEl.classList.add('dark');
+            } else { 
+                htmlEl.setAttribute('data-theme', 'light');
+                htmlEl.classList.remove('dark');
+            } 
+        } 
+        const savedTheme = localStorage.getItem('theme') || 'light'; 
+        setTheme(savedTheme); 
+        
+        // Animation on scroll script
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        });
+        const sections = document.querySelectorAll('.fade-in-section');
+        sections.forEach(section => observer.observe(section));
+
+        // Feather Icons Initialization
+        feather.replace();
+    </script>
+</body>
+</html>
+
+
+                

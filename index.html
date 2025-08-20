@@ -4,304 +4,204 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Harsh Leuva | Student & Innovator</title>
-    
-    <!-- Tailwind CSS for styling -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
-
     <style>
-        /* Custom styles to apply the Poppins font and theme variables */
         :root {
-            /* Default: Light Theme */
-            --bg-color: #ffffff;
-            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
-            --text-color: #374151;
-            --text-muted-color: #6b7280;
-            --header-bg: rgba(255, 255, 255, 0.8);
-            --card-bg: #ffffff;
-            --card-border: #b3d6fa;
-            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6); /* cyan-600 to blue-500 */
-            --button-primary-bg: #1fa4d4;
-            --button-primary-hover-bg: #0e7490;
-            --footer-bg: #1f2937;
-            --icon-color: #0891b2;
-            --icon-hover-color: #0891b2;
+            /* Default: Dark Theme */
+            --bg-color: #0d1117;
+            --card-bg: #161b22;
+            --text-color: #e6edf3;
+            --text-muted-color: #7d8590;
+            --border-color: #21262d;
+            --accent-color: #f97316;
+            --glow-color: rgba(249, 115, 22, 0.2);
+            --tag-bg: #21262d;
+            --tag-text: #e6edf3;
         }
 
-        html[data-theme='dark'] {
-            /* Dark Theme (Black & Orange) */
-            --bg-color: #121212;
-            --bg-image: none;
-            --text-color: #e5e7eb;
-            --text-muted-color: #9ca3af;
-            --header-bg: rgba(18, 18, 18, 0.8);
-            --card-bg: #1e1e1e;
-            --card-border: #2a2a2a;
-            --accent-gradient: linear-gradient(to right, #fb923c, #f97316); /* orange-400 to orange-500 */
-            --button-primary-bg: #f97316;
-            --button-primary-hover-bg: #ea580c;
-            --footer-bg: #0a0a0a;
-            --icon-color: #fb923c;
-            --icon-hover-color: #fb923c;
+        html[data-theme='light'] {
+            --bg-color: #f3f4f6;
+            --card-bg: #ffffff;
+            --text-color: #1f2937;
+            --text-muted-color: #6b7280;
+            --border-color: #e5e7eb;
+            --accent-color: #0891b2;
+            --glow-color: rgba(8, 145, 178, 0.2);
+            --tag-bg: #e5e7eb;
+            --tag-text: #374151;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
-            background-image: var(--bg-image, none);
-            background-attachment: fixed;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
             transition: background-color 0.3s ease, color 0.3s ease;
         }
         
-        html {
-            scroll-behavior: smooth;
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
         }
-        .text-gradient {
-            background: var(--accent-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .card {
+        .bento-item {
             background-color: var(--card-bg);
-            border: 1px solid var(--card-border);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            border-radius: 0.75rem; /* rounded-xl */
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
         }
-        .card:hover {
+        .bento-item:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(100, 116, 139, 0.1);
+            box-shadow: 0 0 20px var(--glow-color);
         }
-        html[data-theme='dark'] .card:hover {
-             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        .col-span-1 { grid-column: span 1 / span 1; }
+        .col-span-2 { grid-column: span 2 / span 2; }
+        .col-span-3 { grid-column: span 3 / span 3; }
+        .col-span-4 { grid-column: span 4 / span 4; }
+        .row-span-1 { grid-row: span 1 / span 1; }
+        .row-span-2 { grid-row: span 2 / span 2; }
+        
+        .tag {
+            background-color: var(--tag-bg);
+            color: var(--tag-text);
         }
-        header {
-            background-color: var(--header-bg);
-            border-bottom: 1px solid var(--card-border);
+        
+        /* Animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
         }
-        footer {
-            background-color: var(--footer-bg);
+        .reveal.is-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
-        .button-primary {
-            background-color: var(--button-primary-bg);
+        
+        /* Link Button */
+        .link-button {
+            transition: transform 0.3s ease;
         }
-        .button-primary:hover {
-            background-color: var(--button-primary-hover-bg);
-        }
-        .icon {
-            color: var(--icon-color);
-        }
-        .social-link {
-            transition: transform 0.3s ease, color 0.3s ease;
-        }
-        .social-link:hover {
-            transform: scale(1.2);
-            color: var(--icon-hover-color);
+        .bento-item:hover .link-button {
+            transform: scale(1.1);
         }
     </style>
 </head>
-<body>
+<body class="p-4 md:p-8">
 
-    <!-- Header & Navigation -->
-    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <!-- UPDATED: Added mr-8 for spacing -->
-            <a href="#" class="text-2xl font-bold mr-8">Harsh<span class="text-gradient">.</span></a>
-            <nav class="hidden md:flex items-center space-x-8">
-                <a href="#about" class="transition-colors duration-300">About</a>
-                
-                <a href="projects.html" class="transition-colors duration-300">Projects</a>
-                
-                <a href="social-work.html" class="transition-colors duration-300">Social Work</a>
-                <a href="#contact" class="transition-colors duration-300">Contact</a>
-                <button id="theme-toggle" class="ml-4">
-                    <i data-feather="sun" id="theme-icon" class="w-5 h-5"></i>
-                </button>
-            </nav>
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-feather="menu"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu -->
-        <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
-            <a href="#about" class="block py-2">About</a>
-            
-            <a href="projects.html" class="block py-2">Projects</a>
-           
-            <a href="social-work.html" class="block py-2">Social Work</a>
-            <a href="#contact" class="block py-2">Contact</a>
-        </div>
-    </header>
-
-    <main class="pt-24">
-        <!-- Hero Section -->
-        <section class="container mx-auto px-6 py-20 md:py-24 text-center">
-            <img src="https://i.pinimg.com/736x/df/87/05/df870548568cd460652f7544acdf4347.jpg" 
-                 alt="Profile picture of Harsh Leuva" 
-                 class="w-40 h-40 rounded-full mx-auto mb-8 border-4 border-white object-cover"
-                 onerror="this.onerror=null;this.src='https://placehold.co/160x160/e5e7eb/1f2937?text=HL';">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight">HARSH LEUVA</h1>
-            <p class="mt-4 text-xl md:text-2xl text-gradient font-semibold">BS-MS Student at IISER Pune | Innovator & Builder</p>
-            <p class="mt-6 max-w-3xl mx-auto text-lg">
-                A self-driven and meticulous student with a passion for the natural sciences, skilled in hands-on practical work, critical thinking, and project development.
-            </p>
-            <div class="mt-8 flex justify-center gap-4">
-                <a href="projects.html" class="button-primary text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 shadow-lg">View My Projects</a>
-                <a href="#contact" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-lg hover:bg-slate-300 transition-colors duration-300">Get In Touch</a>
-            </div>
-        </section>
-
-        <!-- About Me Section -->
-        <section id="about" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-4">About Me</h2>
-                <p class="max-w-3xl mx-auto text-lg leading-relaxed">
-                    I am a first-year BS-MS student at the Indian Institute of Science Education and Research (IISER), Pune. My academic journey is fueled by a deep curiosity for the natural sciences and a drive to innovate. I thrive on interdisciplinary learning, combining theoretical knowledge with hands-on application to build and create.
-                </p>
-            </div>
-        </section>
-
-        <!-- Education Section -->
-        <section id="education" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">My Academic Journey</h2>
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
-                    <div class="card p-6 shadow-sm">
-                        <h3 class="font-bold text-xl">Indian Institute of Science Education and Research (IISER), Pune</h3>
-                        <p class="font-semibold my-2 text-cyan-700">BS-MS Dual Degree Program (1st Year)</p>
-                        <p class="text-sm">
-                            Currently exploring a comprehensive curriculum including Mathematics, Physics, Chemistry, Biology, and Basic Programming.
-                        </p>
+    <div class="max-w-6xl mx-auto">
+        <div class="bento-grid">
+            <!-- Profile Card -->
+            <div class="bento-item col-span-4 reveal">
+                <div class="flex flex-col md:flex-row items-center justify-between gap-8">
+                    <div class="flex flex-col text-center md:text-left">
+                        <div>
+                            <h1 class="text-4xl font-bold">Harsh Leuva</h1>
+                            <p class="text-xl mt-1" style="color: var(--accent-color);">Innovator & Builder</p>
+                            <p class="mt-2" style="color: var(--text-muted-color);">BS-MS Student at IISER Pune, passionate about the natural sciences and hands-on project development.</p>
+                        </div>
+                        <div class="mt-4">
+                            <a href="mailto:hh6060348@gmail.com" class="inline-block text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300" style="background-color: var(--accent-color);">Get In Touch</a>
+                        </div>
                     </div>
-                    <div class="card p-6 shadow-sm">
-                        <h3 class="font-bold text-xl">Puna International School, Gandhinagar</h3>
-                        <p class="font-semibold my-2 text-cyan-700">High School Education</p>
-                        <p class="text-sm">
-                            Completed my Class 10 and Class 12, building a strong foundation for my scientific pursuits.
-                        </p>
-                    </div>
+                    <img src="https://i.pinimg.com/736x/df/87/05/df870548568cd460652f7544acdf4347.jpg" alt="Harsh Leuva" class="w-48 h-48 rounded-2xl border-2 flex-shrink-0 object-cover" style="border-color: var(--border-color);">
                 </div>
             </div>
-        </section>
 
-        <!-- Skills Section -->
-        <section id="skills" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-12">My Skillset</h2>
-                <div class="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
-                    <div class="p-6 flex flex-col items-center">
-                        <i data-feather="tool" class="w-10 h-10 icon mb-4"></i>
-                        <h3 class="font-semibold text-lg">Technical & Practical</h3>
-                        <p class="text-sm">Robotics, Project Design</p>
-                    </div>
-                    <div class="p-6 flex flex-col items-center">
-                        <i data-feather="code" class="w-10 h-10 icon mb-4"></i>
-                        <h3 class="font-semibold text-lg">Coding</h3>
-                        <p class="text-sm">HTML, CSS, Basic Python</p>
-                    </div>
-                    <div class="p-6 flex flex-col items-center">
-                        <i data-feather="edit-3" class="w-10 h-10 icon mb-4"></i>
-                        <h3 class="font-semibold text-lg">Artistic</h3>
-                        <p class="text-sm">Sketching, Painting</p>
-                    </div>
-                    <div class="p-6 flex flex-col items-center">
-                        <i data-feather="shield" class="w-10 h-10 icon mb-4"></i>
-                        <h3 class="font-semibold text-lg">Other Interests</h3>
-                        <p class="text-sm">Ethical Hacking (Learning)</p>
-                    </div>
+            <!-- Projects Card -->
+            <a href="projects.html" class="bento-item col-span-4 md:col-span-2 row-span-1 reveal">
+                <div class="link-button absolute bottom-4 right-4 flex items-center justify-center w-10 h-10 rounded-full" style="background-color: var(--bg-color);">
+                    <i data-feather="arrow-right" class="w-5 h-5"></i>
                 </div>
-            </div>
-        </section>
-
-        
-
-        <!-- Experience & Achievements Section -->
-        <section id="experience" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Experience & Achievements</h2>
-                <div class="max-w-4xl mx-auto grid md:grid-cols-2 gap-8 text-left">
-                    <div class="card p-6 shadow-sm">
-                        <h3 class="font-bold text-xl mb-4">Work Experience</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-3">
-                                <i data-feather="briefcase" class="w-5 h-5 icon mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold">Manager, Vardayini Medicare Skin Clinic</h4>
-                                    <p class="text-sm">Gained practical management and client-facing skills.</p>
-                                </div>
-                            </li>
-                            <li class="flex items-start gap-3">
-                                <i data-feather="briefcase" class="w-5 h-5 icon mt-1"></i>
-                                <div>
-                                    <h4 class="font-semibold">Contractor Assistant, Civil Construction</h4>
-                                    <p class="text-sm">Assisted in on-site project coordination for 3 months.</p>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="card p-6 shadow-sm">
-                        <h3 class="font-bold text-xl mb-4">Achievements</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-center gap-3">
-                                <i data-feather="award" class="w-5 h-5 text-green-500"></i>
-                                <span>Qualified NEET 2024 with 86th percentile</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-feather="award" class="w-5 h-5 text-green-500"></i>
-                                <span>Member of the Indian Red Cross Society</span>
-                            </li>
-                            <li class="flex items-center gap-3">
-                                <i data-feather="award" class="w-5 h-5 text-green-500"></i>
-                                <span>Played at State Level Gymnastics</span>
-                            </li>
-                        </ul>
-                    </div>
+                <h2 class="font-bold text-xl mb-2">Featured Projects</h2>
+                <p style="color: var(--text-muted-color);">From rocketry to robotics, explore my hands-on work.</p>
+                <div class="flex -space-x-4 mt-4">
+                    <img class="w-12 h-12 border-2 rounded-full" src="https://placehold.co/48x48/1e1e1e/fb923c?text=E" style="border-color: var(--card-bg);">
+                    <img class="w-12 h-12 border-2 rounded-full" src="https://placehold.co/48x48/1e1e1e/fb923c?text=R" style="border-color: var(--card-bg);">
+                    <img class="w-12 h-12 border-2 rounded-full" src="https://placehold.co/48x48/1e1e1e/fb923c?text=C" style="border-color: var(--card-bg);">
                 </div>
-            </div>
-        </section>
-
-        <!-- Community Involvement Section -->
-        <section id="community" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl font-bold mb-4">Community Involvement</h2>
-                <p class="max-w-3xl mx-auto text-lg leading-relaxed mb-8">
-                    Beyond my academic and technical projects, I am deeply committed to giving back to the community. Click below to see some of the initiatives I've been a part of.
-                </p>
-                <a href="social-work.html" class="bg-green-500 text-white font-semibold px-6 py-3 rounded-lg hover:bg-green-600 transition-colors duration-300 shadow-lg shadow-green-500/20">Explore My Social Work</a>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container mx-auto px-6 py-12 text-center">
-            <h2 class="text-2xl font-bold mb-4">Get In Touch</h2>
-            <p class="mb-8">I'm always open to new opportunities and collaborations.</p>
-            <a href="mailto:hh6060348@gmail.com" class="button-primary text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
-                Say Hello
             </a>
-            <div class="mt-10">
-                <p class="mb-6 font-semibold">Connect with me</p>
-                <div class="flex justify-center space-x-8">
-                    <a href="#" class="social-link" aria-label="Instagram"><i data-feather="instagram" class="w-8 h-8"></i></a>
-                    <a href="#" class="social-link" aria-label="LinkedIn"><i data-feather="linkedin" class="w-8 h-8"></i></a>
-                    <a href="#" class="social-link" aria-label="GitHub"><i data-feather="github" class="w-8 h-8"></i></a>
+            
+            <!-- Social Work Card -->
+            <a href="social-work.html" class="bento-item col-span-4 md:col-span-2 row-span-1 reveal">
+                <div class="link-button absolute bottom-4 right-4 flex items-center justify-center w-10 h-10 rounded-full" style="background-color: var(--bg-color);">
+                    <i data-feather="arrow-right" class="w-5 h-5"></i>
+                </div>
+                <h2 class="font-bold text-xl mb-2">Community Involvement</h2>
+                <p style="color: var(--text-muted-color);">Giving back through initiatives like Roti Bank and educational outreach.</p>
+            </a>
+
+            <!-- Education Card -->
+            <div class="bento-item col-span-4 md:col-span-2 reveal">
+                 <h2 class="font-bold text-xl mb-2">Education</h2>
+                 <p class="font-semibold">IISER, Pune</p>
+                 <p class="text-sm mb-2" style="color: var(--text-muted-color);">BS-MS Dual Degree, 1st Year</p>
+                 <p class="font-semibold">Puna International School</p>
+                 <p class="text-sm" style="color: var(--text-muted-color);">High School</p>
+            </div>
+            
+            <!-- Skills Card -->
+            <div class="bento-item col-span-4 md:col-span-2 reveal">
+                 <h2 class="font-bold text-xl mb-2">Core Skills</h2>
+                 <div class="flex flex-wrap gap-2 text-sm">
+                     <span class="tag px-2 py-1 rounded">Robotics</span>
+                     <span class="tag px-2 py-1 rounded">Project Design</span>
+                     <span class="tag px-2 py-1 rounded">HTML/CSS</span>
+                     <span class="tag px-2 py-1 rounded">Python</span>
+                     <span class="tag px-2 py-1 rounded">Sketching</span>
+                 </div>
+            </div>
+
+            <!-- Work Experience Card -->
+            <div class="bento-item col-span-4 md:col-span-2 reveal">
+                <h2 class="font-bold text-xl mb-2">Work Experience</h2>
+                <ul class="space-y-2 text-sm">
+                    <li><span class="font-semibold">Manager:</span> Vardayini Medicare Skin Clinic</li>
+                    <li><span class="font-semibold">Contractor Assistant:</span> Civil Construction Site</li>
+                </ul>
+            </div>
+
+            <!-- Achievements Card -->
+            <div class="bento-item col-span-4 md:col-span-2 reveal">
+                <h2 class="font-bold text-xl mb-2">Achievements</h2>
+                <ul class="space-y-2 text-sm">
+                    <li>Qualified NEET 2024 (86th percentile)</li>
+                    <li>Member of the Indian Red Cross Society</li>
+                    <li>Participated at State Level Gymnastics</li>
+                </ul>
+            </div>
+
+            <!-- Languages Card -->
+            <div class="bento-item col-span-4 md:col-span-2 reveal">
+                <h2 class="font-bold text-xl mb-2">Languages</h2>
+                <div class="flex flex-wrap gap-2 text-sm">
+                    <span class="tag px-2 py-1 rounded">Gujarati (Fluent)</span>
+                    <span class="tag px-2 py-1 rounded">Hindi (Fluent)</span>
+                    <span class="tag px-2 py-1 rounded">English (Fluent)</span>
+                    <span class="tag px-2 py-1 rounded">German (Learning)</span>
                 </div>
             </div>
-            <div class="mt-12 pt-6 border-t text-sm">
-                <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+
+            <!-- Social Links & Theme Toggle -->
+            <div class="bento-item col-span-4 md:col-span-2 reveal">
+                <div class="flex justify-between items-center h-full">
+                    <div class="flex items-center gap-4">
+                        <a href="#" aria-label="Instagram"><i data-feather="instagram" class="w-6 h-6" style="color: var(--text-muted-color);"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i data-feather="linkedin" class="w-6 h-6" style="color: var(--text-muted-color);"></i></a>
+                        <a href="#" aria-label="GitHub"><i data-feather="github" class="w-6 h-6" style="color: var(--text-muted-color);"></i></a>
+                    </div>
+                    <button id="theme-toggle" class="p-2 rounded-full" style="background-color: var(--bg-color);">
+                        <i data-feather="moon" id="theme-icon" class="w-5 h-5"></i>
+                    </button>
+                </div>
             </div>
         </div>
-    </footer>
+    </div>
 
     <script>
         // Theme Switcher Logic
@@ -310,29 +210,40 @@
         const htmlEl = document.documentElement;
         
         function setTheme(theme) {
-            if (theme === 'dark') {
-                htmlEl.setAttribute('data-theme', 'dark');
-                themeIcon.setAttribute('data-feather', 'sun');
-                localStorage.setItem('theme', 'dark');
-            } else {
+            if (theme === 'light') {
                 htmlEl.setAttribute('data-theme', 'light');
                 themeIcon.setAttribute('data-feather', 'moon');
-                localStorage.setItem('theme', 'light');
+            } else {
+                htmlEl.setAttribute('data-theme', 'dark');
+                themeIcon.setAttribute('data-feather', 'sun');
             }
+            localStorage.setItem('theme', theme);
             feather.replace();
         }
 
         themeToggle.addEventListener('click', () => {
-            const currentTheme = localStorage.getItem('theme') || 'light';
-            setTheme(currentTheme === 'light' ? 'dark' : 'light');
+            const currentTheme = localStorage.getItem('theme') || 'dark';
+            setTheme(currentTheme === 'dark' ? 'light' : 'dark');
         });
 
-        const savedTheme = localStorage.getItem('theme') || 'light';
+        const savedTheme = localStorage.getItem('theme') || 'dark';
         setTheme(savedTheme);
 
-        // Feather Icons and Year
+        // Animation on scroll script
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry, index) => {
+                if (entry.isIntersecting) {
+                    setTimeout(() => {
+                        entry.target.classList.add('is-visible');
+                    }, index * 100); // Staggered animation
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const elementsToReveal = document.querySelectorAll('.reveal');
+        elementsToReveal.forEach(el => observer.observe(el));
+
         feather.replace();
-        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

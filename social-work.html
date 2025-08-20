@@ -17,27 +17,38 @@
     <script src="https://unpkg.com/feather-icons"></script>
 
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f3f4f6; /* bg-gray-100 */
-            color: #1f2937; /* text-gray-800 */
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
+        :root {
+            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #374151; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
         }
-        .text-gradient-blue {
-            background: linear-gradient(to right, #3b82f6, #2563eb);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+        html[data-theme='dark'] {
+            --bg-color: #121212; --bg-image: none; --text-color: #e5e7eb; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
+        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+        .card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(100, 116, 139, 0.1);
+        }
+        html[data-theme='dark'] .card:hover {
+             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
         }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body>
 
     <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-lg fixed top-0 left-0 right-0 z-50 shadow-sm">
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient-blue">.</span></a>
-            <a href="index.html" class="font-semibold text-gray-600 hover:text-blue-600 transition-colors duration-300 flex items-center gap-2">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="index.html" class="font-semibold flex items-center gap-2">
                 <i data-feather="arrow-left" class="w-5 h-5"></i>
                 Back to Main Portfolio
             </a>
@@ -49,42 +60,41 @@
         <div class="container mx-auto px-6">
             <section class="text-center mb-16">
                 <h1 class="text-4xl md:text-5xl font-bold mb-4">Community Involvement</h1>
-                <p class="max-w-2xl mx-auto text-lg text-gray-600">Making a difference, one act of kindness at a time. Here are some of the initiatives I've been proud to be a part of.</p>
+                <p class="max-w-2xl mx-auto text-lg">Making a difference, one act of kindness at a time. Here are some of the initiatives I've been proud to be a part of.</p>
             </section>
 
             <!-- Social Work Entries -->
             <div class="space-y-16">
 
                 <!-- Work 1: Food Distribution -->
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden md:grid md:grid-cols-2 md:gap-8 items-center">
+                <a href="roti-bank.html" class="card block md:grid md:grid-cols-2 md:gap-8 items-center shadow-xl">
                     <div class="md:order-2">
                         <img src="https://i.pinimg.com/736x/7b/1d/e2/7b1de2091cd37c0262c8533b8f3b5fdb.jpg" 
                              alt="Volunteers distributing food to people in need" 
-                             class="w-full h-64 md:h-full object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/dbeafe/1e3a8a?text=Image+Error';">
+                             class="w-full h-64 md:h-full object-cover">
                     </div>
                     <div class="p-8 md:order-1">
                         <h2 class="text-sm font-bold uppercase text-blue-600 mb-2">Roti Bank Initiative</h2>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Nourishing Communities in Gandhinagar</h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            For three consecutive months, I dedicated my Sundays to a food distribution drive across various parts of Gandhinagar, Gujarat. This initiative focused on providing warm, nutritious meals to homeless and underprivileged individuals. It was a deeply humbling experience that reinforced the importance of direct community action, compassion, and ensuring no one goes hungry.
+                        <h3 class="text-3xl font-bold mb-4">Nourishing Communities in Gandhinagar</h3>
+                        <p class="leading-relaxed">
+                            For three consecutive months, I dedicated my Sundays to a food distribution drive across various parts of Gandhinagar, Gujarat. This initiative focused on providing warm, nutritious meals to homeless and underprivileged individuals.
                         </p>
+                        <p class="font-semibold mt-4 text-blue-600">View Project Details &rarr;</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Work 2: Teaching Children -->
-                <div class="bg-white rounded-lg shadow-xl overflow-hidden md:grid md:grid-cols-2 md:gap-8 items-center">
+                <div class="card md:grid md:grid-cols-2 md:gap-8 items-center shadow-xl">
                     <div>
                         <img src="https://i.pinimg.com/736x/03/70/69/037069cd6419dfbfa3f868b0c082a92e.jpg" 
                              alt="Teaching children in a local community" 
-                             class="w-full h-64 md:h-full object-cover"
-                             onerror="this.onerror=null;this.src='https://placehold.co/800x500/d1fae5/064e3b?text=Image+Error';">
+                             class="w-full h-64 md:h-full object-cover">
                     </div>
                     <div class="p-8">
                         <h2 class="text-sm font-bold uppercase text-blue-600 mb-2">Educational Outreach</h2>
-                        <h3 class="text-3xl font-bold text-gray-900 mb-4">Empowering Young Minds in Pune</h3>
-                        <p class="text-gray-700 leading-relaxed">
-                            Believing in the transformative power of education, I volunteer to teach fundamental subjects to children in a small basti here in Pune. The goal is to create a joyful and supportive learning environment, sparking curiosity and building a strong foundation for their future academic journeys. Witnessing their enthusiasm to learn is my greatest motivation.
+                        <h3 class="text-3xl font-bold mb-4">Empowering Young Minds in Pune</h3>
+                        <p class="leading-relaxed">
+                            Believing in the transformative power of education, I volunteer to teach fundamental subjects to children in a small basti here in Pune. The goal is to create a joyful and supportive learning environment, sparking curiosity and building a strong foundation for their future academic journeys.
                         </p>
                     </div>
                 </div>
@@ -94,13 +104,26 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white border-t border-gray-200">
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200 mt-16">
         <div class="container mx-auto px-6 py-6 text-center text-gray-500">
             <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
         </div>
     </footer>
 
     <script>
+        // This script ensures the theme is consistent across all pages
+        const htmlEl = document.documentElement; 
+        function setTheme(theme) { 
+            if (theme === 'dark') { 
+                htmlEl.setAttribute('data-theme', 'dark'); 
+            } else { 
+                htmlEl.setAttribute('data-theme', 'light'); 
+            } 
+        } 
+        const savedTheme = localStorage.getItem('theme') || 'light'; 
+        setTheme(savedTheme); 
+        
+        // Feather Icons and Year
         feather.replace();
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
