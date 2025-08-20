@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Leuva | Tesla Turbine Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #374151; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+        html[data-theme='dark'] {
+            --bg-color: #121212; --bg-image: none; --text-color: #e5e7eb; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
+        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+    </style>
+</head>
+<body>
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">Tesla Turbine & Coil</h1>
+            <p class="text-lg mb-8">An exploration into Nikola Tesla's bladeless turbine design and high-voltage resonant transformers.</p>
+            
+           
+            <!-- The "Why" Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">The Goal</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <!-- YOUR DATA HERE -->
+                <p>I was fascinated by Nikola Tesla's less famous inventions. My goal was to build a functional, bladeless turbine to understand the principles of boundary layer adhesion in fluid dynamics, and to construct a Tesla coil to safely experiment with high-frequency electrical fields.</p>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- The "How" Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">My Process & Learnings</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <!-- YOUR DATA HERE -->
+                <ul class="list-disc list-inside space-y-2">
+                    <li>CDs (Compact discs) for the turbine discs were used.</li>
+                    <li>Placed the tubine in between a well framed structure for protection.</li>
+                    <li>The plate slowed vibration at low speed but at very high speed they become very stable and to ensure that it does not burst a adhesive layer was made on discs.</li>
+                    <li>I purposly make the blade exposed so that I was able to see how the air flows in it. For that I used smoke from incense sticks.</li>
+                </ul>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- Image Gallery Section -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">Gallery</h2>
+                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <!-- YOUR DATA HERE: Add more images below -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=In+Progress+1" class="rounded-lg shadow-md">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=In+Progress+2" class="rounded-lg shadow-md">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Final+Detail" class="rounded-lg shadow-md">
+                </div>
+                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- Outcome Section -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4">Outcome & Reflection</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <!-- YOUR DATA HERE -->
+                <p>The final turbine successfully spined up to a high RPM using high speed air. The motor was able to light up leds easily. I wish if I could use different materials to make disc and also have made body of turbine.</p>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+        </div>
+    </main>
+    <script>
+        const htmlEl = document.documentElement; function setTheme(theme) { if (theme === 'dark') { htmlEl.setAttribute('data-theme', 'dark'); } else { htmlEl.setAttribute('data-theme', 'light'); } } const savedTheme = localStorage.getItem('theme') || 'light'; setTheme(savedTheme); feather.replace();
+    </script>
+</body>
+</html>

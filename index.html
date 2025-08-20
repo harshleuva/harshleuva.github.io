@@ -26,12 +26,13 @@
             --text-muted-color: #6b7280;
             --header-bg: rgba(255, 255, 255, 0.8);
             --card-bg: #ffffff;
-            --card-border: #f1f5f9;
+            --card-border: #b3d6fa;
             --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6); /* cyan-600 to blue-500 */
-            --button-primary-bg: #0891b2;
+            --button-primary-bg: #1fa4d4;
             --button-primary-hover-bg: #0e7490;
             --footer-bg: #1f2937;
             --icon-color: #0891b2;
+            --icon-hover-color: #0891b2;
         }
 
         html[data-theme='dark'] {
@@ -48,6 +49,7 @@
             --button-primary-hover-bg: #ea580c;
             --footer-bg: #0a0a0a;
             --icon-color: #fb923c;
+            --icon-hover-color: #fb923c;
         }
 
         body {
@@ -98,6 +100,13 @@
         .icon {
             color: var(--icon-color);
         }
+        .social-link {
+            transition: transform 0.3s ease, color 0.3s ease;
+        }
+        .social-link:hover {
+            transform: scale(1.2);
+            color: var(--icon-hover-color);
+        }
     </style>
 </head>
 <body>
@@ -105,13 +114,13 @@
     <!-- Header & Navigation -->
     <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <!-- UPDATED: Added mr-8 for spacing -->
+            <a href="#" class="text-2xl font-bold mr-8">Harsh<span class="text-gradient">.</span></a>
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="#about" class="transition-colors duration-300">About</a>
-                <a href="#education" class="transition-colors duration-300">Education</a>
-                <a href="#skills" class="transition-colors duration-300">Skills</a>
-                <a href="#projects" class="transition-colors duration-300">Projects</a>
-                <a href="#experience" class="transition-colors duration-300">Experience</a>
+                
+                <a href="projects.html" class="transition-colors duration-300">Projects</a>
+                
                 <a href="social-work.html" class="transition-colors duration-300">Social Work</a>
                 <a href="#contact" class="transition-colors duration-300">Contact</a>
                 <button id="theme-toggle" class="ml-4">
@@ -125,10 +134,9 @@
         <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden px-6 pb-4">
             <a href="#about" class="block py-2">About</a>
-            <a href="#education" class="block py-2">Education</a>
-            <a href="#skills" class="block py-2">Skills</a>
-            <a href="#projects" class="block py-2">Projects</a>
-            <a href="#experience" class="block py-2">Experience</a>
+            
+            <a href="projects.html" class="block py-2">Projects</a>
+           
             <a href="social-work.html" class="block py-2">Social Work</a>
             <a href="#contact" class="block py-2">Contact</a>
         </div>
@@ -147,7 +155,7 @@
                 A self-driven and meticulous student with a passion for the natural sciences, skilled in hands-on practical work, critical thinking, and project development.
             </p>
             <div class="mt-8 flex justify-center gap-4">
-                <a href="#projects" class="button-primary text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 shadow-lg">View My Projects</a>
+                <a href="projects.html" class="button-primary text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300 shadow-lg">View My Projects</a>
                 <a href="#contact" class="bg-slate-200 text-slate-800 font-semibold px-6 py-3 rounded-lg hover:bg-slate-300 transition-colors duration-300">Get In Touch</a>
             </div>
         </section>
@@ -214,35 +222,7 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects" class="py-20">
-            <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold text-center mb-12">Featured Projects</h2>
-                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <a href="electronics-projects.html" class="card rounded-lg overflow-hidden shadow-md block">
-                        <img src="https://placehold.co/600x400/e0e7ff/3730a3?text=Electronics" alt="Electronics Project" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">Mechanical & Electronics</h3>
-                            <p class="text-sm">Hands-on builds exploring fundamental physics and engineering principles.</p>
-                        </div>
-                    </a>
-                    <a href="rocketry-projects.html" class="card rounded-lg overflow-hidden shadow-md block">
-                        <img src="https://placehold.co/600x400/cffafe/0e7490?text=Rocketry" alt="Rocketry Project" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">Rocketry</h3>
-                            <p class="text-sm">Designing and building rockets with various propulsion systems.</p>
-                        </div>
-                    </a>
-                    <a href="creations-projects.html" class="card rounded-lg overflow-hidden shadow-md block">
-                        <img src="https://placehold.co/600x400/d1fae5/065f46?text=Creations" alt="Other Projects" class="w-full h-48 object-cover">
-                        <div class="p-6">
-                            <h3 class="font-bold text-xl mb-2">More Creations</h3>
-                            <p class="text-sm">Exploring concepts across different scientific domains.</p>
-                        </div>
-                    </a>
-                </div>
-            </div>
-        </section>
+        
 
         <!-- Experience & Achievements Section -->
         <section id="experience" class="py-20">
@@ -305,41 +285,30 @@
     <footer id="contact">
         <div class="container mx-auto px-6 py-12 text-center">
             <h2 class="text-2xl font-bold mb-4">Get In Touch</h2>
-            <p class="mb-6">I'm always open to new opportunities and collaborations.</p>
+            <p class="mb-8">I'm always open to new opportunities and collaborations.</p>
             <a href="mailto:hh6060348@gmail.com" class="button-primary text-white font-semibold px-8 py-3 rounded-lg transition-colors duration-300">
                 Say Hello
             </a>
-            <div class="mt-8">
-                <p class="mb-4">Connect with me on social media:</p>
-                <div class="flex justify-center space-x-6">
-                    <a href="#" class="transition-colors duration-300" aria-label="Instagram"><i data-feather="instagram" class="w-6 h-6"></i></a>
-                    <a href="#" class="transition-colors duration-300" aria-label="LinkedIn"><i data-feather="linkedin" class="w-6 h-6"></i></a>
-                    <a href="#" class="transition-colors duration-300" aria-label="GitHub"><i data-feather="github" class="w-6 h-6"></i></a>
+            <div class="mt-10">
+                <p class="mb-6 font-semibold">Connect with me</p>
+                <div class="flex justify-center space-x-8">
+                    <a href="#" class="social-link" aria-label="Instagram"><i data-feather="instagram" class="w-8 h-8"></i></a>
+                    <a href="#" class="social-link" aria-label="LinkedIn"><i data-feather="linkedin" class="w-8 h-8"></i></a>
+                    <a href="#" class="social-link" aria-label="GitHub"><i data-feather="github" class="w-8 h-8"></i></a>
                 </div>
             </div>
-            <div class="mt-10 pt-6 border-t text-sm">
+            <div class="mt-12 pt-6 border-t text-sm">
                 <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Feather Icons Initialization
-        feather.replace();
-
-        // Mobile Menu Toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-
         // Theme Switcher Logic
         const themeToggle = document.getElementById('theme-toggle');
         const themeIcon = document.getElementById('theme-icon');
         const htmlEl = document.documentElement;
         
-        // Function to set the theme
         function setTheme(theme) {
             if (theme === 'dark') {
                 htmlEl.setAttribute('data-theme', 'dark');
@@ -350,20 +319,19 @@
                 themeIcon.setAttribute('data-feather', 'moon');
                 localStorage.setItem('theme', 'light');
             }
-            feather.replace(); // Re-render icons
+            feather.replace();
         }
 
-        // Event listener for the toggle button
         themeToggle.addEventListener('click', () => {
             const currentTheme = localStorage.getItem('theme') || 'light';
             setTheme(currentTheme === 'light' ? 'dark' : 'light');
         });
 
-        // Check for saved theme on page load and set default
         const savedTheme = localStorage.getItem('theme') || 'light';
         setTheme(savedTheme);
 
-        // Set current year in footer
+        // Feather Icons and Year
+        feather.replace();
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>

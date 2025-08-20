@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Leuva | Sugar Rocket Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #374151; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+        html[data-theme='dark'] {
+            --bg-color: #121212; --bg-image: none; --text-color: #e5e7eb; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
+        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT SECTION -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- PROJECT TITLE AND SUMMARY -->
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">Sugar Rocket</h1>
+            <p class="text-lg mb-8">An experiment in creating a solid rocket propellant, known as 'rocket candy', from sugar and potassium nitrate.</p>
+            
+            <!-- MAIN PROJECT IMAGE -->
+            <img src="https://placehold.co/1200x600/1e1e1e/fb923c?text=Sugar+Rocket+Test" alt="Main project image of the Sugar Rocket" class="w-full rounded-lg shadow-lg mb-12">
+
+            <!-- THE "GOAL" SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">The Goal</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <p>This project was an introduction to solid-fuel chemistry. The goal was to safely create a stable and effective propellant by carefully mixing and heating sugar and potassium nitrate, and then to test its combustion characteristics in a controlled environment.</p>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- THE "PROCESS" SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">My Process & Learnings</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Carefully measured and combined granulated sugar and potassium nitrate.</li>
+                    <li>Heated the mixture slowly and consistently to caramelize the sugar and create a homogenous propellant slurry.</li>
+                    <li>Poured the molten propellant into a sturdy cardboard cylinder to form the rocket motor grain.</li>
+                    <li>Learned about the critical importance of temperature control and safety precautions when working with chemical propellants.</li>
+                </ul>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+             <!-- IMAGE GALLERY SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">Gallery</h2>
+                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Mixing+Ingredients" class="rounded-lg shadow-md">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Propellant+Grain" class="rounded-lg shadow-md">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Static+Burn+Test" class="rounded-lg shadow-md">
+                </div>
+                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- THE "OUTCOME" SECTION -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4">Outcome & Reflection</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <p>The propellant was successfully created. For safety reasons, a full flight test was not conducted. Instead, I performed a static fire test by securing the rocket cylinder upside down in a bucket of sand and igniting it. The motor produced a strong, sustained burn, proving the viability of the propellant. This was a valuable lesson in chemical safety and controlled experimentation.</p>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+        </div>
+    </main>
+
+    <!-- SCRIPT SECTION -->
+    <script>
+        // This script ensures the theme is consistent across all pages
+        const htmlEl = document.documentElement; 
+        function setTheme(theme) { 
+            if (theme === 'dark') { 
+                htmlEl.setAttribute('data-theme', 'dark'); 
+            } else { 
+                htmlEl.setAttribute('data-theme', 'light'); 
+            } 
+        } 
+        const savedTheme = localStorage.getItem('theme') || 'light'; 
+        setTheme(savedTheme); 
+        
+        // Feather Icons Initialization
+        feather.replace();
+    </script>
+</body>
+</html>
