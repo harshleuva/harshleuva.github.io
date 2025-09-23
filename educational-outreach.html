@@ -141,13 +141,13 @@
                 <!-- Blog Post 1 -->
                 <div class="animated-section mb-12 relative">
                     <div class="timeline-dot"></div>
-                    <div class="glass-card rounded-xl ml-8 md:ml-12 p-8"> <!-- FIXED: Added padding -->
+                    <div class="glass-card rounded-xl ml-8 md:ml-12 p-8">
                         <div class="flex flex-col sm:flex-row gap-4 text-sm mb-4" style="color: var(--text-muted-color);">
                             <div class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-2"></i><span>August 12, 2025</span></div>
                             <div class="flex items-center"><i data-feather="map-pin" class="w-4 h-4 mr-2"></i><span>Local Community Basti, Pune</span></div>
                         </div>
                         <h2 class="text-3xl font-bold mb-4">Visit 1: An Open Classroom</h2>
-                        <img src="https://i.pinimg.com/736x/9c/d7/37/9cd737bd2934ee4bba09336dabe7c8e8.jpg" alt="Children learning" class="rounded-lg mb-6 w-full h-64 object-cover">
+                        <img src="https://i.pinimg.com/736x/9c/d7/37/9cd737bd2934ee4bba09336dabe7c8e8.jpg" alt="Children learning" class="rounded-lg mb-6 w-full object-cover">
                         <p class="text-lg leading-relaxed">
                             For my first outreach, my group visited a local basti to create a welcoming learning space. Instead of a fixed lesson plan, we asked the children what they were curious about. Some wanted help with math, others with reading. We tailored our approach to each child, creating a flexible and dynamic teaching environment that responded directly to their needs.
                         </p>
@@ -157,18 +157,40 @@
                 <!-- Blog Post 2 -->
                 <div class="animated-section mb-12 relative">
                     <div class="timeline-dot"></div>
-                    <div class="glass-card rounded-xl ml-8 md:ml-12 p-8"> <!-- FIXED: Added padding -->
+                    <div class="glass-card rounded-xl ml-8 md:ml-12 p-8">
                         <div class="flex flex-col sm:flex-row gap-4 text-sm mb-4" style="color: var(--text-muted-color);">
                             <div class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-2"></i><span>August 25, 2025</span></div>
                             <div class="flex items-center"><i data-feather="map-pin" class="w-4 h-4 mr-2"></i><span>Local Community Basti, Pune</span></div>
                         </div>
-                        <h2 class="text-3xl font-bold mb-4">Visit 2: Building Simple Circuits</h2>
-                        <img src="https://i.pinimg.com/736x/07/13/8c/07138cdcb05268209a95fbdfd1a37059.jpg" alt="Simple circuits" class="rounded-lg mb-6 w-full h-64 object-cover">
+                        <h2 class="text-3xl font-bold mb-4">Visit 2: Same as previous one</h2>
+                        <img src="https://i.pinimg.com/736x/07/13/8c/07138cdcb05268209a95fbdfd1a37059.jpg" alt="Simple circuits" class="rounded-lg mb-6 w-full object-cover">
                         <p class="text-lg leading-relaxed">
-                            For the second outreach, my group visited a local basti to create a welcoming learning space. Instead of a fixed lesson plan, we asked the children what they were curious about. Some wanted help with math, others with reading. We tailored our approach to each child, creating a flexible and dynamic teaching environment that responded directly to their needs similarly as our last sessions.
+                            Building on the success of our first visit, we returned to find the children eager to learn with us again. This time, we introduced a specific hands-on activity: building simple electric circuits with batteries and LEDs. The moment of pure joy when a child successfully lit up their bulb for the first time was incredible. This session reinforced the power of interactive experiments to make abstract concepts tangible and fun.
                         </p>
                     </div>
                 </div>
+
+
+
+                <!-- Blog Post 3 -->
+                <div class="animated-section mb-12 relative">
+                    <div class="timeline-dot"></div>
+                    <div class="glass-card rounded-xl ml-8 md:ml-12 p-8">
+                        <div class="flex flex-col sm:flex-row gap-4 text-sm mb-4" style="color: var(--text-muted-color);">
+                            <div class="flex items-center"><i data-feather="calendar" class="w-4 h-4 mr-2"></i><span>August 25, 2025</span></div>
+                            <div class="flex items-center"><i data-feather="map-pin" class="w-4 h-4 mr-2"></i><span>Local Community Basti, Pune</span></div>
+                        </div>
+                        <h2 class="text-3xl font-bold mb-4">Visit 3: Same as previous one</h2>
+                        <img src="https://i.pinimg.com/736x/1f/b5/a4/1fb5a44024efdf7448667459d195d44f.jpg" alt="Simple circuits" class="rounded-lg mb-6 w-full object-cover">
+                        <p class="text-lg leading-relaxed">
+                            Some of the children become my friend and also they learned many new thing from me and also I introduced them to some new good habits like (drinking 2 bottles of water everyday, not eating packet food too often) which they surprisingly followed.
+                            
+                        </p>
+                    </div>
+                </div>
+
+
+
                 
                 <!-- NEW: Timeline Continued Entry -->
                 <div class="animated-section mb-12 relative">
@@ -199,7 +221,7 @@
         
         themeToggle.addEventListener('click', () => {
             const currentTheme = localStorage.getItem('theme') || 'light';
-            setTheme(currentTheme === 'light' ? 'dark' : 'dark');
+            setTheme(currentTheme === 'light' ? 'dark' : 'light');
         });
         
         const savedTheme = localStorage.getItem('theme') || 'light';
@@ -223,3 +245,4 @@
     </script>
 </body>
 </html>
+
