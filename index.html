@@ -47,6 +47,7 @@
             grid-template-columns: repeat(4, 1fr);
             gap: 1rem;
         }
+        
         .bento-item {
             background-color: var(--card-bg);
             border: 1px solid var(--border-color);
@@ -56,16 +57,24 @@
             overflow: hidden;
             transition: all 0.3s ease;
         }
-        .bento-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px var(--glow-color);
+
+        /* Clickable Cards vs Static Cards */
+        .clickable-card {
+            cursor: pointer;
         }
+        .clickable-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px var(--glow-color);
+            border-color: var(--accent-color);
+        }
+        .static-card {
+            cursor: default;
+        }
+        
         .col-span-1 { grid-column: span 1 / span 1; }
         .col-span-2 { grid-column: span 2 / span 2; }
         .col-span-3 { grid-column: span 3 / span 3; }
         .col-span-4 { grid-column: span 4 / span 4; }
-        .row-span-1 { grid-row: span 1 / span 1; }
-        .row-span-2 { grid-row: span 2 / span 2; }
         
         .tag {
             background-color: var(--tag-bg);
@@ -82,136 +91,139 @@
             opacity: 1;
             transform: translateY(0);
         }
-        
-        /* Link Button */
-        .link-button {
-            transition: transform 0.3s ease;
-        }
-        .bento-item:hover .link-button {
-            transform: scale(1.1);
-        }
     </style>
 </head>
 <body class="p-4 md:p-8">
 
     <div class="max-w-6xl mx-auto">
         <div class="bento-grid">
-            <!-- Profile Card -->
-            <div class="bento-item col-span-4 reveal">
+            
+            <div class="bento-item col-span-4 reveal static-card">
                 <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-                    <div class="flex flex-col text-center md:text-left">
-                        <div>
+                    <div class="flex flex-col text-center md:text-left w-full">
+                        <div class="flex flex-col md:flex-row md:items-center justify-center md:justify-start gap-4">
                             <h1 class="text-4xl font-bold">Harsh Leuva</h1>
-                            <p class="text-xl mt-1" style="color: var(--accent-color);">Future Researcher</p>
-                            <p class="mt-2" style="color: var(--text-muted-color);">BS-MS Student at IISER Pune, passionate about the natural sciences and hands-on project development.</p>
+                            <div class="flex items-center gap-4">
+                                <a href="https://www.instagram.com/harsh.li_5/" aria-label="Instagram" class="text-gray-400 hover:text-orange-500 transition-colors"><i data-feather="instagram" class="w-5 h-5"></i></a>
+                                <a href="https://www.linkedin.com/in/harsh-leuva-810a69316/" aria-label="LinkedIn" class="text-gray-400 hover:text-orange-500 transition-colors"><i data-feather="linkedin" class="w-5 h-5"></i></a>
+                                <a href="https://github.com/harshleuva" aria-label="GitHub" class="text-gray-400 hover:text-orange-500 transition-colors"><i data-feather="github" class="w-5 h-5"></i></a>
+                            </div>
                         </div>
-                        <div class="mt-4">
-                            <a href="mailto:hh6060348@gmail.com" class="inline-block text-white font-semibold px-6 py-3 rounded-lg transition-colors duration-300" style="background-color: var(--accent-color);">Get In Touch</a>
-                        </div>
-                    </div>
-                    <img src="https://i.pinimg.com/736x/df/87/05/df870548568cd460652f7544acdf4347.jpg" alt="Harsh Leuva" class="w-48 h-48 rounded-2xl border-2 flex-shrink-0 object-cover" style="border-color: var(--border-color);">
-                </div>
-            </div>
-
-            <!-- Projects Card -->
-            <a href="projects.html" class="bento-item col-span-4 md:col-span-2 row-span-1 reveal">
-                <div class="link-button absolute bottom-4 right-4 flex items-center justify-center w-10 h-10 rounded-full" style="background-color: var(--bg-color);">
-                    <i data-feather="arrow-right" class="w-5 h-5"></i>
-                </div>
-                <h2 class="font-bold text-xl mb-2">My DIY Projects</h2>
-                <p style="color: var(--text-muted-color);">From rocketry to robotics, explore my hands-on work.</p>
-                <div class="flex -space-x-4 mt-4">
-                    <img class="w-12 h-12 border-2 rounded-full" src="https://placehold.co/48x48/1e1e1e/fb923c?text=E" style="border-color: var(--card-bg);">
-                    <img class="w-12 h-12 border-2 rounded-full" src="https://placehold.co/48x48/1e1e1e/fb923c?text=R" style="border-color: var(--card-bg);">
-                    <img class="w-12 h-12 border-2 rounded-full" src="https://placehold.co/48x48/1e1e1e/fb923c?text=C" style="border-color: var(--card-bg);">
-                </div>
-            </a>
-            
-            <!-- Social Work Card -->
-            <a href="social-work.html" class="bento-item col-span-4 md:col-span-2 row-span-1 reveal">
-                <div class="link-button absolute bottom-4 right-4 flex items-center justify-center w-10 h-10 rounded-full" style="background-color: var(--bg-color);">
-                    <i data-feather="arrow-right" class="w-5 h-5"></i>
-                </div>
-                <h2 class="font-bold text-xl mb-2">Social Service</h2>
-                <p style="color: var(--text-muted-color);">Roti Bank and educational outreach...</p>
-            </a>
-
-            <!-- Education Card -->
-            <div class="bento-item col-span-4 md:col-span-2 reveal">
-                 <h2 class="font-bold text-xl mb-2">Education Journey</h2>
-                 <p class="font-semibold">IISER, Pune</p>
-                 <p class="text-sm mb-2" style="color: var(--text-muted-color);">BS-MS Dual Degree, 2nd Year</p>
-                 <p class="font-semibold">Puna International School</p>
-                 <p class="text-sm mb-2" style="color: var(--text-muted-color);">Senior secondary school</p>
-                 <p class="font-semibold">Puna International School</p>
-                 <p class="text-sm mb-2" style="color: var(--text-muted-color);">High School</p>
-                 <p class="font-semibold">Hillwoods School, Gandhinagar</p>
-                 <p class="text-sm mb-2" style="color: var(--text-muted-color);">Middle School</p>
-                 <p class="font-semibold">Hillwoods School, Gandhinagar</p>
-                 <p class="text-sm mb-2" style="color: var(--text-muted-color);">Primary School</p>
-            </div>
-            
-            <!-- Skills Card -->
-            <div class="bento-item col-span-4 md:col-span-2 reveal">
-                 <h2 class="font-bold text-xl mb-2">Core Skills</h2>
-                    <div class="flex flex-wrap gap-2 text-sm">
-                         <span class="tag px-2 py-1 rounded">3D Model Building</span>
-                         <span class="tag px-2 py-1 rounded">Project Design</span>
-                         <span class="tag px-2 py-1 rounded">HTML/CSS</span>
-                         <span class="tag px-2 py-1 rounded">Python</span>
-                         <span class="tag px-2 py-1 rounded">Sketching</span>
-                         <span class="tag px-2 py-1 rounded">Painting</span>
-                         <span class="tag px-2 py-1 rounded">Gym</span>
-                         <span class="tag px-2 py-1 rounded">Technical expert by Experience </span>
-                    </div>
                     
+                        <p class="text-xl mt-2 font-semibold" style="color: var(--accent-color);">Future Researcher</p>
+                        <p class="mt-2 text-gray-400 max-w-lg">BS-MS Student at IISER Pune, passionate about the natural sciences and hands-on project development.</p>
+                        <div class="mt-6">
+                            <a href="mailto:hh6060348@gmail.com" class="inline-block text-white px-6 py-2 rounded-lg font-medium transition-transform hover:scale-105" style="background-color: var(--accent-color);">Get In Touch</a>
+                        </div>
+                    </div>
+                    <img src="https://i.pinimg.com/736x/df/87/05/df870548568cd460652f7544acdf4347.jpg" class="w-48 h-48 rounded-2xl border-2 flex-shrink-0 object-cover" style="border-color: var(--border-color);" alt="Harsh Leuva">
+                </div>
             </div>
 
+            <div class="col-span-4 md:col-span-2 bento-grid grid-cols-1 gap-4">
+                <a href="diy-projects.html" class="bento-item reveal block clickable-card">
+                    <h2 class="font-bold text-xl mb-2 flex items-center gap-2">
+                        <i data-feather="tool"></i> DIY Projects
+                    </h2>
+                    <p class="text-sm text-gray-400 pr-6">Telescope building, hardware engineering, and physical prototypes.</p>
+                    <i data-feather="arrow-up-right" class="absolute top-4 right-4 w-5 h-5 text-gray-500"></i>
+                </a>
+
+                <a href="https://github.com/harshleuva" target="_blank" class="bento-item reveal block clickable-card">
+                    <h2 class="font-bold text-xl mb-2 flex items-center gap-2">
+                        <i data-feather="github"></i> GitHub Repositories
+                    </h2>
+                    <p class="text-sm text-gray-400 pr-6">Software development, Python scripts, and the Enigma Simulator.</p>
+                    <i data-feather="external-link" class="absolute top-4 right-4 w-5 h-5 text-gray-500"></i>
+                </a>
+            </div>
             
-
-            <!-- Work Experience Card -->
-            <div class="bento-item col-span-4 md:col-span-2 reveal">
-                <h2 class="font-bold text-xl mb-2">Work Experience</h2>
-                <ul class="space-y-2 text-sm">
-                    <li><span class="font-semibold">Manager:</span> Vardayini Medicare Skin Clinic</li>
-                    <li><span class="font-semibold">Contractor Assistant:</span> Civil Construction Site</li>
+            <a href="workshops.html" class="bento-item col-span-4 md:col-span-2 reveal block clickable-card">
+                <h2 class="font-bold text-xl mb-3 flex items-center gap-2">
+                    <i data-feather="award"></i> Workshops & Research
+                </h2>
+                <ul class="space-y-3 text-sm pr-6">
+                    <li>
+                        <span class="font-semibold block text-orange-500">Neuroimaging Workshop</span>
+                        <span class="text-gray-400">National Brain Research Centre (NBRC), Gurugram</span>
+                    </li>
+                    <li>
+                        <span class="font-semibold block text-orange-500">Mathematics Workshop</span>
+                        <span class="text-gray-400">IIT Gandhinagar</span>
+                    </li>
                 </ul>
-            </div>
+                <i data-feather="arrow-up-right" class="absolute top-4 right-4 w-5 h-5 text-gray-500"></i>
+            </a>
 
-            <!-- Achievements Card -->
-            <div class="bento-item col-span-4 md:col-span-2 reveal">
-                <h2 class="font-bold text-xl mb-2">Achievements</h2>
-                <ul class="space-y-2 text-sm">
-                    <li>Qualified NEET 2024 and IAT 2024</li>
-                    <li>Member of the Indian Red Cross Society</li>
-                    <li>Played at State Level Gymnastics</li>
+            <a href="social-work.html" class="bento-item col-span-4 md:col-span-2 reveal block clickable-card">
+                <h2 class="font-bold text-xl mb-3 flex items-center gap-2">
+                    <i data-feather="heart"></i> Community & Outreach
+                </h2>
+                <ul class="space-y-3 text-sm pr-6">
+                    <li>
+                        <span class="font-semibold block text-orange-500">Educational Outreach</span>
+                        <span class="text-gray-400">IISER Pune | Bi-weekly teaching for school students</span>
+                    </li>
+                    <li>
+                        <span class="font-semibold block text-orange-500">Roti Bank NGO</span>
+                        <span class="text-gray-400">Volunteer (2023) | Food distribution</span>
+                    </li>
                 </ul>
-            </div>
+                <i data-feather="arrow-up-right" class="absolute top-4 right-4 w-5 h-5 text-gray-500"></i>
+            </a>
 
-            <!-- Languages Card -->
-            <div class="bento-item col-span-4 md:col-span-2 reveal">
-                <h2 class="font-bold text-xl mb-2">Languages</h2>
+            <div class="bento-item col-span-4 md:col-span-2 reveal static-card">
+                <h2 class="font-bold text-xl mb-2">Education</h2>
+                <p class="font-semibold">IISER, Pune</p>
+                <p class="text-sm mb-3" style="color: var(--text-muted-color);">BS-MS Dual Degree, 2nd Year</p>
+                <p class="font-semibold">Puna International School</p>
+                <p class="text-sm" style="color: var(--text-muted-color);">High School</p>
+            </div>
+            
+            <div class="bento-item col-span-4 md:col-span-2 reveal static-card">
+                <h2 class="font-bold text-xl mb-3">Core Skills</h2>
                 <div class="flex flex-wrap gap-2 text-sm">
-                    <span class="tag px-2 py-1 rounded">Gujarati (Fluent)</span>
-                    <span class="tag px-2 py-1 rounded">Hindi (Fluent)</span>
-                    <span class="tag px-2 py-1 rounded">English (Fluent)</span>
-                    
+                    <span class="tag px-3 py-1.5 rounded-lg font-medium">3D Model Building</span>
+                    <span class="tag px-3 py-1.5 rounded-lg font-medium">Project Design</span>
+                    <span class="tag px-3 py-1.5 rounded-lg font-medium">HTML/CSS</span>
+                    <span class="tag px-3 py-1.5 rounded-lg font-medium">Python</span>
+                    <span class="tag px-3 py-1.5 rounded-lg font-medium">Sketching</span>
                 </div>
             </div>
 
-            <!-- Social Links & Theme Toggle -->
-            <div class="bento-item col-span-4 md:col-span-2 reveal">
-                <div class="flex justify-between items-center h-full">
-                    <div class="flex items-center gap-4">
-                        <a href="https://www.instagram.com/harsh.li_5/" aria-label="Instagram"><i data-feather="instagram" class="w-6 h-6" style="color: var(--text-muted-color);"></i></a>
-                        <a href="https://www.linkedin.com/in/harsh-leuva-810a69316/" aria-label="LinkedIn"><i data-feather="linkedin" class="w-6 h-6" style="color: var(--text-muted-color);"></i></a>
-                        <a href="https://github.com/harshleuva" aria-label="GitHub"><i data-feather="github" class="w-6 h-6" style="color: var(--text-muted-color);"></i></a>
-                    </div>
-                    <button id="theme-toggle" class="p-2 rounded-full" style="background-color: var(--bg-color);">
-                        <i data-feather="moon" id="theme-icon" class="w-5 h-5"></i>
-                    </button>
+            <div class="bento-item col-span-4 md:col-span-2 reveal static-card">
+                <h2 class="font-bold text-xl mb-3">Work Experience</h2>
+                <ul class="space-y-3 text-sm">
+                    <li class="flex flex-col"><span class="font-semibold text-orange-500">Manager</span> <span class="text-gray-400">Vardayini Medicare Skin Clinic</span></li>
+                    <li class="flex flex-col"><span class="font-semibold text-orange-500">Contractor Assistant</span> <span class="text-gray-400">Civil Construction Site</span></li>
+                </ul>
+            </div>
+
+            <div class="bento-item col-span-4 md:col-span-2 reveal static-card">
+                <h2 class="font-bold text-xl mb-3">Achievements</h2>
+                <ul class="space-y-2 text-sm text-gray-400">
+                    <li class="flex items-center gap-2"><i data-feather="check-circle" class="w-4 h-4 text-orange-500"></i> Qualified NEET 2024 (86th percentile)</li>
+                    <li class="flex items-center gap-2"><i data-feather="check-circle" class="w-4 h-4 text-orange-500"></i> Member of the Indian Red Cross Society</li>
+                    <li class="flex items-center gap-2"><i data-feather="check-circle" class="w-4 h-4 text-orange-500"></i> State Level Gymnastics Player</li>
+                </ul>
+            </div>
+
+            <div class="bento-item col-span-4 md:col-span-2 reveal static-card">
+                <h2 class="font-bold text-xl mb-3">Languages</h2>
+                <div class="flex flex-wrap gap-2 text-sm">
+                    <span class="tag px-3 py-1.5 rounded-lg font-medium">Gujarati (Fluent)</span>
+                    <span class="tag px-3 py-1.5 rounded-lg font-medium">Hindi (Fluent)</span>
+                    <span class="tag px-3 py-1.5 rounded-lg font-medium">English (Fluent)</span>
                 </div>
             </div>
+
+            <div class="bento-item col-span-4 md:col-span-2 reveal static-card flex items-center justify-between">
+                <h2 class="font-bold text-xl">Appearance</h2>
+                <button id="theme-toggle" class="p-3 rounded-full border border-[var(--border-color)] hover:border-[var(--accent-color)] transition-colors" style="background-color: var(--bg-color);">
+                    <i data-feather="sun" id="theme-icon" class="w-5 h-5"></i>
+                </button>
+            </div>
+
         </div>
     </div>
 
