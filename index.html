@@ -140,9 +140,13 @@
             
             <a href="workshops.html" class="bento-item col-span-4 md:col-span-2 reveal block clickable-card">
                 <h2 class="font-bold text-xl mb-3 flex items-center gap-2">
-                    <i data-feather="award"></i> Workshops & Research
+                    <i data-feather="award"></i> Workshop & Internship
                 </h2>
                 <ul class="space-y-3 text-sm pr-6">
+                    <li>
+                        <span class="font-semibold block text-orange-500">Internship at IITGN</span>
+                        <span class="text-gray-400">IIT Gandhinagar</span>
+                    </li>
                     <li>
                         <span class="font-semibold block text-orange-500">Neuroimaging Workshop</span>
                         <span class="text-gray-400">National Brain Research Centre (NBRC), Gurugram</span>
@@ -162,7 +166,7 @@
                 <ul class="space-y-3 text-sm pr-6">
                     <li>
                         <span class="font-semibold block text-orange-500">Educational Outreach</span>
-                        <span class="text-gray-400">IISER Pune | Bi-weekly teaching for school students</span>
+                        <span class="text-gray-400">IISER Pune | Bi-weekly teaching for school students (Done at IITGN with CCL at IITGN)</span>
                     </li>
                     <li>
                         <span class="font-semibold block text-orange-500">Roti Bank NGO</span>
@@ -259,7 +263,7 @@
                 if (entry.isIntersecting) {
                     setTimeout(() => {
                         entry.target.classList.add('is-visible');
-                    }, index * 100); // Staggered animation
+                    }, index * 100);
                 }
             });
         }, { threshold: 0.1 });
