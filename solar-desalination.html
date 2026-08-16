@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solar Water Desalination | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #92bdd1;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color:#282d34;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detail-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to All Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Title & Metadata -->
+            <section class="mb-8">
+                <div class="flex items-center gap-3 text-sm font-semibold opacity-75 mb-2">
+                    <span class="px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300">Thermodynamics & Sustainability</span>
+                    <span>•</span>
+                    <span>Field Experiment</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Solar Water Desalination</h1>
+                <p class="text-lg opacity-80">Using free solar thermal energy to convert highly saline water into ultra-pure drinking water through enclosed evaporation and condensation.</p>
+            </section>
+
+            <!-- Key Spec Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Status</p>
+                    <p class="font-bold text-emerald-500">Completed</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Initial Salinity</p>
+                    <p class="font-bold">>40,000 PPM</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Output Pure Water</p>
+                    <p class="font-bold text-cyan-500">12 PPM</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Energy Source</p>
+                    <p class="font-bold">Solar Radiation</p>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-8">
+                
+                <!-- Main Image / Showcase -->
+                <div class="detail-card overflow-hidden">
+                    <img src="https://placehold.co/900x450/0891b2/ffffff?text=Solar+Water+Desalination+Setup" alt="Solar Water Desalination Experiment Setup" class="w-full h-80 object-cover">
+                </div>
+
+                <!-- Phase 1: The Goal & Setup -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="play-circle" class="w-5 h-5 text-cyan-500"></i> Phase 1: Objective & Build Process
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        The sun is a free source of light energy that can drive clean water production without requiring electricity. The goal of this experiment was to take extremely salty water and extract pure water using simple household materials.
+                    </p>
+                    <div class="mt-4 opacity-85">
+                        <h3 class="font-bold text-lg text-cyan-600 dark:text-cyan-400 mb-2">Build Steps:</h3>
+                        <ol class="space-y-3 list-decimal list-inside">
+                            <span><strong>1. Base Container:</strong> Took a large metal bowl container and secured a clean, smaller collection bowl right at the center using tape.</span>
+                            <span class="block"><strong>2. Saline Solution:</strong> Filled the main outer container with heavily salted water (>40,000 PPM), making sure the inner collection bowl stayed completely clean and dry inside.</span>
+                            <span class="block"><strong>3. Plastic Seal:</strong> Sealed the top of the large container loosely with a clear plastic film, making it airtight to trap maximum heat.</span>
+                            <span class="block"><strong>4. Sloped Canopy:</strong> Placed a small weight at the center of the plastic cover so it created a downward funnel slope directly pointing over the small inner bowl.</span>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Phase 2: The Science Behind It -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="cpu" class="w-5 h-5 text-cyan-500"></i> Phase 2: How It Works (The Physics)
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        By making the system airtight, sunlight creates an internal greenhouse effect that traps heat and raises the temperature far higher than the surrounding ambient air. As the saline solution heats up, pure water evaporates into steam, leaving heavy salt compounds behind. When the rising water vapor hits the cooler plastic sheet above, it condenses into liquid droplets. Gravity guides these droplets along the downward slope to the center, where they drip straight into the collection bowl.
+                    </p>
+                </div>
+
+                <!-- Phase 3: Results & Water Quality Tests -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="bar-chart-2" class="w-5 h-5 text-cyan-500"></i> Phase 3: Testing & Water Quality Results
+                    </h2>
+                    <p class="leading-relaxed opacity-85 mb-6">
+                        To verify the distillation quality, I measured total dissolved solids (TDS in PPM) across three water samples using a digital meter:
+                    </p>
+                    
+                    <!-- Clean Light Card Design -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-200 shadow-sm text-center">
+                            <p class="text-xs tracking-wider uppercase opacity-100 font-semibold mb-2">Saline Source Water</p>
+                            <p class="text-3xl font-extrabold text-rose-400 mb-1">>40,000 PPM</p>
+                            <p class="text-xs opacity-100">Salty water prepared for test</p>
+                        </div>
+                        <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-200 shadow-sm text-center">
+                            <p class="text-xs tracking-wider uppercase opacity-1000 font-semibold mb-2">Standard Tap Water</p>
+                            <p class="text-3xl font-extrabold text-amber-400 mb-1">153 PPM</p>
+                            <p class="text-xs opacity-100">Control comparison sample</p>
+                        </div>
+                        <div class="p-6 border border-slate-200 dark:border-slate-800 rounded-xl bg-white dark:bg-slate-200 shadow-sm text-center">
+                            <p class="text-xs tracking-wider uppercase opacity-100 font-semibold mb-2">Desalinated Output</p>
+                            <p class="text-3xl font-extrabold text-emerald-400 mb-1">12 PPM</p>
+                            <p class="text-xs opacity-100">Purified condensed water</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Phase 4: Reflection -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-5 h-5 text-cyan-500"></i> Phase 4: Outcome & Reflection
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        The test proved extremely successful: dropping water purity from over 40,000 PPM down to just 12 PPM—making it significantly cleaner than regular tap water (153 PPM). It demonstrates how simple low-tech solar thermal stills can supply purified water in off-grid or emergency survival situations.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme handler
+        const htmlEl = document.documentElement;
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.setAttribute('data-theme', 'dark');
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+            }
+        }
+        setTheme(localStorage.getItem('theme') || 'light');
+
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

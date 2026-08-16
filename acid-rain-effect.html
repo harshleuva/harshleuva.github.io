@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acid Rain Effect on Plants | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                    <i data-feather="globe" class="w-3.5 h-3.5"></i> Environmental & Sustainability
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Acid Rain Effect on Plants</h1>
+                <p class="text-lg opacity-80 max-w-2xl">A simple bio-assay demonstration observing plant stem tissue damage across varying acidic pH levels using household vinegar.</p>
+            </div>
+
+            <!-- Quick Specs Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Tested pH Spectrum</span>
+                    <span class="font-semibold text-sm">pH 7 (Neutral) – pH 4 (Acidic)</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Time Horizon</span>
+                    <span class="font-semibold text-sm">6 to 12 Hours</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Acid Agent</span>
+                    <span class="font-semibold text-sm">Household Vinegar</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Status</span>
+                    <span class="font-semibold text-sm text-emerald-600 dark:text-emerald-400">Completed</span>
+                </div>
+            </div>
+
+            <!-- Materials & Setup Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Materials Required -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="box" class="text-cyan-500"></i> Materials Required
+                    </h2>
+                    <ul class="space-y-2 opacity-85 text-sm list-disc list-inside">
+                        <li>3 Plastic or Glass Cups</li>
+                        <li>Clean Water</li>
+                        <li>3 Plant Cuttings / Leaves (e.g., Money Plant / Epipremnum aureum)</li>
+                        <li>pH Paper strips (optional indicator)</li>
+                        <li>Household Vinegar (Acetic Acid)</li>
+                    </ul>
+                </div>
+
+                <!-- Procedure -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="text-emerald-500"></i> Step-by-Step Procedure
+                    </h2>
+                    <ol class="space-y-2 opacity-85 text-sm list-decimal list-inside">
+                        <li>Fill 3 cups with equal volumes of water.</li>
+                        <li>Keep Cup 1 pure (pH 7). Add 1 spoon of vinegar to Cup 2 (pH 5), and 2 spoons to Cup 3 (pH 4).</li>
+                        <li>Place fresh plant cuttings upright into each solution at 6:00 PM.</li>
+                        <li>Observe changes over 6–12 hours (evaluated at 12:00 PM).</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Experiment Image Gallery -->
+            <div class="content-card p-6 md:p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="image" class="text-cyan-500"></i> Visual Evidence & Documentation
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Initial Setup Image -->
+                    <div class="space-y-2">
+                        <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+                            <img src="assets/acid-rain-start.jpg" alt="Initial Setup at 6:00 PM" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/475569?text=Initial+Setup+(6:00+PM)';">
+                        </div>
+                        <p class="text-xs text-center opacity-70 font-medium">Initial Setup — Leaves placed at 6:00 PM</p>
+                    </div>
+
+                    <!-- Final Results Image -->
+                    <div class="space-y-2">
+                        <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+                            <img src="assets/acid-rain-result.jpg" alt="Results at 12:00 PM with pH Strips" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/475569?text=Results+at+12:00+PM+(pH+7,+5,+4)';">
+                        </div>
+                        <p class="text-xs text-center opacity-70 font-medium">After 12 Hours — Damage comparison at pH 7, 5, and 4</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Observations & pH Levels Table -->
+            <div class="content-card p-6 md:p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="bar-chart-2" class="text-purple-500"></i> Experimental Observations
+                </h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm opacity-90 border-collapse">
+                        <thead>
+                            <tr class="border-b uppercase text-xs opacity-60" style="border-color: var(--card-border);">
+                                <th class="py-3 px-4">Container</th>
+                                <th class="py-3 px-4">pH Value</th>
+                                <th class="py-3 px-4">Solution Composition</th>
+                                <th class="py-3 px-4">Plant Condition (12 Hours)</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y" style="border-color: var(--card-border);">
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Cup 1 (Control)</td>
+                                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-semibold">pH 7</span></td>
+                                <td class="py-3 px-4">Plain Water</td>
+                                <td class="py-3 px-4">Turgid, bright green leaf, healthy tissue structure.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Cup 2 (Mild Acid)</td>
+                                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-600 dark:text-amber-400 font-semibold">pH 5</span></td>
+                                <td class="py-3 px-4">Water + 1 spoon vinegar</td>
+                                <td class="py-3 px-4">Slight stem softening, minor loss of turgor pressure.</td>
+                            </tr>
+                            <tr>
+                                <td class="py-3 px-4 font-medium">Cup 3 (Strong Acid)</td>
+                                <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-rose-500/10 text-rose-600 dark:text-rose-400 font-semibold">pH 4</span></td>
+                                <td class="py-3 px-4">Water + 2 spoons vinegar</td>
+                                <td class="py-3 px-4">Visible stem wilting, leaf edge curling, bleached tissue base.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- The Science Behind It -->
+            <div class="content-card p-6 md:p-8 mb-8 space-y-6">
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <i data-feather="cpu" class="text-cyan-500"></i> The Science Behind Acid Rain Damage
+                </h2>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">1. Cellular Membrane Breakdown</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Excess hydrogen ions (H<sup>+</sup>) in acidic water break down plant cell walls and lipid membranes. As membrane integrity fails, plant cells lose their internal turgor pressure, causing stems to droop and leaves to wilt rapidly.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">2. Nutrient Leaching & Chlorosis</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        In natural ecosystems, acidic precipitation washes away essential minerals like Calcium (Ca<sup>2+</sup>) and Magnesium (Mg<sup>2+</sup>) from plant leaves and soil. Since Magnesium forms the central atom of chlorophyll molecules, acid exposure directly impedes photosynthesis, resulting in yellowing foliage (chlorosis).
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">3. Key Takeaway</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        While atmospheric acid rain typically stems from sulfur dioxide (SO<sub>2</sub>) and nitrogen oxides (NO<sub>x</sub>), this accessible household model clearly demonstrates how quickly lowered water pH disrupts cellular transport and physical plant structure.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme consistency
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+
+        // Feather Icons & Dynamic Year
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

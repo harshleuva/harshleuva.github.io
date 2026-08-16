@@ -3,89 +3,194 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Leuva | Robotic Finger Project</title>
+    <title>Human Robotic Finger | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+
     <style>
         :root {
-            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #374151; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
         }
+
         html[data-theme='dark'] {
-            --bg-color: #121212; --bg-image: none; --text-color: #e5e7eb; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
         }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
-        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detail-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
     </style>
 </head>
 <body>
+
+    <!-- Header Navigation -->
     <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
-            <a href="projects.html" class="font-semibold flex items-center gap-2">
-                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to All Projects
             </a>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="pt-28 pb-20">
         <div class="container mx-auto px-6 max-w-4xl">
-            <h1 class="text-4xl md:text-5xl font-bold mb-2">Human Robotic Finger</h1>
-            <p class="text-lg mb-8">A biomimicry project designed to replicate the movement of a human finger using a simple yet effective string-based tendon mechanism.</p>
             
-            
-            <!-- The "Why" Section -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">The Goal</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <!-- YOUR DATA HERE -->
-                <p>My goal was to create a simple, purely mechanical robotic finger to understand the fundamentals of biomechanics and tendon-based movement without the need for complex electronics or motors.</p>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
-
-            <!-- The "How" Section -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">My Process & Learnings</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <!-- YOUR DATA HERE -->
-                <ul class="list-disc list-inside space-y-2">
-                    <li>Designed the finger segments based on the proportions of my own hand.</li>
-                    <li>Used 3D printed parts for the phalanges and joints.</li>
-                    <li>Fishing line was used to act as the flexor and extensor tendons.</li>
-                    <li>Learned how a simple pull-and-release mechanism can create surprisingly lifelike motion.</li>
-                </ul>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
-
-             <!-- Image Gallery Section -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">Gallery</h2>
-                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <!-- YOUR DATA HERE: Add more images below -->
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Design+Sketch" class="rounded-lg shadow-md">
-                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Assembly" class="rounded-lg shadow-md">
-                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Final+Product" class="rounded-lg shadow-md">
+            <!-- Title & Metadata -->
+            <section class="mb-8">
+                <div class="flex items-center gap-3 text-sm font-semibold opacity-75 mb-2">
+                    <span class="px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300">Biomimicry & Kinematics</span>
+                    <span>•</span>
+                    <span>Home Build</span>
                 </div>
-                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Human Robotic Finger</h1>
+                <p class="text-lg opacity-80">A biomimicry project designed to replicate the movement of a human finger using a simple yet effective string-based tendon mechanism.</p>
             </section>
 
-            <!-- Outcome Section -->
-            <section>
-                <h2 class="text-2xl font-bold mb-4">Outcome & Reflection</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <!-- YOUR DATA HERE -->
-                <p>The project was a success, with the finger able to curl and uncurl realistically by pulling on the strings. This project was a great lesson in how complex movements can arise from simple mechanical principles.</p>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
+            <!-- Key Spec Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Status</p>
+                    <p class="font-bold text-emerald-500">Completed</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Materials</p>
+                    <p class="font-bold">Wood, Wire, M-Seal</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Actuation</p>
+                    <p class="font-bold">Thread Tendons</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Payload Capacity</p>
+                    <p class="font-bold">5 kg Load Tested</p>
+                </div>
+            </div>
 
+            <!-- Content Sections -->
+            <div class="space-y-8">
+                
+                <!-- Main Image / Showcase -->
+                <div class="detail-card overflow-hidden">
+                    <img src="https://placehold.co/900x450/0891b2/ffffff?text=Robotic+Tendon+Finger+Prototype" alt="Human Robotic Finger Project" class="w-full h-80 object-cover">
+                </div>
+
+                <!-- Overview -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="file-text" class="w-5 h-5 text-cyan-500"></i> Project Overview
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        This biomimicry exploration focuses on replicating biological joint dynamics and flexor tendon routing of human digits. Using hand-drawn structural templates and lightweight composite materials, the robotic finger achieves realistic joint articulation and high structural strength under tension load.
+                    </p>
+                </div>
+
+                <!-- Specifications & Features -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="w-5 h-5 text-cyan-500"></i> Key Specifications & Features
+                    </h2>
+                    <ul class="space-y-3 list-disc list-inside opacity-85">
+                        <li><strong>Phalange Structure:</strong> Custom hand-drawn and precision-cut wooden components made from reinforced popsicle sticks.</li>
+                        <li><strong>Joint Pinning & Framing:</strong> Metal wire axles integrated with molded M-Seal epoxy compound for rigid joint alignment.</li>
+                        <li><strong>Tendon Actuation System:</strong> High-tensile thread routing that mirrors human digital flexor and extensor mechanics.</li>
+                        <li><strong>High Strength-to-Weight Ratio:</strong> Engineered assembly capable of sustaining up to a 5 kg tensile load without structural failure.</li>
+                    </ul>
+                </div>
+
+                <!-- Build Steps / Process -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="tool" class="w-5 h-5 text-cyan-500"></i> Build & Testing Methodology
+                    </h2>
+                    <ol class="space-y-4 list-decimal list-inside opacity-85">
+                        <span class="block"><strong>1. Anatomical Sketching & Part Tracing:</strong> Drew proportional phalange segment layouts directly onto material stock prior to precision cutting.</span>
+                        <span class="block"><strong>2. Joint Fabrication & Molding:</strong> Formed pivot points using metal wires, reinforced with M-Seal epoxy to ensure smooth rotational movement and joint stability.</span>
+                        <span class="block"><strong>3. Tendon Threading:</strong> Routed tensile threads along the ventral side of the finger structure to emulate natural flexion upon pulling.</span>
+                        <span class="block"><strong>4. Load & Kinematic Testing:</strong> Verified natural articulation curves and conducted tensile strength tests, confirming a maximum holding capacity of 5 kg.</span>
+                    </ol>
+                </div>
+
+                <!-- Outcome & Reflection -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-5 h-5 text-cyan-500"></i> Outcome & Reflection
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        The assembled digit achieved highly natural motion while surpassing mechanical strength expectations by successfully holding a 5 kg weight. Future iterations can incorporate servo-driven tendon tensioning for full robotic integration and multi-finger robotic hand assemblies.
+                    </p>
+                </div>
+
+            </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        const htmlEl = document.documentElement; function setTheme(theme) { if (theme === 'dark') { htmlEl.setAttribute('data-theme', 'dark'); } else { htmlEl.setAttribute('data-theme', 'light'); } } const savedTheme = localStorage.getItem('theme') || 'light'; setTheme(savedTheme); feather.replace();
+        // Theme handler
+        const htmlEl = document.documentElement;
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.setAttribute('data-theme', 'dark');
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+            }
+        }
+        setTheme(localStorage.getItem('theme') || 'light');
+
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

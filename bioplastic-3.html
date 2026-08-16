@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Okra & Cornstarch Bioplastic 3.0 | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                    <i data-feather="zap" class="w-3.5 h-3.5"></i> Plant Mucilage Hybrid Biomaterials
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Okra & Cornstarch Bioplastic 3.0</h1>
+                <p class="text-lg opacity-80 max-w-2xl">Utilizing natural pectin extracted from okra mucilage to act as an agar-agar structural substitute when combined with gelatinized cornstarch.</p>
+            </div>
+
+            <!-- Quick Specs Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Key Binder</span>
+                    <span class="font-semibold text-sm">Okra Mucilage (Pectin)</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Co-Polymer</span>
+                    <span class="font-semibold text-sm">10g Cornstarch</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Plasticizer</span>
+                    <span class="font-semibold text-sm">5 mL Glycerol</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Prior Art Note</span>
+                    <span class="font-semibold text-sm text-cyan-600 dark:text-cyan-400">Independently Formulated</span>
+                </div>
+            </div>
+
+            <!-- Context & Motivation Card -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-emerald-500">
+                <h2 class="text-xl font-bold mb-2 flex items-center gap-2">
+                    <i data-feather="lightbulb" class="text-emerald-500"></i> Hypothesis & Background
+                </h2>
+                <p class="opacity-85 text-sm leading-relaxed mb-3">
+                    Following the rigid outcome of pure cornstarch in Bioplastic 2.0, Okra (Abelmoschus esculentus) was selected as a biological additive. Okra mucilage is rich in pectin, a natural polysaccharide structural polymer similar to agarose in agar-agar.
+                </p>
+                <p class="text-xs font-mono text-gray-100 bg-gray-900 p-3 rounded-lg border border-gray-700">
+                    <strong>Developer Note:</strong> This formulation was derived independently through material intuition. Prior literature search later confirmed concurrent research on okra-based polysaccharide films globally (including prior art in China), validating the scientific viability of the hypothesis.
+                </p>
+            </div>
+
+            <!-- Materials & Procedure Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Materials Required -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="box" class="text-cyan-500"></i> Required Ingredients & Tools
+                    </h2>
+                    <ul class="space-y-2 opacity-85 text-sm list-disc list-inside">
+                        <li><strong>Fresh Okra:</strong> 250–300 g (chopped)</li>
+                        <li><strong>Cornstarch:</strong> 10 g</li>
+                        <li><strong>Glycerol:</strong> 5 mL</li>
+                        <li><strong>Water:</strong> 250 mL (extraction) + 30–50 mL (slurry)</li>
+                        <li><strong>Release Agent:</strong> Coconut or non-stick oil</li>
+                        <li>Container, Spatula, Heating Burner, Flat Mould</li>
+                    </ul>
+                </div>
+
+                <!-- Procedure -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="text-emerald-500"></i> Fabrication Process
+                    </h2>
+                    <ol class="space-y-2 opacity-85 text-sm list-decimal list-inside">
+                        <li>Wash and chop 250–300 g of fresh okra. Add 250 mL of water and mix thoroughly.</li>
+                        <li>Heat slowly while continuously stirring until mucilage extracts and the solution turns viscous.</li>
+                        <li>Stir in 5 mL of glycerol plasticizer into the warm mucilage mixture.</li>
+                        <li>In a separate bowl, slurry 10 g of cornstarch with 30–50 mL of cold water.</li>
+                        <li>Slowly pour the cornstarch slurry into the heating mucilage while mixing continuously.</li>
+                        <li>Simmer until the mixture reaches a honey-like high-viscosity consistency.</li>
+                        <li>Pour into a lubricated mould and allow to dry undisturbed for 3 days.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Visual Showcase Placeholder -->
+            <div class="content-card p-6 md:p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="image" class="text-purple-500"></i> Experimental Sample
+                </h2>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="space-y-2">
+                        <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 flex justify-center">
+                            <img src="assets/okra-bioplastic-sample.jpg" alt="Okra mucilage bioplastic sample" class="w-full max-h-80 object-cover hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/475569?text=Okra+Pectin+%2B+Cornstarch+Bioplastic';">
+                        </div>
+                        <p class="text-xs text-center opacity-70 font-medium">Dried bio-composite sheet exhibiting enhanced flexibility imparted by okra mucilage pectin</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Science Behind It -->
+            <div class="content-card p-6 md:p-8 mb-8 space-y-6">
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <i data-feather="cpu" class="text-cyan-500"></i> The Science Behind Okra Pectin & Starch Synergy
+                </h2>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">1. Pectin Polysaccharide Backbone</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Okra mucilage is rich in pectin, galacturonic acid, and rhamnogalacturonan. These complex polysaccharides form long helical polymer chains that act similarly to agarose, supplying structural integrity and film-forming capabilities upon thermal extraction.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">2. Inter-Polymer Crosslinking</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        When combined with cornstarch, pectin molecules insert into the amylose matrix. Hydroxyl (-OH) and carboxyl (-COOH) groups from pectin form dense hydrogen bonds with starch chains, creating a semi-interpenetrating polymer network (semi-IPN) that prevents excessive brittleness.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">3. Glycerol Plasticization & Moisture Retention</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Glycerol binds with both starch and pectin chains via hydrogen bonding. It traps bound water within the 3D polysaccharide network, lowering the glass transition temperature ($T_g$) and ensuring the dried bioplastic sheet remains supple rather than cracking like pure starch.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme consistency
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+
+        // Feather Icons & Dynamic Year
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -3,105 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Leuva | Cell Membrane Model Project</title>
+    <title>Cell Membrane Model | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+
     <style>
         :root {
-            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #374151; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
         }
+
         html[data-theme='dark'] {
-            --bg-color: #121212; --bg-image: none; --text-color: #e5e7eb; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
         }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
-        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detail-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
     </style>
 </head>
 <body>
-    <!-- HEADER SECTION -->
+
+    <!-- Header Navigation -->
     <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
-            <a href="projects.html" class="font-semibold flex items-center gap-2">
-                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to All Projects
             </a>
         </div>
     </header>
 
-    <!-- MAIN CONTENT SECTION -->
+    <!-- Main Content -->
     <main class="pt-28 pb-20">
         <div class="container mx-auto px-6 max-w-4xl">
-            <!-- PROJECT TITLE AND SUMMARY -->
-            <h1 class="text-4xl md:text-5xl font-bold mb-2">Cell Membrane Model</h1>
-            <p class="text-lg mb-8">A multi-part group project from my first-year biology course to visualize the structure and behavior of the cell membrane using physical models.</p>
             
-            <!-- MAIN PROJECT IMAGE -->
-            <img src="https://placehold.co/1200x600/1e1e1e/fb923c?text=Cell+Membrane+Fabric+Model" alt="Main project image of the Cell Membrane Model" class="w-full rounded-lg shadow-lg mb-12">
-
-            <!-- THE "GOAL" SECTION -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">The Goal</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <p>The objective of this group project was to demystify the complex, fluid nature of the cell membrane, a fundamental component of all life. We aimed to move beyond static textbook diagrams and create a series of tactile, easy-to-understand models. Our goal was to illustrate the key components of the lipid bilayer, showcase the unique properties of different lipids, and demonstrate the spontaneous formation of micelles in an aqueous environment, which is the foundational principle of membrane assembly.</p>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
-
-            <!-- THE "PROCESS" SECTION -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">Our Process & Learnings</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <ul class="list-disc list-inside space-y-4">
-                    <li><strong>Main Fabric Model:</strong> To capture the fluid mosaic nature of the membrane, we created a large, flexible model from paper fabric. This allowed us to show how components can move laterally. On this base, we attached different colored and textured patches to visualize the heterogeneous distribution of various lipids like phospholipids, sphingolipids, bolalipids, and cholesterol, emphasizing that the membrane is not a uniform structure.</li>
-                    <li><strong>Individual Lipid Models:</strong> To understand the building blocks, we made separate, distinct 3D models for the key lipids. This allowed us to highlight the unique molecular shapes that give each lipid its specific function—from the classic kinked tail of a phospholipid to the rigid structure of cholesterol that modulates membrane fluidity.</li>
-                    <li><strong>Ideal Bilayer Model:</strong> We constructed a detailed cross-section of an ideal cell membrane. This model clearly showed the amphipathic nature of phospholipids, with their hydrophilic (water-loving) heads facing the aqueous environments inside and outside the cell, and the hydrophobic (water-fearing) tails forming a protected inner core. This model also included embedded proteins to demonstrate their integral role in transport and signaling.</li>
-                    <li><strong>Micelle Formation Demo:</strong> The most dynamic part of our project was visualizing self-assembly. We used toothpicks to represent the hydrophobic tails and attached styrofoam balls to one end to act as the hydrophilic heads. When these were dropped into a bucket of water, they spontaneously arranged themselves into spherical micelles, with the "tails" hidden from the water. This was a powerful and immediate demonstration of the hydrophobic effect that drives all membrane formation in biology.</li>
-                </ul>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
-
-             <!-- IMAGE GALLERY SECTION -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">Gallery</h2>
-                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Lipid+Models" class="rounded-lg shadow-md">
-                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Bilayer+Cross-Section" class="rounded-lg shadow-md">
-                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Micelle+Demo" class="rounded-lg shadow-md">
+            <!-- Title & Metadata -->
+            <section class="mb-8">
+                <div class="flex items-center gap-3 text-sm font-semibold opacity-75 mb-2">
+                    <span class="px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300">Biochemistry & Physical Models</span>
+                    <span>•</span>
+                    <span>First-Year Group Project</span>
                 </div>
-                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Cell Membrane Model</h1>
+                <p class="text-lg opacity-80">A multi-part physical modeling project to visualize cell membrane fluidity, lipid diversity, and micelle self-assembly in water.</p>
             </section>
 
-            <!-- THE "OUTCOME" SECTION -->
-            <section>
-                <h2 class="text-2xl font-bold mb-4">Outcome & Reflection</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <p>Our multi-part presentation was highly effective in explaining the complex structure and behavior of the cell membrane. The hands-on models, especially the micelle demonstration, made abstract concepts tangible and easy to grasp for our peers. This project was a great exercise in teamwork, requiring us to divide tasks and integrate our components into a single, cohesive narrative. It reinforced the idea that creative visualization is a powerful tool for communicating complex scientific ideas and a fantastic way to solidify one's own understanding of a topic.</p>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
+            <!-- Key Spec Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Status</p>
+                    <p class="font-bold text-emerald-500">Completed</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Format</p>
+                    <p class="font-bold">Multi-Part Group Model</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Live Demo</p>
+                    <p class="font-bold">Micelle Formation</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Key Concept</p>
+                    <p class="font-bold">Fluid Mosaic & Lipids</p>
+                </div>
+            </div>
 
+            <!-- Content Sections -->
+            <div class="space-y-8">
+                
+                <!-- Main Image / Showcase -->
+                <div class="detail-card overflow-hidden">
+                    <img src="https://placehold.co/900x450/0891b2/ffffff?text=Cell+Membrane+Model+Assembly" alt="Cell Membrane Model" class="w-full h-80 object-cover">
+                </div>
+
+                <!-- Goal & Overview -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="target" class="w-5 h-5 text-cyan-500"></i> The Goal
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        The objective of this first-year biology group project was to demystify the fluid nature of the cell membrane. Rather than relying on static textbook drawings, we built a set of tactile, hands-on models. Our goal was to showcase the components of the lipid bilayer, highlight the structural differences between key lipids, and demonstrate live micelle self-assembly in an aqueous environment—the fundamental physical principle behind membrane formation.
+                    </p>
+                </div>
+
+                <!-- Process & Modeling Breakdown -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="layers" class="w-5 h-5 text-cyan-500"></i> Process & Model Breakdown
+                    </h2>
+                    <div class="space-y-5 opacity-85">
+                        <div>
+                            <h3 class="font-bold text-lg text-cyan-600 dark:text-cyan-400">1. Main Fabric Model (Fluid Mosaic Structure)</h3>
+                            <p class="mt-1 leading-relaxed">
+                                To show how the cell membrane is fluid rather than rigid, we built a large, flexible base out of paper fabric. This allowed us to physically demonstrate how membrane components slide laterally past one another. We attached different colored and textured patches to represent phospholipids, sphingolipids, bolalipids, and cholesterol, highlighting the uneven, non-uniform arrangement of the membrane.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-lg text-cyan-600 dark:text-cyan-400">2. Individual 3D Lipid Models</h3>
+                            <p class="mt-1 leading-relaxed">
+                                To explore the individual building blocks, we created separate 3D models for each major lipid type. This made it easy to highlight how specific molecular shapes drive function—from the classic kinked tail of unsaturated phospholipids to the rigid ring structures of cholesterol that control membrane stiffness.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-lg text-cyan-600 dark:text-cyan-400">3. Ideal Bilayer Cross-Section</h3>
+                            <p class="mt-1 leading-relaxed">
+                                We constructed a detailed cross-section model of an ideal cell membrane. It clearly showed the dual nature of phospholipids: the water-loving (hydrophilic) heads facing outward toward the liquid inside and outside the cell, and the water-fearing (hydrophobic) tails tucked safely inside the middle layer. We also embedded model proteins within the bilayer to show their role in transport and cell signaling.
+                            </p>
+                        </div>
+
+                        <div>
+                            <h3 class="font-bold text-lg text-cyan-600 dark:text-cyan-400">4. Live Micelle Formation Demo</h3>
+                            <p class="mt-1 leading-relaxed">
+                                The highlight of our presentation was a live self-assembly demonstration. We built individual lipid units using toothpicks for hydrophobic tails and styrofoam balls for hydrophilic heads. When we dropped them into a bucket of water, they naturally grouped together into spherical micelle structures with all the wooden tails hidden inside away from the water. This provided a clear, immediate visual of the hydrophobic effect driving biological membrane assembly.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Outcome & Reflection -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-5 h-5 text-cyan-500"></i> Outcome & Reflection
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        Our multi-part presentation worked really well to explain how cell membranes are structured and how they behave. The physical models—especially the live micelle water test—made complex textbook concepts simple and memorable for our peers. Working in a group gave us great experience in dividing up build tasks and bringing everything together into a clear narrative. It proved that building hands-on visuals is one of the best ways to communicate science and really master a topic yourself.
+                    </p>
+                </div>
+
+            </div>
         </div>
     </main>
 
-    <!-- SCRIPT SECTION -->
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // This script ensures the theme is consistent across all pages
-        const htmlEl = document.documentElement; 
-        function setTheme(theme) { 
-            if (theme === 'dark') { 
-                htmlEl.setAttribute('data-theme', 'dark'); 
-            } else { 
-                htmlEl.setAttribute('data-theme', 'light'); 
-            } 
-        } 
-        const savedTheme = localStorage.getItem('theme') || 'light'; 
-        setTheme(savedTheme); 
-        
-        // Feather Icons Initialization
+        // Theme handler
+        const htmlEl = document.documentElement;
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.setAttribute('data-theme', 'dark');
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+            }
+        }
+        setTheme(localStorage.getItem('theme') || 'light');
+
         feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

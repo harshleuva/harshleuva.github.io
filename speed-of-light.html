@@ -3,110 +3,202 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Leuva | Speed of Light Project</title>
+    <title>Speed of Light & Li-Fi Audio | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+
     <style>
         :root {
-            /* Funky Light Theme */
-            --bg-color: #ffffff; 
-            --bg-image: linear-gradient(45deg, #f3e8ff, #d8b4fe, #a855f7, #7e22ce);
-            --text-color: #1e1b4b; 
-            --header-bg: rgba(255, 255, 255, 0.8); 
-            --card-bg: rgba(255, 255, 255, 0.7); 
-            --card-border: #e9d5ff; 
-            --accent-gradient: linear-gradient(to right, #ec4899, #f59e0b);
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
         }
+
         html[data-theme='dark'] {
-            /* Funky Dark Theme */
-            --bg-color: #1e1b4b; 
-            --bg-image: linear-gradient(45deg, #312e81, #5b21b6, #a855f7, #ec4899);
-            --text-color: #e0e7ff; 
-            --header-bg: rgba(30, 27, 75, 0.8); 
-            --card-bg: rgba(49, 46, 129, 0.7); 
-            --card-border: #4f46e5; 
-            --accent-gradient: linear-gradient(to right, #f59e0b, #facc15);
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
         }
-        body { 
-            font-family: 'Poppins', sans-serif; 
-            background-color: var(--bg-color); 
-            color: var(--text-color); 
-            background-image: var(--bg-image, none); 
-            background-attachment: fixed; 
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
         }
-        .text-gradient { 
-            background: var(--accent-gradient); 
-            -webkit-background-clip: text; 
-            -webkit-text-fill-color: transparent; 
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-        header { 
-            background-color: var(--header-bg); 
-            border-bottom: 1px solid var(--card-border); 
-        }
-        .funky-title {
-            font-family: 'Press Start 2P', cursive;
-        }
-        .wip-card {
+
+        .detail-card {
             background-color: var(--card-bg);
-            border: 2px dashed var(--card-border);
-            backdrop-filter: blur(10px);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
         }
     </style>
 </head>
 <body>
-    <!-- HEADER SECTION -->
+
+    <!-- Header Navigation -->
     <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
-            <a href="projects.html" class="font-semibold flex items-center gap-2">
-                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to All Projects
             </a>
         </div>
     </header>
 
-    <!-- MAIN CONTENT SECTION -->
+    <!-- Main Content -->
     <main class="pt-28 pb-20">
         <div class="container mx-auto px-6 max-w-4xl">
-            <!-- PROJECT TITLE AND SUMMARY -->
-            <h1 class="text-4xl md:text-5xl font-bold mb-2 funky-title text-gradient">Speed of Light Experiment</h1>
-            <p class="text-lg mb-8">An ambitious attempt to measure one of the universe's fundamental constants using accessible materials.</p>
             
-            <!-- MAIN PROJECT IMAGE -->
-            <img src="https://placehold.co/1200x600/1e1b4b/f59e0b?text=Project+Under+Construction" alt="Work in progress" class="w-full rounded-lg shadow-lg mb-12">
-
-            <!-- WORK IN PROGRESS SECTION -->
-            <section class="wip-card p-8 rounded-lg text-center">
-                <div class="flex justify-center items-center gap-4 mb-4">
-                    <i data-feather="tool" class="w-10 h-10"></i>
-                    <i data-feather="flask-conical" class="w-12 h-12"></i>
-                    <i data-feather="zap" class="w-10 h-10"></i>
+            <!-- Title & Metadata -->
+            <section class="mb-8">
+                <div class="flex items-center gap-3 text-sm font-semibold opacity-75 mb-2">
+                    <span class="px-3 py-1 rounded-full bg-cyan-100 text-cyan-800 dark:bg-cyan-950 dark:text-cyan-300">Optoelectronics & Physics</span>
+                    <span>•</span>
+                    <span>Planned Concept</span>
                 </div>
-                <h2 class="text-3xl font-bold mb-4">Work In Progress!</h2>
-                <p class="max-w-2xl mx-auto">This is a highly experimental and ongoing project. I'm currently in the research and design phase, exploring different methods to measure the speed of light, such as using a modulated laser and a detector. The goal is to build a setup that is precise enough to get a reasonably accurate measurement. Check back later for updates on my progress!</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Speed of Light & Li-Fi Audio Transmission</h1>
+                <p class="text-lg opacity-80">A proposed experimental setup to transmit audio via Li-Fi and measure light travel delay using dual-channel phase shift analysis on a laptop audio card.</p>
             </section>
 
+            <!-- Key Spec Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Status</p>
+                    <p class="font-bold text-amber-500">In Concept / Design</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Technology</p>
+                    <p class="font-bold">Li-Fi Optical Link</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Analysis Tool</p>
+                    <p class="font-bold">Dual-Channel Audio</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Target Metric</p>
+                    <p class="font-bold">Phase Delay / $c$</p>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-8">
+                
+                <!-- Main Image / Showcase -->
+                <div class="detail-card overflow-hidden">
+                    <img src="https://placehold.co/900x450/0891b2/ffffff?text=Li-Fi+Audio+%26+Speed+of+Light+Concept" alt="Speed of Light Concept" class="w-full h-80 object-cover">
+                </div>
+
+                <!-- Proposed Goal -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="target" class="w-5 h-5 text-cyan-500"></i> Proposed Concept & Goal
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        The idea behind this project is to use Li-Fi technology (transmitting sound wirelessly through an LED/laser light beam to a photodetector) and test whether a standard laptop sound card can detect the tiny time delay of light over distance by comparing reference and received audio signals.
+                    </p>
+                </div>
+
+                <!-- Feasibility Breakdown -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="cpu" class="w-5 h-5 text-cyan-500"></i> Technical Feasibility Analysis
+                    </h2>
+                    <div class="space-y-4 opacity-85">
+                        <p class="leading-relaxed">
+                            <strong>1. Will Li-Fi audio transmission work?</strong><br>
+                            <strong>Yes, absolutely.</strong> Modulating an LED or laser driver with an analog audio output (like a 3.5mm headphone jack) and picking up the light on a solar cell or photodiode will transmit clear audio without issues.
+                        </p>
+                        <p class="leading-relaxed">
+                            <strong>2. Can a laptop measure the speed of light ($c$) directly via time delay?</strong><br>
+                            <strong>Direct time-of-flight measurement is challenging.</strong> Light travels at $3 \times 10^8$ m/s, taking only ~3.3 nanoseconds per meter. Standard laptop sound cards record at 44.1 kHz or 96 kHz, giving a time resolution between samples of ~10 to 22 microseconds.
+                        </p>
+                        <p class="leading-relaxed">
+                            <strong>3. How to make it work on a laptop:</strong><br>
+                            Instead of measuring raw time delay, use high-frequency phase shift detection. By sending a high-frequency sine wave (e.g., 15–20 kHz) over a long optical path and comparing the reference signal (Left channel) with the photodetector signal (Right channel) in audio software like Audacity, subtle phase shifts can be measured to calculate the speed of light.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Proposed Experimental Setup -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="tool" class="w-5 h-5 text-cyan-500"></i> Planned Setup & Workflow
+                    </h2>
+                    <ol class="space-y-4 list-decimal list-inside opacity-85">
+                        <span class="block"><strong>1. Optical Transmitter:</strong> Connect a high-speed LED or diode laser to a driver circuit taking input from the laptop's audio output.</span>
+                        <span class="block"><strong>2. Receiver & Photodetector:</strong> Connect a fast-response photodiode to a high-speed operational amplifier fed directly into the laptop line-in/microphone jack.</span>
+                        <span class="block"><strong>3. Dual-Channel Reference Logging:</strong> Split the signal so Channel A records the direct electrical output while Channel B records the light receiver output.</span>
+                        <span class="block"><strong>4. Phase Shift Calculation:</strong> Vary the optical path distance and calculate the phase angle shift to derive the speed of light.</span>
+                    </ol>
+                </div>
+
+                <!-- Next Steps -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-5 h-5 text-cyan-500"></i> Planned Next Steps
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        First build the basic Li-Fi audio circuit to verify clear analog sound transmission over light. Once stable, set up a dual-channel recording rig in Python or Audacity to measure high-frequency phase shifts across varying path lengths.
+                    </p>
+                </div>
+
+            </div>
         </div>
     </main>
 
-    <!-- SCRIPT SECTION -->
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200 mt-16">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
     <script>
-        // This script ensures the theme is consistent across all pages
-        const htmlEl = document.documentElement; 
-        function setTheme(theme) { 
-            if (theme === 'dark') { 
-                htmlEl.setAttribute('data-theme', 'dark'); 
-            } else { 
-                htmlEl.setAttribute('data-theme', 'light'); 
-            } 
-        } 
-        const savedTheme = localStorage.getItem('theme') || 'light'; 
-        setTheme(savedTheme); 
-        
-        // Feather Icons Initialization
+        // Theme handler
+        const htmlEl = document.documentElement;
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.setAttribute('data-theme', 'dark');
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+            }
+        }
+        setTheme(localStorage.getItem('theme') || 'light');
+
         feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

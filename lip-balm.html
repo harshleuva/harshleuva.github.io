@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Organic Lip Balm | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-rose-500/10 text-rose-600 dark:text-rose-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                    <i data-feather="smile" class="w-3.5 h-3.5"></i> Hands-on Science Outreach
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">DIY Organic Lip Balm</h1>
+            </div>
+
+            <!-- Quick Specs Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Ratio</span>
+                    <span class="font-semibold text-sm">1 Part Wax : 2.5–3 Parts Oil</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Key Action</span>
+                    <span class="font-semibold text-sm">Moisturize & Occlusive Shield</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Antioxidant</span>
+                    <span class="font-semibold text-sm">Vitamin E Oil</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Status</span>
+                    <span class="font-semibold text-sm text-emerald-600 dark:text-emerald-400">Successfully Tested</span>
+                </div>
+            </div>
+
+            <!-- What is Lip Balm Section -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-rose-500">
+                <h2 class="text-xl font-bold mb-2 flex items-center gap-2">
+                    <i data-feather="info" class="text-rose-500"></i> What is Lip Balm?
+                </h2>
+                <p class="opacity-85 text-sm leading-relaxed">
+                    Lip balm is a hydrating, wax-like substance applied to the lips to moisturize, soothe, and protect them. It creates a physical shield that locks in hydration, preventing the delicate skin of the lips from drying out due to cold weather, dry air, or sun exposure.
+                </p>
+            </div>
+
+            <!-- Materials & Procedure Section -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Materials Required -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="box" class="text-cyan-500"></i> Materials Required
+                    </h2>
+                    <ul class="space-y-2 opacity-85 text-sm list-disc list-inside">
+                        <li>1 part Beeswax</li>
+                        <li>2.5 to 3 parts Fractionated Coconut Oil</li>
+                        <li>1–2 drops Vitamin E Oil (or 1 capsule per container)</li>
+                        <li>Essential Oil (for natural fragrance)</li>
+                        <li>Small storage containers / dibbi</li>
+                        <li>Double-boiler setup (water, containers, induction/burner)</li>
+                    </ul>
+                </div>
+
+                <!-- Procedure -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="text-emerald-500"></i> Step-by-Step Procedure
+                    </h2>
+                    <ol class="space-y-2 opacity-85 text-sm list-decimal list-inside">
+                        <li>Combine 1 part beeswax and 2.5 to 3 parts fractionated coconut oil in a container.</li>
+                        <li>Heat slowly using a double boiling setup until the beeswax melts completely.</li>
+                        <li>Remove from heat source and quickly stir in Vitamin E oil and desired essential oil fragrance.</li>
+                        <li>Pour the liquid mixture quickly into small storage containers before solidification begins.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Product Showcase Image Gallery -->
+            <div class="content-card p-6 md:p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="image" class="text-cyan-500"></i> Product Gallery
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Finished Texture Image -->
+                    <div class="space-y-2">
+                        <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+                            <img src="assets/lip-balm-texture.jpg" alt="Finished Lip Balm Texture" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/475569?text=Smooth+Balm+Texture';">
+                        </div>
+                        <p class="text-xs text-center opacity-70 font-medium">Smooth, semi-solid texture achieved with optimal beeswax-oil ratio</p>
+                    </div>
+
+                    <!-- Packaged Containers Image -->
+                    <div class="space-y-2">
+                        <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900">
+                            <img src="assets/lip-balm-containers.jpg" alt="IITGN CCL Packaged Containers" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/475569?text=IITGN+CCL+Labeled+Containers';">
+                        </div>
+                        <p class="text-xs text-center opacity-70 font-medium">Finished containers labeled for student outreach at IITGN CCL</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Science Behind It -->
+            <div class="content-card p-6 md:p-8 mb-8 space-y-6">
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <i data-feather="cpu" class="text-cyan-500"></i> The Simple Science Behind It
+                </h2>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">1. Beeswax as an Occlusive Barrier</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Beeswax contains natural fatty acids and long-chain alcohols that melt at around 62–65°C. When applied to lips, it solidifies into a breathable, protective hydrophobic barrier that seals in moisture and prevents transepidermal water loss.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">2. Coconut Oil for Deep Emollience</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Coconut oil is rich in medium-chain fatty acids (like lauric acid) that penetrate the outer layer of skin. While beeswax seals the surface, coconut oil softens the skin matrix and restores lost lipid moisture.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">3. Vitamin E & Antioxidant Protection</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Vitamin E serves a dual purpose: it neutralizes free radical damage on dry, cracked lips while acting as a natural preservative that prevents the plant oils from going rancid over time.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme consistency
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+
+        // Feather Icons & Dynamic Year
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Radio & FM Transmission Tower | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['class', '[data-theme="dark"]']
+        }
+    </script>
+
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --bg-image: linear-gradient(135deg, #ecfeff 0%, #f8fafc 45%, #eef2ff 100%);
+            --text-color: #1e293b;
+            --muted-color: #64748b;
+            --header-bg: rgba(255, 255, 255, 0.82);
+            --card-bg: rgba(255, 255, 255, 0.88);
+            --card-border: #dbe4ee;
+            --accent-gradient: linear-gradient(135deg, #0891b2, #2563eb);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #0b1120;
+            --bg-image:
+                radial-gradient(circle at 10% 10%, rgba(8, 145, 178, 0.10), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(37, 99, 235, 0.10), transparent 30%),
+                linear-gradient(135deg, #0b1120, #111827 55%, #0f172a);
+            --text-color: #e5edf7;
+            --muted-color: #94a3b8;
+            --header-bg: rgba(11, 17, 32, 0.82);
+            --card-bg: rgba(17, 24, 39, 0.88);
+            --card-border: #263449;
+            --accent-gradient: linear-gradient(135deg, #22d3ee, #60a5fa);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detail-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.875rem;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+        }
+
+        html[data-theme='dark'] .detail-card {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .section-divider {
+            border: 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .connection-image {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .connection-image:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 35px rgba(8, 145, 178, 0.12);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50 w-full">
+        <div class="w-full px-4 md:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to All Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-20 w-full px-3 md:px-6">
+        <div class="w-full">
+            
+            <!-- Title & Metadata -->
+            <section class="mb-8">
+                <div class="flex items-center gap-3 text-sm font-semibold opacity-75 mb-2">
+                    <span class="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-800 border border-cyan-200 dark:from-cyan-950/70 dark:to-blue-950/70 dark:text-cyan-300 dark:border-cyan-800/60">
+                        Mechanical & Electronics
+                    </span>
+                    <span>•</span>
+                    <span>Home Build</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Radio & FM Transmission Tower</h1>
+                <p class="text-lg opacity-80">A complete indoor wireless relay system capturing external FM signals via a rooftop dipole antenna and rebroadcasting locally across dead frequencies.</p>
+            </section>
+
+            <!-- Key Spec Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 w-full">
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Status</p>
+                    <p class="font-bold text-emerald-500">Completed</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Microcontrollers</p>
+                    <p class="font-bold">Arduino nano, ATtiny85</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">RF Hardware</p>
+                    <p class="font-bold">RDA5807M, TX Module</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Coverage Radius</p>
+                    <p class="font-bold">~10 Meters</p>
+                </div>
+            </div>
+
+            <!-- Visual Showcase Grid (3 Project Photos) -->
+            <div class="mb-10 w-full">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="image" class="w-5 h-5 text-cyan-500"></i> Project Hardware Visuals
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                    <!-- Photo 1: Dipole Antenna -->
+                    <div class="detail-card p-2 flex flex-col items-center">
+                        <img src="assets/halfwave_dipole.jpg" alt="Half-Wave Dipole Antenna" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/0891b2/ffffff?text=Rooftop+Dipole+Antenna'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Rooftop Half-Wave Dipole Antenna (~176cm)</p>
+                    </div>
+
+                    <!-- Photo 2: Coaxial Cable -->
+                    <div class="detail-card p-2 flex flex-col items-center">
+                        <img src="assets/coaxial_cable.jpg" alt="Coaxial Cable Transmission Line" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/3b82f6/ffffff?text=RG-6+Coaxial+Cable'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Low-Loss Shielded Coaxial Feedline</p>
+                    </div>
+
+                    <!-- Photo 3: Receiver & Transmitter Tower -->
+                    <div class="detail-card p-2 flex flex-col items-center">
+                        <img src="assets/radio_transmitter.jpg" alt="Radio & Transmitter Tower Unit" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/10b981/ffffff?text=Receiver+%26+Rebroadcast+Tower'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Radio Receiver & Rebroadcast Tower</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-8 w-full">
+                
+                <!-- Overview -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="file-text" class="w-5 h-5 text-cyan-500"></i> Project Overview
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        Indoor FM radio reception was severely degraded due to structural signal attenuation from concrete walls and electromagnetic interference. To solve this, a rooftop half-wave dipole antenna receives clean FM broadcasts and routes them via coaxial cable into a custom-built receiver. The receiver decodes and filters the audio, passing it to an ATtiny85-driven low-power local FM transmitter tower. The tower rebroadcasts the signal across a 10-meter radius on unused frequencies, allowing any commercial radio inside the house to pick up stations cleanly without needing an external wire.
+                    </p>
+                </div>
+
+                <!-- Theory Section 1: FM Waves & Capture Methods -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="radio" class="w-5 h-5 text-cyan-500"></i> What is an FM Wave & How Do We Capture It?
+                    </h2>
+                    <div class="space-y-4 text-sm leading-relaxed opacity-85">
+                        <p>
+                            <strong>Frequency Modulation (FM):</strong> Unlike Amplitude Modulation (AM) where signal strength varies, FM encodes audio information by varying the instantaneous frequency of a high-frequency carrier wave around a center frequency. The commercial broadcast band ranges from <strong>88 MHz to 108 MHz</strong> in the Very High Frequency (VHF) spectrum, with wavelengths (&lambda;) spanning approximately <strong>2.78 meters to 3.41 meters</strong> (&lambda; = c / f).
+                        </p>
+                        
+                        <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 pt-2">Methods for Capturing FM Signals:</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>Random Wire Antenna:</strong> Simple single-wire conductor. Easy to deploy but poorly matched in impedance (~300 Ω+), highly susceptible to stray indoor electromagnetic noise, and directional-deficient.</li>
+                            <li><strong>Telescopic Monopole:</strong> Common on portable radios. Quarter-wave monopole relying on a ground plane reference; offers moderate reception but lacks precise directional tuning.</li>
+                            <li><strong>Half-Wave Dipole Antenna:</strong> A resonant two-element balanced antenna matched to half the operating wavelength (&lambda;/2). Provides optimal impedance matching (~73 Ω), strong signal gain, and directional noise cancellation.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Theory Section 2: Half-Wave Dipole Antenna & Coaxial Cable Physics -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="zap" class="w-5 h-5 text-cyan-500"></i> Antenna Physics & Coaxial Feedline Selection
+                    </h2>
+                    <div class="space-y-6 text-sm leading-relaxed opacity-85">
+                        
+                        <div>
+                            <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 mb-2">1. Half-Wave Dipole Design & Resonant Length Calculation</h3>
+                            <p>
+                                A dipole consists of two symmetrical metallic conductive elements oriented end-to-end. For the center of the FM band (~98 MHz), the total resonant length <em>L</em> is calculated using the speed of electromagnetic propagation with an end-effect velocity factor multiplier (<em>k</em> &approx; 0.95):
+                            </p>
+                            <div class="my-3 p-3 rounded-md bg-slate-100 dark:bg-slate-800/80 font-mono text-xs">
+                                L = (c × 0.95) / (2 × f) = 299,792,458 × 0.95 / (2 × 98,000,000) &approx; 1.45 meters (72.6 cm per element leg)
+                            </div>
+                            <p>
+                                When passing FM radio waves cross these copper arms, an alternating Voltage/Current standing wave pattern is induced across the center feedpoint, transferring maximum RF energy to the feedline.
+                            </p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <div>
+                            <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 mb-2">2. Why Coaxial Cable (RG-6) instead of Ordinary Wire?</h3>
+                            <p>
+                                Carrying high-frequency RF signals down from a terrace using standard unshielded parallel wire results in massive signal loss and interference. Coaxial cables solve this through structural geometry:
+                            </p>
+                            <ul class="list-disc list-inside space-y-2 mt-2">
+                                <li><strong>Electromagnetic Shielding:</strong> Coaxial cable features a central inner copper conductor wrapped in a dielectric insulator, surrounded by a continuous braided metallic shield and foil layer. The outer shield acts as a Faraday cage, blocking ambient electrical noise from household appliances.</li>
+                                <li><strong>Controlled Characteristic Impedance:</strong> Manufactured to maintain a continuous 75 Ω characteristic impedance along its length, matching the ~73 Ω natural feedpoint impedance of a dipole antenna to minimize signal reflection (Standing Wave Ratio / SWR losses).</li>
+                                <li><strong>Zero Radiation Leakage:</strong> The equal and opposite currents flow strictly along the inner conductor and inner surface of the outer shield, containing the RF energy inside without emitting unwanted radiation along the run from the terrace.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Theory Section 3: The Radio & Transmitter Tower -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="rss" class="w-5 h-5 text-cyan-500"></i> Receiver Operations & The Rebroadcast Tower
+                    </h2>
+                    <div class="space-y-4 text-sm leading-relaxed opacity-85">
+                        <p>
+                            <strong>How the Receiver Processes the Signal:</strong> The high-frequency RF signal coming down the coaxial cable enters an <strong>RDA5807M IC tuner</strong> controlled by an <strong>Arduino Nano</strong> via I2C protocol. The chip filters out neighboring channel crosstalk using digital signal processing (DSP), converts the RF carrier down to intermediate frequencies (IF), and demodulates the frequency variations back into raw analog audio signals.
+                        </p>
+                        <p>
+                            <strong>Passive Filtering Network:</strong> Before reaching the transmitter, the raw analog audio passes through a custom low-pass passive RC filter network. This strips out high-frequency digital noise harmonics generated by the microcontroller and power supply ripple, preventing audio distortion.
+                        </p>
+                        <p>
+                            <strong>How the Local Rebroadcast Transmitter Works:</strong> The clean audio signal feeds into an <strong>ATtiny85-microcontroller-managed local FM transmitter module</strong>. The module modulates this audio back onto a user-selected vacant local frequency (e.g., 87.5 MHz or 107.9 MHz) using a Voltage-Controlled Oscillator (VCO). Attached to a low-power vertical antenna tower, it broadcasts an indoor bubble (~10-meter radius), letting standard household FM radios tune in with crystal clarity.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Specifications & Features -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="w-5 h-5 text-cyan-500"></i> Key Specifications & Features
+                    </h2>
+                    <ul class="space-y-3 list-disc list-inside opacity-85">
+                        <li><strong>Custom Antenna Assembly:</strong> ~145cm tuned half-wave dipole constructed using PVC pipe casing and copper element wiring mounted on the terrace.</li>
+                        <li><strong>Low-Loss Transmission Line:</strong> 75-ohm RG-6 coaxial feedline bringing clean RF signals down to the living space with minimal attenuation.</li>
+                        <li><strong>Arduino & RDA5807M Core:</strong> Microcontroller-managed tuner processing external RF inputs into clean analog audio output.</li>
+                        <li><strong>Noise Filtering Circuit:</strong> Integrated passive capacitor network designed to clean audio signal lines before local re-transmission.</li>
+                        <li><strong>IR Remote & Station Memory:</strong> Preset station switching with remote button navigation displayed on a TM1637 4-digit module.</li>
+                        <li><strong>ATtiny85 Rebroadcast Unit:</strong> Compact low-power FM transmitter module relaying audio over a ~10-meter local radius across empty frequency channels.</li>
+                    </ul>
+                </div>
+
+                <!-- GitHub Repository -->
+                <div class="detail-card p-6 md:p-8 relative overflow-hidden">
+                    <div class="absolute -right-16 -top-16 w-40 h-40 bg-cyan-400/10 rounded-full blur-3xl"></div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-feather="github" class="w-5 h-5 text-gray-800 dark:text-white"></i>
+                                <h2 class="text-2xl font-bold">Source Code & Connections</h2>
+                            </div>
+
+                            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300 max-w-2xl">
+                                The complete Arduino/ATtiny85 code, circuit connections, module configuration,
+                                and supporting files are available in the project repository.
+                            </p>
+                        </div>
+
+                        <!-- Replace the href with your actual GitHub repository -->
+                        <a
+                            href="YOUR_GITHUB_REPOSITORY_URL"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl
+                                   bg-gray-900 hover:bg-gray-800
+                                   dark:bg-white dark:hover:bg-gray-100
+                                   text-white dark:text-gray-900
+                                   font-semibold text-sm
+                                   transition-all duration-200
+                                   shadow-lg shadow-gray-900/10"
+                        >
+                            <i data-feather="github" class="w-4 h-4"></i>
+                            View on GitHub
+                            <i data-feather="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Connection Diagram -->
+                <div class="detail-card p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-5">
+                        <div>
+                            <h2 class="text-2xl font-bold flex items-center gap-2">
+                                <i data-feather="git-branch" class="w-5 h-5 text-cyan-500"></i>
+                                Circuit & Connection Diagram
+                            </h2>
+
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                                Complete wiring and module-to-module connection reference.
+                            </p>
+                        </div>
+
+                        <span class="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full
+                                     bg-cyan-50 text-cyan-700 border border-cyan-200
+                                     dark:bg-cyan-950/50 dark:text-cyan-300 dark:border-cyan-800/60
+                                     text-xs font-semibold">
+                            <i data-feather="image" class="w-3.5 h-3.5"></i>
+                            Wiring Reference
+                        </span>
+                    </div>
+
+                    <!-- Upload/place your image here -->
+                    <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700
+                                bg-slate-50 dark:bg-slate-900/60 p-2">
+
+                        <a
+                            href="assets/connection_diagram.jpg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Open connection diagram in full size"
+                        >
+                            <img
+                                src="assets/connection_diagram.jpg"
+                                alt="Complete circuit connection and wiring diagram"
+                                class="connection-image w-full max-h-[700px] object-contain rounded-lg cursor-zoom-in"
+                                onerror="this.parentElement.innerHTML = `
+                                    <div class='min-h-[300px] flex flex-col items-center justify-center text-center p-8'>
+                                        <div class='w-14 h-14 rounded-2xl bg-cyan-100 dark:bg-cyan-950/60
+                                                    flex items-center justify-center mb-4'>
+                                            <i data-feather='image' class='w-7 h-7 text-cyan-600 dark:text-cyan-300'></i>
+                                        </div>
+                                        <h3 class='font-semibold text-slate-800 dark:text-slate-100 mb-1'>
+                                            Connection Diagram
+                                        </h3>
+                                        <p class='text-sm text-slate-500 dark:text-slate-400'>
+                                            Add your image at
+                                            <code class='font-mono text-cyan-600 dark:text-cyan-300'>
+                                                assets/connection_diagram.jpg
+                                            </code>
+                                        </p>
+                                    </div>
+                                `; feather.replace();"
+                            >
+                        </a>
+                    </div>
+
+                    <div class="mt-4 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <i data-feather="zoom-in" class="w-3.5 h-3.5"></i>
+                        Click the diagram to open the full-resolution image.
+                    </div>
+                </div>
+
+                <!-- Build Steps / Process -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="tool" class="w-5 h-5 text-cyan-500"></i> Build & Implementation Methodology
+                    </h2>
+                    <ol class="space-y-4 list-decimal list-inside opacity-85">
+                        <span class="block"><strong>1. Dipole Antenna Fabrication:</strong> Built a tuned half-wave dipole element inside a weatherproof PVC support structure on the terrace and connected low-loss RG-6 coaxial cable to bring RF signals indoors.</span>
+                        <span class="block"><strong>2. Receiver & Filtering Assembly:</strong> Interfaced an RDA5807M receiver module with an Arduino board, integrating a custom capacitor noise-filtering circuit for audio clarity.</span>
+                        <span class="block"><strong>3. Control Interface Integration:</strong> Connected an IR receiver and TM1637 display module, programming station preset jumping and digital frequency readout.</span>
+                        <span class="block"><strong>4. Transmitter & Tower Setup:</strong> Configured an ATtiny85 microcontroller with an RF transmitter module to continuously rebroadcast the cleaned audio to indoor receivers on dead frequencies.</span>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border-t border-slate-200 dark:border-slate-800 mt-16 w-full">
+        <div class="w-full px-6 py-6 text-center text-slate-500 dark:text-slate-400">
+            <p>
+                &copy; <span id="year"></span>
+                Harsh Vishalkumar Leuva. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme handler
+        const htmlEl = document.documentElement;
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.setAttribute('data-theme', 'dark');
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+            }
+        }
+        setTheme(localStorage.getItem('theme') || 'light');
+
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

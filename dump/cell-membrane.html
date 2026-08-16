@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Leuva | Cell Membrane Model Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #374151; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+        html[data-theme='dark'] {
+            --bg-color: #121212; --bg-image: none; --text-color: #e5e7eb; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
+        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT SECTION -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- PROJECT TITLE AND SUMMARY -->
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">Cell Membrane Model</h1>
+            <p class="text-lg mb-8">A multi-part group project from my first-year biology course to visualize the structure and behavior of the cell membrane using physical models.</p>
+            
+            <!-- MAIN PROJECT IMAGE -->
+            <img src="https://placehold.co/1200x600/1e1e1e/fb923c?text=Cell+Membrane+Fabric+Model" alt="Main project image of the Cell Membrane Model" class="w-full rounded-lg shadow-lg mb-12">
+
+            <!-- THE "GOAL" SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">The Goal</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <p>The objective of this group project was to demystify the complex, fluid nature of the cell membrane, a fundamental component of all life. We aimed to move beyond static textbook diagrams and create a series of tactile, easy-to-understand models. Our goal was to illustrate the key components of the lipid bilayer, showcase the unique properties of different lipids, and demonstrate the spontaneous formation of micelles in an aqueous environment, which is the foundational principle of membrane assembly.</p>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- THE "PROCESS" SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">Our Process & Learnings</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <ul class="list-disc list-inside space-y-4">
+                    <li><strong>Main Fabric Model:</strong> To capture the fluid mosaic nature of the membrane, we created a large, flexible model from paper fabric. This allowed us to show how components can move laterally. On this base, we attached different colored and textured patches to visualize the heterogeneous distribution of various lipids like phospholipids, sphingolipids, bolalipids, and cholesterol, emphasizing that the membrane is not a uniform structure.</li>
+                    <li><strong>Individual Lipid Models:</strong> To understand the building blocks, we made separate, distinct 3D models for the key lipids. This allowed us to highlight the unique molecular shapes that give each lipid its specific function—from the classic kinked tail of a phospholipid to the rigid structure of cholesterol that modulates membrane fluidity.</li>
+                    <li><strong>Ideal Bilayer Model:</strong> We constructed a detailed cross-section of an ideal cell membrane. This model clearly showed the amphipathic nature of phospholipids, with their hydrophilic (water-loving) heads facing the aqueous environments inside and outside the cell, and the hydrophobic (water-fearing) tails forming a protected inner core. This model also included embedded proteins to demonstrate their integral role in transport and signaling.</li>
+                    <li><strong>Micelle Formation Demo:</strong> The most dynamic part of our project was visualizing self-assembly. We used toothpicks to represent the hydrophobic tails and attached styrofoam balls to one end to act as the hydrophilic heads. When these were dropped into a bucket of water, they spontaneously arranged themselves into spherical micelles, with the "tails" hidden from the water. This was a powerful and immediate demonstration of the hydrophobic effect that drives all membrane formation in biology.</li>
+                </ul>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+             <!-- IMAGE GALLERY SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">Gallery</h2>
+                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Lipid+Models" class="rounded-lg shadow-md">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Bilayer+Cross-Section" class="rounded-lg shadow-md">
+                    <img src="https://placehold.co/400x300/1e1e1e/fb923c?text=Micelle+Demo" class="rounded-lg shadow-md">
+                </div>
+                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- THE "OUTCOME" SECTION -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4">Outcome & Reflection</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <p>Our multi-part presentation was highly effective in explaining the complex structure and behavior of the cell membrane. The hands-on models, especially the micelle demonstration, made abstract concepts tangible and easy to grasp for our peers. This project was a great exercise in teamwork, requiring us to divide tasks and integrate our components into a single, cohesive narrative. It reinforced the idea that creative visualization is a powerful tool for communicating complex scientific ideas and a fantastic way to solidify one's own understanding of a topic.</p>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+        </div>
+    </main>
+
+    <!-- SCRIPT SECTION -->
+    <script>
+        // This script ensures the theme is consistent across all pages
+        const htmlEl = document.documentElement; 
+        function setTheme(theme) { 
+            if (theme === 'dark') { 
+                htmlEl.setAttribute('data-theme', 'dark'); 
+            } else { 
+                htmlEl.setAttribute('data-theme', 'light'); 
+            } 
+        } 
+        const savedTheme = localStorage.getItem('theme') || 'light'; 
+        setTheme(savedTheme); 
+        
+        // Feather Icons Initialization
+        feather.replace();
+    </script>
+</body>
+</html>

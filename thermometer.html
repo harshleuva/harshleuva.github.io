@@ -1,0 +1,667 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid vs. Gas Thermoscope Experiment | Harsh Leuva</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-soft: #64748b;
+
+            --header-bg: rgba(255, 255, 255, 0.94);
+
+            --card-bg: #ffffff;
+            --card-border: #d7dee8;
+
+            --section-bg: #f8fafc;
+            --table-head-bg: #eef2f7;
+            --code-bg: #f1f5f9;
+
+            --accent-blue: #0369a1;
+            --accent-blue-light: #0284c7;
+
+            --accent-gradient: linear-gradient(to right, #0284c7, #2563eb);
+
+            --shadow:
+                0 4px 6px -1px rgba(15, 23, 42, 0.08),
+                0 2px 4px -2px rgba(15, 23, 42, 0.08);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #0b1120;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --text-soft: #94a3b8;
+
+            --header-bg: rgba(15, 23, 42, 0.94);
+
+            --card-bg: #172033;
+            --card-border: #334155;
+
+            --section-bg: #111827;
+            --table-head-bg: #243044;
+            --code-bg: #0f172a;
+
+            --accent-blue: #38bdf8;
+            --accent-blue-light: #7dd3fc;
+
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+
+            --shadow:
+                0 8px 20px -8px rgba(0, 0, 0, 0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease;
+        }
+
+        /* Better text selection */
+        ::selection {
+            background: rgba(14, 165, 233, 0.25);
+            color: var(--text-main);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        /* Main gradient text */
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Cards */
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.9rem;
+            box-shadow: var(--shadow);
+            transition:
+                background-color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        /* General readable paragraph text */
+        .readable-text {
+            color: var(--text-muted);
+        }
+
+        /* Secondary / small text */
+        .soft-text {
+            color: var(--text-soft);
+        }
+
+        /* Table */
+        .comparison-table {
+            width: 100%;
+            border-collapse: separate;
+            border-spacing: 0;
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            border-radius: 0.65rem;
+        }
+
+        .comparison-table thead tr {
+            background-color: var(--table-head-bg);
+        }
+
+        .comparison-table th {
+            color: var(--text-main);
+            font-weight: 700;
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .comparison-table td {
+            color: var(--text-muted);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .comparison-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .comparison-table tbody tr {
+            background-color: var(--card-bg);
+            transition: background-color 0.2s ease;
+        }
+
+        .comparison-table tbody tr:hover {
+            background-color: var(--section-bg);
+        }
+
+        /* Formula/code box */
+        .formula-box {
+            background-color: var(--code-bg);
+            color: var(--text-main);
+            border: 1px solid var(--card-border);
+        }
+
+        /* Horizontal separators */
+        .section-divider {
+            border: 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        /* Theme badge */
+        .experiment-badge {
+            background-color: rgba(14, 165, 233, 0.10);
+            color: #0369a1;
+            border: 1px solid rgba(14, 165, 233, 0.22);
+        }
+
+        html[data-theme='dark'] .experiment-badge {
+            background-color: rgba(56, 189, 248, 0.10);
+            color: #7dd3fc;
+            border-color: rgba(56, 189, 248, 0.25);
+        }
+
+        /* Better footer */
+        footer {
+            background-color: var(--section-bg);
+            border-top: 1px solid var(--card-border);
+        }
+
+        /* Back button */
+        .back-link {
+            color: var(--text-main);
+            transition: color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+
+        /* Responsive table */
+        @media (max-width: 640px) {
+            .comparison-table {
+                min-width: 680px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <a
+                href="index.html"
+                class="text-2xl font-bold tracking-tight text-[var(--text-main)]"
+            >
+                Harsh<span class="text-gradient">.</span>
+            </a>
+
+            <a
+                href="projects.html"
+                class="back-link font-semibold flex items-center gap-2"
+            >
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+
+                <div
+                    class="experiment-badge inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
+                >
+                    <i data-feather="thermometer" class="w-3.5 h-3.5"></i>
+                    Experimental Physics & Thermodynamics
+                </div>
+
+                <h1
+                    class="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-[var(--text-main)]"
+                >
+                    Water Thermometer vs. Air Thermoscope
+                </h1>
+
+                <p
+                    class="text-lg readable-text max-w-2xl font-normal leading-relaxed"
+                >
+                    Analyzing thermal response speeds, volumetric expansion behavior,
+                    and atmospheric pressure errors in home-built temperature sensing
+                    apparatuses.
+                </p>
+
+            </div>
+
+
+            <!-- Quick Specs Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Working Fluid
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        100% Water (Air-Free)
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Capillary Medium
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Narrow Clear Straw
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Thermal Response
+                    </span>
+
+                    <span class="font-bold text-sm text-amber-600 dark:text-amber-400">
+                        Slow (High Heat Mass)
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Primary Artifact
+                    </span>
+
+                    <span class="font-bold text-sm text-rose-600 dark:text-rose-400">
+                        Barometric Drift
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Experimental Realizations -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-sky-500">
+
+                <h2
+                    class="text-2xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="activity"
+                        class="text-sky-600 dark:text-sky-400"
+                    ></i>
+
+                    Deep Experimental Realizations & Dynamics
+                </h2>
+
+
+                <div class="space-y-4 text-sm leading-relaxed readable-text">
+
+                    <p>
+                        <strong class="text-[var(--text-main)] font-semibold">
+                            1. Pure Liquid Volumetric Lag:
+                        </strong>
+
+                        Eliminating every air bubble to form a 100% water-filled system
+                        created a pure thermometer, but revealed extreme thermal inertia.
+                        Because water possesses a high specific heat capacity, ambient
+                        thermal energy takes considerable time to raise the bulk
+                        temperature enough to trigger visible liquid column displacement.
+                    </p>
+
+
+                    <p>
+                        <strong class="text-[var(--text-main)] font-semibold">
+                            2. The Air Pocket Transition (Thermoscope Mechanism):
+                        </strong>
+
+                        Trapping an air pocket above the liquid shifts the working
+                        principle entirely from liquid expansion to ideal gas expansion.
+                        Gas expands significantly more than liquid per degree change,
+                        yielding near-instantaneous movement up the straw. However, this
+                        officially makes the device a thermoscope rather than a pure
+                        liquid thermometer.
+                    </p>
+
+
+                    <p>
+                        <strong class="text-[var(--text-main)] font-semibold">
+                            3. Atmospheric Pressure Cross-Sensitivity:
+                        </strong>
+
+                        Because the straw remains open to ambient air at the top, local
+                        barometric pressure changes exert direct mechanical force on the
+                        liquid meniscus. Weather-driven atmospheric drops cause the
+                        column to rise independently of thermal variations, introducing
+                        a structural measurement error.
+                    </p>
+
+
+                    <p>
+                        <strong class="text-[var(--text-main)] font-semibold">
+                            4. Capillary Resistance & Meniscus Drag:
+                        </strong>
+
+                        In ultra-thin straws, adhesive surface tension between water
+                        molecules and the inner plastic wall creates friction. This
+                        requires a higher pressure delta to initiate column movement,
+                        causing steppy or delayed readouts rather than smooth
+                        continuous expansion.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- Comparison Table -->
+            <div class="content-card p-6 md:p-8 mb-8">
+
+                <h2
+                    class="text-2xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="bar-chart-2"
+                        class="text-purple-600 dark:text-purple-400"
+                    ></i>
+
+                    Comparative System Analysis
+                </h2>
+
+
+                <div class="overflow-x-auto rounded-lg">
+
+                    <table class="comparison-table text-left text-sm">
+
+                        <thead>
+                            <tr>
+                                <th class="p-3">
+                                    Parameter
+                                </th>
+
+                                <th class="p-3">
+                                    100% Water-Filled (Thermometer)
+                                </th>
+
+                                <th class="p-3">
+                                    Trapped Air Pocket (Thermoscope)
+                                </th>
+                            </tr>
+                        </thead>
+
+
+                        <tbody>
+
+                            <tr>
+                                <td class="p-3 font-semibold text-[var(--text-main)]">
+                                    Driving Physics
+                                </td>
+
+                                <td class="p-3">
+                                    Volumetric liquid expansion
+                                </td>
+
+                                <td class="p-3">
+                                    Thermal expansion of ideal gas
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="p-3 font-semibold text-[var(--text-main)]">
+                                    Response Speed
+                                </td>
+
+                                <td class="p-3 font-bold text-amber-600 dark:text-amber-400">
+                                    Slow (High thermal capacity)
+                                </td>
+
+                                <td class="p-3 font-bold text-emerald-600 dark:text-emerald-400">
+                                    Rapid (High gas expansivity)
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="p-3 font-semibold text-[var(--text-main)]">
+                                    Barometric Error
+                                </td>
+
+                                <td class="p-3">
+                                    Minimal impact on liquid bulk
+                                </td>
+
+                                <td class="p-3 font-bold text-rose-600 dark:text-rose-400">
+                                    High (P<sub>atm</sub> compresses trapped air)
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td class="p-3 font-semibold text-[var(--text-main)]">
+                                    System Type
+                                </td>
+
+                                <td class="p-3">
+                                    Quantitative gauge potential
+                                </td>
+
+                                <td class="p-3">
+                                    Qualitative temperature indicator
+                                </td>
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+
+            <!-- Core Thermodynamic Principles -->
+            <div class="content-card p-6 md:p-8 mb-8 space-y-6">
+
+                <h2
+                    class="text-2xl font-bold mb-2 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="cpu"
+                        class="text-sky-600 dark:text-sky-400"
+                    ></i>
+
+                    Core Thermodynamic Principles
+                </h2>
+
+
+                <!-- Principle 1 -->
+                <div>
+
+                    <h3 class="text-lg font-bold mb-2 text-gradient">
+                        1. Specific Heat Capacity vs. Expansion Rate
+                    </h3>
+
+                    <p
+                        class="readable-text text-sm leading-relaxed"
+                    >
+                        Water requires 4.184 Joules of thermal energy per gram to raise
+                        its temperature by 1°C, while possessing a modest volumetric
+                        expansion coefficient
+                        (<strong>β ≈ 2.1 × 10<sup>−4</sup>/°C</strong>).
+                        This thermodynamic combination explains why pure water
+                        instruments feel unresponsive to subtle ambient warmth.
+                    </p>
+
+                </div>
+
+
+                <hr class="section-divider">
+
+
+                <!-- Principle 2 -->
+                <div>
+
+                    <h3 class="text-lg font-bold mb-2 text-gradient">
+                        2. Open Capillary Barometric Vulnerability
+                    </h3>
+
+                    <p
+                        class="readable-text text-sm leading-relaxed"
+                    >
+                        Without sealing the upper capillary under a vacuum
+                        (as done in commercial glass thermometers), local atmospheric
+                        fluctuations directly push down or release pressure on the
+                        liquid column. The height
+                        <strong>H</strong>
+                        is a combined function of temperature
+                        <strong>T</strong>
+                        and pressure
+                        <strong>P</strong>:
+                    </p>
+
+
+                    <div
+                        class="formula-box mt-3 p-4 rounded-lg font-mono text-sm"
+                    >
+                        H = f(T<sub>fluid</sub>) − g(P<sub>atmosphere</sub>)
+                    </div>
+
+                </div>
+
+
+                <hr class="section-divider">
+
+
+                <!-- Principle 3 -->
+                <div>
+
+                    <h3 class="text-lg font-bold mb-2 text-gradient">
+                        3. Engineering Optimizations for Version 2.0
+                    </h3>
+
+                    <p
+                        class="readable-text text-sm leading-relaxed"
+                    >
+                        To improve performance, replacing water with Isopropyl Alcohol
+                        (Rubbing Alcohol) offers a lower specific heat capacity and a
+                        higher thermal expansion coefficient. Floating a thin droplet
+                        of mineral oil at the top of the straw seals against evaporation
+                        while damping rapid atmospheric pressure fluctuations.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div
+            class="container mx-auto px-6 py-6 text-center soft-text text-sm"
+        >
+            <p>
+                &copy;
+                <span id="year"></span>
+                Harsh Vishalkumar Leuva.
+                All Rights Reserved.
+            </p>
+        </div>
+
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+
+        // -----------------------------------------
+        // Theme consistency
+        // -----------------------------------------
+
+        const htmlEl = document.documentElement;
+
+        const savedTheme =
+            localStorage.getItem('theme') || 'light';
+
+        htmlEl.setAttribute(
+            'data-theme',
+            savedTheme
+        );
+
+
+        // -----------------------------------------
+        // Feather Icons
+        // -----------------------------------------
+
+        feather.replace();
+
+
+        // -----------------------------------------
+        // Dynamic Year
+        // -----------------------------------------
+
+        document.getElementById('year').textContent =
+            new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
+```

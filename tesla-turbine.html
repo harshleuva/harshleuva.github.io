@@ -3,88 +3,261 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Harsh Leuva | Tesla Turbine Project</title>
+    <title>Tesla Turbine | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['class', '[data-theme="dark"]']
+        }
+    </script>
+    
+    <!-- Google Fonts: Poppins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
     <script src="https://unpkg.com/feather-icons"></script>
+
     <style>
         :root {
-            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #374151; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+            --bg-color: #f8fafc;
+            --bg-image: linear-gradient(135deg, #ecfeff 0%, #f8fafc 45%, #eef2ff 100%);
+            --text-color: #1e293b;
+            --muted-color: #64748b;
+            --header-bg: rgba(255, 255, 255, 0.82);
+            --card-bg: rgba(255, 255, 255, 0.88);
+            --card-border: #dbe4ee;
+            --accent-gradient: linear-gradient(135deg, #0891b2, #2563eb);
         }
+
         html[data-theme='dark'] {
-            --bg-color: #121212; --bg-image: none; --text-color: #e5e7eb; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+            --bg-color: #0b1120;
+            --bg-image:
+                radial-gradient(circle at 10% 10%, rgba(8, 145, 178, 0.10), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(37, 99, 235, 0.10), transparent 30%),
+                linear-gradient(135deg, #0b1120, #111827 55%, #0f172a);
+            --text-color: #e5edf7;
+            --muted-color: #94a3b8;
+            --header-bg: rgba(11, 17, 32, 0.82);
+            --card-bg: rgba(17, 24, 39, 0.88);
+            --card-border: #263449;
+            --accent-gradient: linear-gradient(135deg, #22d3ee, #60a5fa);
         }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
-        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detail-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.875rem;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+        }
+
+        html[data-theme='dark'] .detail-card {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .section-divider {
+            border: 0;
+            border-top: 1px solid var(--card-border);
+        }
     </style>
 </head>
 <body>
-    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+    <!-- Header Navigation -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50 w-full">
+        <div class="w-full px-4 md:px-8 py-4 flex justify-between items-center">
             <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
-            <a href="projects.html" class="font-semibold flex items-center gap-2">
-                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to All Projects
             </a>
         </div>
     </header>
 
-    <main class="pt-28 pb-20">
-        <div class="container mx-auto px-6 max-w-4xl">
-            <h1 class="text-4xl md:text-5xl font-bold mb-2">Tesla Turbine & Coil</h1>
-            <p class="text-lg mb-8">An exploration into Nikola Tesla's bladeless turbine design and high-voltage resonant transformers.</p>
+    <!-- Main Content -->
+    <main class="pt-24 pb-20 w-full px-3 md:px-6">
+        <div class="w-full">
             
-           
-            <!-- The "Why" Section -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">The Goal</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <!-- YOUR DATA HERE -->
-                <p>I was fascinated by Nikola Tesla's less famous inventions. My goal was to build a functional, bladeless turbine to understand the principles of boundary layer adhesion in fluid dynamics, and to construct a Tesla coil to safely experiment with high-frequency electrical fields.</p>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
-
-            <!-- The "How" Section -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">My Process & Learnings</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <!-- YOUR DATA HERE -->
-                <ul class="list-disc list-inside space-y-2">
-                    <li>CDs (Compact discs) for the turbine discs were used.</li>
-                    <li>Placed the tubine in between a well framed structure for protection.</li>
-                    <li>The plate slowed vibration at low speed but at very high speed they become very stable and to ensure that it does not burst a adhesive layer was made on discs.</li>
-                    <li>I purposly make the blade exposed so that I was able to see how the air flows in it. For that I used smoke from incense sticks.</li>
-                </ul>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
-
-            <!-- Image Gallery Section -->
-            <section class="mb-12">
-                <h2 class="text-2xl font-bold mb-4">Gallery</h2>
-                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <!-- YOUR DATA HERE: Add more images below -->
-                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                    <img src="https://i.pinimg.com/736x/23/2b/40/232b40dae9444363cd73bc5aa8d23714.jpg" class="rounded-lg shadow-md">
-                   
+            <!-- Title & Metadata -->
+            <section class="mb-8">
+                <div class="flex items-center gap-3 text-sm font-semibold opacity-75 mb-2">
+                    <span class="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-800 border border-cyan-200 dark:from-cyan-950/70 dark:to-blue-950/70 dark:text-cyan-300 dark:border-cyan-800/60">
+                        Mechanical & Fluid Dynamics
+                    </span>
+                    <span>•</span>
+                    <span>Home Build</span>
                 </div>
-                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Tesla Turbine Prototype</h1>
+                <p class="text-lg opacity-80">A boundary-layer, bladeless turbine build exploring fluid adhesion dynamics, flow visualization, and micro-power generation.</p>
             </section>
 
-            <!-- Outcome Section -->
-            <section>
-                <h2 class="text-2xl font-bold mb-4">Outcome & Reflection</h2>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-                <!-- YOUR DATA HERE -->
-                <p>The final turbine successfully spined up to a high RPM using high speed air. The motor was able to light up leds easily. I wish if I could use different materials to make disc and also have made body of turbine.</p>
-                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
-            </section>
+            <!-- Key Spec Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 w-full">
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Status</p>
+                    <p class="font-bold text-emerald-500">Completed</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Rotor Disc Stack</p>
+                    <p class="font-bold">Recycled CDs</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Flow Tracker</p>
+                    <p class="font-bold">Incense Smoke</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Output</p>
+                    <p class="font-bold">LED Power Drive</p>
+                </div>
+            </div>
 
+            <!-- Showcase Image -->
+            <div class="detail-card overflow-hidden mb-10">
+                <img src="https://placehold.co/900x450/0891b2/ffffff?text=Tesla+Turbine+Prototype" alt="Tesla Turbine Build" class="w-full h-80 object-cover">
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-8 w-full">
+                
+                <!-- Topic 1: What is a Tesla Turbine? -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="help-circle" class="w-5 h-5 text-cyan-500"></i> What is a Tesla Turbine?
+                    </h2>
+                    <p class="leading-relaxed opacity-85 text-sm md:text-base">
+                        Patented by Nikola Tesla in 1913, the <strong>Tesla turbine</strong> (also known as the boundary-layer turbine, friction turbine, or cohesion-adhesion turbine) is a unique, bladeless rotary engine. Traditional turbines rely on high-pressure fluid striking angled blades or buckets to force a shaft to turn. In contrast, a Tesla turbine consists of a series of smooth, parallel circular discs mounted closely together on a central shaft. Fluid (gas, steam, or air) enters tangentially at the outer rim of the discs, spirals inward through the narrow gaps, and exhausts through ports located near the center shaft.
+                    </p>
+                </div>
+
+                <!-- Topic 2: How Does It Work? -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="cpu" class="w-5 h-5 text-cyan-500"></i> How Does It Work?
+                    </h2>
+                    <div class="space-y-4 text-sm leading-relaxed opacity-85">
+                        <p>
+                            The turbine operates entirely on two core principles of fluid mechanics: <strong>Adhesion</strong> and <strong>Viscosity</strong>.
+                        </p>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li>
+                                <strong>Boundary Layer Adhesion:</strong> When a fluid flows past a solid surface, molecular attraction causes a microscopically thin layer of fluid to stick to the metal (or disc) surface. This immobile layer creates a zero-velocity zone right at the disc boundary.
+                            </li>
+                            <li>
+                                <strong>Viscous Drag & Inward Spiral:</strong> As outer fluid layers pass over this trapped boundary layer, fluid viscosity creates shear stress. The moving fluid transfers its momentum to the discs through surface friction, pulling the rotor around.
+                            </li>
+                            <li>
+                                <strong>Logarithmic Spiral Trajectory:</strong> As the fluid loses kinetic energy and transfers momentum to the turning discs, it naturally slows down and spirals inward toward the central exhaust ports in a continuous curve.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Topic 3: Why Isn't It Used Today? -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="alert-triangle" class="w-5 h-5 text-cyan-500"></i> Why Is It Not Widely Used Today?
+                    </h2>
+                    <div class="space-y-4 text-sm leading-relaxed opacity-85">
+                        <p>
+                            While theoretical models project exceptionally high thermal efficiency under ideal conditions, several key engineering hurdles prevent widespread industrial adoption:
+                        </p>
+                        <ul class="list-disc list-inside space-y-3">
+                            <li>
+                                <strong>Material Centrifugal Distortion:</strong> To achieve optimal power output, the discs must spin at ultra-high speeds (often tens of thousands of RPMs). At these speeds, centrifugal forces cause metal discs to warp, stretch, or wobble, narrowing or ruining the essential gap clearance between them.
+                            </li>
+                            <li>
+                                <strong>Narrow High-Efficiency Window:</strong> The boundary layer effect relies on precise fluid spacing (often fractions of a millimeter). Any fluctuation in load, fluid viscosity, or rotational speed drastically drops the overall efficiency.
+                            </li>
+                            <li>
+                                <strong>Lower Power Density:</strong> Bladed turbines extract massive amounts of torque per unit volume because high-pressure steam strikes the blades directly. A Tesla turbine requires a significantly larger surface area (many discs) to achieve comparable mechanical power output.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Build Specifications & Features -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="w-5 h-5 text-cyan-500"></i> Prototype Specifications & Features
+                    </h2>
+                    <ul class="space-y-3 list-disc list-inside opacity-85 text-sm">
+                        <li><strong>Bladeless Rotor Stack:</strong> Repurposed compact discs (CDs) stacked on a central shaft using boundary layer adhesion for propulsion.</li>
+                        <li><strong>Structural Safety Enclosure:</strong> Protective housing built to sustain high rotational kinetic energy safely during high-RPM testing.</li>
+                        <li><strong>Reinforced Discs:</strong> Applied a protective adhesive layer across disc surfaces to prevent shattering under centrifugal forces.</li>
+                        <li><strong>Open Airflow Design:</strong> Exposed rotor region designed specifically to track fluid dynamics and boundary layer behavior visually.</li>
+                        <li><strong>Power Generation Unit:</strong> Mechanical output coupled to a small motor to light up LEDs when driven by high-speed airflow.</li>
+                    </ul>
+                </div>
+
+                <!-- Implementation & Flow Visualization -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="tool" class="w-5 h-5 text-cyan-500"></i> Process & Flow Visualization
+                    </h2>
+                    <ol class="space-y-4 list-decimal list-inside opacity-85 text-sm">
+                        <span class="block"><strong>1. Disc Assembly & Spacing:</strong> Mounted CDs with uniform spacing, coating them with a protective layer to prevent fracturing at high speeds.</span>
+                        <span class="block"><strong>2. Frame & Rotor Housing Fabrication:</strong> Enclosed the assembly within a framed structure to manage vibration while stabilizing high-RPM rotation.</span>
+                        <span class="block"><strong>3. Aerodynamic Flow Visualization:</strong> Introduced smoke from incense sticks across exposed discs to observe airflow boundary layer interaction and spiral trajectories.</span>
+                        <span class="block"><strong>4. High-Speed Testing & Power Coupling:</strong> Applied high-velocity air streams to spin up the rotor, successfully driving a motor to illuminate LEDs.</span>
+                    </ol>
+                </div>
+
+            </div>
         </div>
     </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border-t border-slate-200 dark:border-slate-800 mt-16 w-full">
+        <div class="w-full px-6 py-6 text-center text-slate-500 dark:text-slate-400">
+            <p>
+                &copy; <span id="year"></span>
+                Harsh Vishalkumar Leuva. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
     <script>
-        const htmlEl = document.documentElement; function setTheme(theme) { if (theme === 'dark') { htmlEl.setAttribute('data-theme', 'dark'); } else { htmlEl.setAttribute('data-theme', 'light'); } } const savedTheme = localStorage.getItem('theme') || 'light'; setTheme(savedTheme); feather.replace();
+        // Theme handler
+        const htmlEl = document.documentElement;
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.setAttribute('data-theme', 'dark');
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+            }
+        }
+        setTheme(localStorage.getItem('theme') || 'light');
+
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
 </html>

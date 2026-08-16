@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIY Rain Gauge Story | Harsh Leuva</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-soft: #64748b;
+
+            --header-bg: rgba(255, 255, 255, 0.94);
+
+            --card-bg: #ffffff;
+            --card-border: #d7dee8;
+
+            --section-bg: #f8fafc;
+
+            --accent-blue: #0369a1;
+
+            --accent-gradient: linear-gradient(to right, #0284c7, #2563eb);
+
+            --shadow:
+                0 4px 6px -1px rgba(15, 23, 42, 0.08),
+                0 2px 4px -2px rgba(15, 23, 42, 0.08);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #0b1120;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --text-soft: #94a3b8;
+
+            --header-bg: rgba(15, 23, 42, 0.94);
+
+            --card-bg: #172033;
+            --card-border: #334155;
+
+            --section-bg: #111827;
+
+            --accent-blue: #38bdf8;
+
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+
+            --shadow:
+                0 8px 20px -8px rgba(0, 0, 0, 0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease;
+        }
+
+        ::selection {
+            background: rgba(14, 165, 233, 0.25);
+            color: var(--text-main);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Cards */
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.9rem;
+            box-shadow: var(--shadow);
+            transition:
+                background-color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .readable-text {
+            color: var(--text-muted);
+        }
+
+        .soft-text {
+            color: var(--text-soft);
+        }
+
+        .section-divider {
+            border: 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .experiment-badge {
+            background-color: rgba(14, 165, 233, 0.10);
+            color: #0369a1;
+            border: 1px solid rgba(14, 165, 233, 0.22);
+        }
+
+        html[data-theme='dark'] .experiment-badge {
+            background-color: rgba(56, 189, 248, 0.10);
+            color: #7dd3fc;
+            border-color: rgba(56, 189, 248, 0.25);
+        }
+
+        footer {
+            background-color: var(--section-bg);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .back-link {
+            color: var(--text-main);
+            transition: color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+
+        .img-card {
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            background-color: var(--card-bg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <a
+                href="index.html"
+                class="text-2xl font-bold tracking-tight text-[var(--text-main)]"
+            >
+                Harsh<span class="text-gradient">.</span>
+            </a>
+
+            <a
+                href="projects.html"
+                class="back-link font-semibold flex items-center gap-2"
+            >
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+
+                <div
+                    class="experiment-badge inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
+                >
+                    <i data-feather="droplet" class="w-3.5 h-3.5"></i>
+                    Teaching & Outreach Story
+                </div>
+
+                <h1
+                    class="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-[var(--text-main)]"
+                >
+                    The Science Behind a Simple DIY Rain Gauge
+                </h1>
+
+                <p
+                    class="text-lg readable-text max-w-2xl font-normal leading-relaxed"
+                >
+                    Building a rain gauge from a plastic bottle, scale, and paper—and exploring key scientific questions: Does shape matter? Why straight walls? And why measure in mm/inches instead of liters?
+                </p>
+
+            </div>
+
+
+            <!-- Photo Gallery Grid -->
+            <div class="mb-10">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]">
+                    <i data-feather="image" class="text-sky-600 dark:text-sky-400"></i>
+                    Activity & Session Highlights
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <!-- Photo 1: Plastic Bottle Rain Gauge -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/rain_gauge_bottle.jpg" 
+                            alt="Plastic Bottle Rain Gauge Prototype" 
+                            class="rounded-md w-full h-48 object-cover"
+                            onerror="this.src='https://via.placeholder.com/400x300?text=Bottle+Rain+Gauge'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">Cut plastic bottle with scale setup</p>
+                    </div>
+
+                    <!-- Photo 2: Worksheet & Class Questions -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/rain_gauge_worksheet.jpg" 
+                            alt="Worksheet & Discussion Questions" 
+                            class="rounded-md w-full h-48 object-cover"
+                            onerror="this.src='https://via.placeholder.com/400x300?text=Worksheet+%26+Questions'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">Concept worksheet on shape & units</p>
+                    </div>
+
+                    <!-- Photo 3: Live Session / Workshop -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/rain_gauge_session.jpg" 
+                            alt="Live Workshop & Session" 
+                            class="rounded-md w-full h-48 object-cover"
+                            onerror="this.src='https://via.placeholder.com/400x300?text=Rain+Gauge+Session'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">Interactive workshop & live discussion</p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Quick Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Build
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Cut Bottle & Scale
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Resource
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Custom Worksheet
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Core Focus
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Concept & Physics
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Format
+                    </span>
+
+                    <span class="font-bold text-sm text-emerald-600 dark:text-emerald-400">
+                        Interactive Session
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Main Story Section -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-sky-500">
+
+                <h2
+                    class="text-2xl font-bold mb-6 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="book-open"
+                        class="text-sky-600 dark:text-sky-400"
+                    ></i>
+
+                    Scientific Insights
+                </h2>
+
+
+                <div class="space-y-6 text-sm leading-relaxed readable-text">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            1. The DIY Model: Straight Bottle + Scale
+                        </h3>
+                        <p>
+                            We built a straightforward rain gauge by cutting the top off a plastic bottle, turning the top funnel inside out to catch rainwater smoothly, and sticking a standard ruler on the side. But making the tool was only step one—the real learning came from probing <em>why</em> it is constructed this way through a dedicated worksheet.
+                        </p>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            2. Does the Shape or Size of the Collector Matter?
+                        </h3>
+                        <p>
+                            A key question in our worksheet: <em>"If two containers of different widths are kept out in the same rain, will they catch the same height of water?"</em> The students discovered that a wider top catches more water volume, but it also has a proportionately larger base to fill. Thus, the <strong>height (depth) of accumulated water remains exactly the same</strong> regardless of the surface area!
+                        </p>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            3. Why Must the Walls Be Vertically Uniform?
+                        </h3>
+                        <p>
+                            While overall width doesn't change the depth, <strong>slanted walls break a standard ruler scale</strong>. If the container widens or narrows towards the top (like a cone or spherical glass), equal height increments no longer correspond to equal volume increments. To use a linear ruler directly without complex volume conversion equations, the walls must be straight and vertically uniform.
+                        </p>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            4. Why Measure Rainfall in mm/Inches and Not Liters?
+                        </h3>
+                        <p>
+                            If we measure rain in liters or gallons, the answer depends entirely on the size of the container or the land area you measure over. Measuring in <strong>millimeters or inches measures height per unit area</strong> ($\text{Volume} / \text{Area} = \text{Height}$). $1\text{ mm}$ of rainfall means if rain fell on a flat, non-porous ground without running off, it would form a $1\text{ mm}$ deep layer of water—making the unit area-independent and universal worldwide.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div
+            class="container mx-auto px-6 py-6 text-center soft-text text-sm"
+        >
+            <p>
+                &copy;
+                <span id="year"></span>
+                Harsh Vishalkumar Leuva.
+                All Rights Reserved.
+            </p>
+        </div>
+
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+
+        // Theme consistency
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+
+        // Feather Icons
+        feather.replace();
+
+        // Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>

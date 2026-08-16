@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recycled Newspaper & Deskmat | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                    <i data-feather="repeat" class="w-3.5 h-3.5"></i> Sustainable Materials & Upcycling
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Recycled Paper & Disposable Deskmat</h1>
+                <p class="text-lg opacity-80 max-w-2xl">A hands-on paper-making experiment using newspaper pulp, cornstarch binding agent, and customizable mechanical pressing.</p>
+            </div>
+
+            <!-- Quick Specs Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Base Pulp</span>
+                    <span class="font-semibold text-sm">Newspaper Mesh</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Binder</span>
+                    <span class="font-semibold text-sm">Cornstarch Matrix</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Dual Function</span>
+                    <span class="font-semibold text-sm">Writable Paper / Deskmat</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Status</span>
+                    <span class="font-semibold text-sm text-emerald-600 dark:text-emerald-400">Completed</span>
+                </div>
+            </div>
+
+            <!-- Materials & Fabrication Procedure -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Materials Required -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="box" class="text-cyan-500"></i> Toolset & Raw Materials
+                    </h2>
+                    <ul class="space-y-2 opacity-85 text-sm list-disc list-inside">
+                        <li>Wooden Frame with fine Wire Mesh (Deckle/Mould)</li>
+                        <li>Shredded Newspaper Pulp (Pulp Mesh)</li>
+                        <li>Cornstarch (Natural Binding Agent)</li>
+                        <li>Water for pulping</li>
+                        <li>Sunlight Drying Surface</li>
+                    </ul>
+                </div>
+
+                <!-- Procedure -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="text-emerald-500"></i> Fabrication Process
+                    </h2>
+                    <ol class="space-y-2 opacity-85 text-sm list-decimal list-inside">
+                        <li>Prepare newspaper pulp and mix with cornstarch binder solution.</li>
+                        <li>Scoop and distribute pulp evenly over the wooden wire mesh frame.</li>
+                        <li>Drain excess water and place in direct sunlight for sun drying.</li>
+                        <li>Post-drying treatment: Apply heavy mechanical pressure to flatten for writing, or leave one side unpressed for a cushioned finish.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Product Showcase Image -->
+            <div class="content-card p-6 md:p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="image" class="text-cyan-500"></i> Experimental Sample
+                </h2>
+                <div class="grid grid-cols-1 gap-6">
+                    <div class="space-y-2">
+                        <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 flex justify-center">
+                            <img src="assets/recycled-paper-sample.jpg" alt="Recycled Paper Sheet sample written with pen" class="w-full max-h-96 object-contain hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/475569?text=Recycled+Paper+Sample';">
+                        </div>
+                        <p class="text-xs text-center opacity-70 font-medium">Finished hard-pressed paper sheet holding smooth pen ink strokes</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- The Science Behind It -->
+            <div class="content-card p-6 md:p-8 mb-8 space-y-6">
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <i data-feather="cpu" class="text-cyan-500"></i> The Science Behind the Material Dynamics
+                </h2>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">1. Hydrogen Bonding & Fiber Interlocking</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Newspaper pulp consists of cellulose fibers. When soaked in water, these fibers swell and tangle. As water evaporates during sun drying, hydrogen bonds form between adjacent hydroxyl groups (-OH) on neighboring cellulose molecules, locking the fibers into a cohesive matrix.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">2. Role of Cornstarch (Sizing Agent)</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Cornstarch acts as a natural sizing binder. Gelatinized starch molecules fill micro-voids between cellulose fibers, increasing surface smoothness, structural stiffness, and preventing ink from feathering (bleeding through) when writing.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">3. Compression Mechanics & Dual Utility</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        <strong>Hard-Pressed State:</strong> Mechanical compression flattens air pockets, increases fiber density, and aligns surface cellulose for smooth pen writing.<br>
+                        <strong>Unpressed / Soft State:</strong> Leaving one side unpressed retains microscopic air gaps within the fibrous mesh. This lower density structure provides impact absorption, making it an ideal disposable, scratch-resistant desk cushion for laptops, phones, and watches.😀
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme consistency
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+
+        // Feather Icons & Dynamic Year
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

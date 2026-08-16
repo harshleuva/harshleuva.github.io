@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair Hygrometer Investigation | Harsh Leuva</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-soft: #64748b;
+
+            --header-bg: rgba(255, 255, 255, 0.94);
+
+            --card-bg: #ffffff;
+            --card-border: #d7dee8;
+
+            --section-bg: #f8fafc;
+
+            --accent-blue: #0369a1;
+            --accent-gradient: linear-gradient(to right, #0284c7, #2563eb);
+
+            --shadow:
+                0 4px 6px -1px rgba(15, 23, 42, 0.08),
+                0 2px 4px -2px rgba(15, 23, 42, 0.08);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #0b1120;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --text-soft: #94a3b8;
+
+            --header-bg: rgba(15, 23, 42, 0.94);
+
+            --card-bg: #172033;
+            --card-border: #334155;
+
+            --section-bg: #111827;
+
+            --accent-blue: #38bdf8;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+
+            --shadow:
+                0 8px 20px -8px rgba(0, 0, 0, 0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease;
+        }
+
+        ::selection {
+            background: rgba(14, 165, 233, 0.25);
+            color: var(--text-main);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Cards */
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.9rem;
+            box-shadow: var(--shadow);
+            transition:
+                background-color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .readable-text {
+            color: var(--text-muted);
+        }
+
+        .soft-text {
+            color: var(--text-soft);
+        }
+
+        .section-divider {
+            border: 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .experiment-badge {
+            background-color: rgba(14, 165, 233, 0.10);
+            color: #0369a1;
+            border: 1px solid rgba(14, 165, 233, 0.22);
+        }
+
+        html[data-theme='dark'] .experiment-badge {
+            background-color: rgba(56, 189, 248, 0.10);
+            color: #7dd3fc;
+            border-color: rgba(56, 189, 248, 0.25);
+        }
+
+        footer {
+            background-color: var(--section-bg);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .back-link {
+            color: var(--text-main);
+            transition: color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: var(--accent-blue);
+        }
+
+        .img-card {
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            background-color: var(--card-bg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <a
+                href="index.html"
+                class="text-2xl font-bold tracking-tight text-[var(--text-main)]"
+            >
+                Harsh<span class="text-gradient">.</span>
+            </a>
+
+            <a
+                href="projects.html"
+                class="back-link font-semibold flex items-center gap-2"
+            >
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+
+                <div
+                    class="experiment-badge inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
+                >
+                    <i data-feather="activity" class="w-3.5 h-3.5"></i>
+                    Experimental Instrumentation
+                </div>
+
+                <h1
+                    class="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-[var(--text-main)]"
+                >
+                    Hair Hygrometer: Keratin Hydration & Mechanical Transduction
+                </h1>
+
+                <p
+                    class="text-lg readable-text max-w-2xl font-normal leading-relaxed"
+                >
+                    An experimental setup utilizing human hair micro-extension driven by relative atmospheric humidity. Investigating keratin conformational changes and mechanical amplification across two iterative prototypes.
+                </p>
+
+            </div>
+
+
+            <!-- Photo Gallery (2 Photos) -->
+            <div class="mb-10">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]">
+                    <i data-feather="image" class="text-sky-600 dark:text-sky-400"></i>
+                    Prototype Iterations
+                </h2>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Photo 1: Model 1 -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/hygrometer_model1.jpg" 
+                            alt="Hygrometer Prototype 1" 
+                            class="rounded-md w-full h-64 object-cover"
+                            onerror="this.src='https://via.placeholder.com/600x400?text=Model+1:+Blue+Acrylic+%26+Straw+Pointer'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            <strong>Model 1:</strong> Blue acrylic frame with wooden base and paper-straw lever pointer.
+                        </p>
+                    </div>
+
+                    <!-- Photo 2: Model 2 -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/hygrometer_model2.jpg" 
+                            alt="Hygrometer Prototype 2" 
+                            class="rounded-md w-full h-64 object-cover"
+                            onerror="this.src='https://via.placeholder.com/600x400?text=Model+2:+Clear+Acrylic+%26+Scale Grid'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            <strong>Model 2:</strong> Laser-cut clear acrylic frame, wooden pointer arm, tension pulley, and printed grid.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Quick Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Active Medium
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Degreased Human Hair
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Mechanism
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Lever & Pulley Tension
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Biochemical Focus
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Keratin Swelling
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Frame Materials
+                    </span>
+
+                    <span class="font-bold text-sm text-emerald-600 dark:text-emerald-400">
+                        Acrylic & Laser-Cut Wood
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- Materials Section -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-sky-500">
+
+                <h2
+                    class="text-xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="box"
+                        class="text-sky-600 dark:text-sky-400"
+                    ></i>
+
+                    Materials & Construction
+                </h2>
+
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-3 text-sm readable-text font-medium">
+                    <li class="flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-4 h-4 text-sky-500"></i>
+                        Human Hair Strand (Alcohol degreased)
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-4 h-4 text-sky-500"></i>
+                        Isopropyl Alcohol / Ethanol
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-4 h-4 text-sky-500"></i>
+                        Model 1: Blue acrylic sheets & wooden slot base
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-4 h-4 text-sky-500"></i>
+                        Model 2: Clear acrylic frame & baseboard
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-4 h-4 text-sky-500"></i>
+                        Laser-cut wooden pointer arm & tension block
+                    </li>
+                    <li class="flex items-center gap-2">
+                        <i data-feather="check-circle" class="w-4 h-4 text-sky-500"></i>
+                        Printed millimeter measurement scale grid
+                    </li>
+                </ul>
+
+            </div>
+
+
+            <!-- Experimental Details & Science -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-sky-500">
+
+                <h2
+                    class="text-2xl font-bold mb-6 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="file-text"
+                        class="text-sky-600 dark:text-sky-400"
+                    ></i>
+
+                    Methodology & Biophysical Principles
+                </h2>
+
+
+                <div class="space-y-6 text-sm leading-relaxed readable-text">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            1. Chemical Degreasing & Pre-treatment
+                        </h3>
+                        <p>
+                            Untreated human hair is coated in natural lipids (sebum), which forms a hydrophobic barrier that prevents ambient moisture from interacting with the inner cortex. Washing the strand with isopropyl alcohol strips away these surface oils, exposing the hygroscopic matrix to surrounding water vapor.
+                        </p>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            2. Molecular Mechanism: Keratin Matrix Hydration
+                        </h3>
+                        <p>
+                            Human hair consists primarily of <b>&alpha;-keratin</b>, a fibrous protein stabilized by hydrogen bonds and disulfide linkages (<b>S-S</b>). When relative humidity increases, water molecules infiltrate the cortex and break inter-chain hydrogen bonds.
+                        </p>
+                        <p class="mt-2">
+                            This process relaxes the polypeptide coils, causing the hair strand to expand by roughly <b>2% to 2.5%</b> across the full humidity range. When humidity drops, water desorbs, hydrogen bonds reform, and the strand contracts.
+                        </p>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            3. Mechanical Transduction & Amplification
+                        </h3>
+                        <p>
+                            Since the absolute length change (&Delta;L) is on the order of millimeters, a mechanical lever system amplifies the motion across a graduated scale. The ratio between the long pointer arm (r<sub>2</sub>) and the pivot distance (r<sub>1</sub>) determines the amplification factor:
+                        </p>
+                        <p class="mt-2 font-mono text-xs bg-slate-100 dark:bg-slate-800 p-3 rounded-md">
+                            Amplification Factor = r<sub>2</sub> / r<sub>1</sub>
+                        </p>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            4. Iterative Design: Model 1 vs. Model 2
+                        </h3>
+                        <p>
+                            <strong>Model 1:</strong> Built using blue acrylic sheets anchored into a slotted wooden base. A paper straw served as the primary lever arm. While functional, structural flex and simple pivot attachment caused friction losses.
+                        </p>
+                        <p class="mt-2">
+                            <strong>Model 2:</strong> Upgraded to a rigid, clear acrylic stand with a laser-cut wooden pointer arm. A weighted tension block and thread alignment system kept the hair under consistent axial tension, while a printed millimeter grid allowed precise readout tracking.
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div
+            class="container mx-auto px-6 py-6 text-center soft-text text-sm"
+        >
+            <p>
+                &copy;
+                <span id="year"></span>
+                Harsh Vishalkumar Leuva.
+                All Rights Reserved.
+            </p>
+        </div>
+
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+
+        // Theme consistency
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+
+        // Feather Icons
+        feather.replace();
+
+        // Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>

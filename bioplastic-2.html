@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cornstarch Bioplastic 2.0 | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
+            --text-color: #374151;
+            --header-bg: rgba(255, 255, 255, 0.8);
+            --card-bg: #ffffff;
+            --card-border: #e2e8f0;
+            --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #121212;
+            --bg-image: none;
+            --text-color: #e5e7eb;
+            --header-bg: rgba(18, 18, 18, 0.8);
+            --card-bg: #1e1e1e;
+            --card-border: #2a2a2a;
+            --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image, none);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+        }
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
+        }
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-semibold uppercase tracking-wider mb-4">
+                    <i data-feather="flask" class="w-3.5 h-3.5"></i> Sustainable Materials & Bioplastics
+                </div>
+                <h1 class="text-3xl md:text-5xl font-bold mb-4">Cornstarch Bioplastic 2.0</h1>
+                <p class="text-lg opacity-80 max-w-2xl">Investigating starch gelatinization using cornstarch, vinegar, and glycerine to form bioplastic sheets and testing their mechanical usability.</p>
+            </div>
+
+            <!-- Quick Specs Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Base Polymer</span>
+                    <span class="font-semibold text-sm">Cornstarch (Amylose)</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Additives</span>
+                    <span class="font-semibold text-sm">Glycerine & Vinegar</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Drying Period</span>
+                    <span class="font-semibold text-sm">2–3 Days</span>
+                </div>
+                <div class="content-card p-4 text-center">
+                    <span class="block text-xs uppercase tracking-wider opacity-60 mb-1">Outcome</span>
+                    <span class="font-semibold text-sm text-amber-600 dark:text-amber-400">Formed (Non-Usable)</span>
+                </div>
+            </div>
+
+            <!-- Materials & Procedure -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <!-- Materials Required -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="box" class="text-cyan-500"></i> Materials & Measurements
+                    </h2>
+                    <ul class="space-y-2 opacity-85 text-sm list-disc list-inside">
+                        <li><strong>Cornstarch:</strong> 10 g</li>
+                        <li><strong>Water:</strong> 120 mL (Solution 1) + 30 mL (Solution 2)</li>
+                        <li><strong>Glycerine:</strong> 5 mL</li>
+                        <li><strong>Vinegar (Dilute Acetic Acid):</strong> 5 mL</li>
+                        <li><strong>Mould release agent:</strong> Coconut or non-stick oil</li>
+                        <li>Mixing vessel, spatula, heat source, flat drying mould</li>
+                    </ul>
+                </div>
+
+                <!-- Step-by-Step Procedure -->
+                <div class="content-card p-6">
+                    <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="text-emerald-500"></i> Fabrication Procedure
+                    </h2>
+                    <ol class="space-y-2 opacity-85 text-sm list-decimal list-inside">
+                        <li><strong>Solution 1:</strong> Mix 120 mL water, 5 mL glycerine, and 5 mL vinegar in a container.</li>
+                        <li><strong>Solution 2:</strong> In a separate container, dissolve 10 g cornstarch in 30 mL water.</li>
+                        <li>Heat Solution 1 until it starts simmering, then pour Solution 2 while continuously stirring.</li>
+                        <li>Keep mixing over medium heat until it forms a thick, viscous gel similar to glue.</li>
+                        <li>Pour the mixture into a lubricated mould and let dry undisturbed for 2–3 days.</li>
+                    </ol>
+                </div>
+            </div>
+
+            <!-- Gelatinization Process Table -->
+            <div class="content-card p-6 md:p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="bar-chart-2" class="text-purple-500"></i> Thermal Gelatinization Stages
+                </h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left text-sm border-collapse">
+                        <thead>
+                            <tr class="border-b border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50">
+                                <th class="p-3 font-semibold">Temperature Range</th>
+                                <th class="p-3 font-semibold">Molecular Stage</th>
+                                <th class="p-3 font-semibold">Structural Transformation</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200 dark:divide-gray-800">
+                            <tr>
+                                <td class="p-3 font-mono text-xs font-semibold text-cyan-600 dark:text-cyan-400">62°C – 72°C</td>
+                                <td class="p-3 font-medium">Water Absorption</td>
+                                <td class="p-3 opacity-80">Starch granules absorb ambient liquid and begin to swell rapidly.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono text-xs font-semibold text-amber-600 dark:text-amber-400">75°C – 80°C</td>
+                                <td class="p-3 font-medium">Amylose Leaching</td>
+                                <td class="p-3 opacity-80">Swollen granules rupture, leaching amylose polymers out into the liquid phase.</td>
+                            </tr>
+                            <tr>
+                                <td class="p-3 font-mono text-xs font-semibold text-rose-600 dark:text-rose-400">80°C – 95°C</td>
+                                <td class="p-3 font-medium">Polymer Entanglement</td>
+                                <td class="p-3 opacity-80">Amylose chains tangle together, forming a microscopic 3D mesh trapping glycerine and vinegar.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Visual & Physical Observation -->
+            <div class="content-card p-6 md:p-8 mb-8">
+                <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="image" class="text-cyan-500"></i> Post-Drying Result & Usability Analysis
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 items-center">
+                    <div class="overflow-hidden rounded-lg border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 flex justify-center">
+                        <img src="assets/cornstarch-bioplastic-sample.jpg" alt="Dried rigid cornstarch bioplastic sample" class="w-full h-56 object-cover hover:scale-105 transition-transform duration-300" onerror="this.onerror=null; this.src='https://placehold.co/600x400/e2e8f0/475569?text=Cornstarch+Bioplastic+Sheet';">
+                    </div>
+                    <div class="space-y-3">
+                        <div class="inline-block px-3 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 text-xs font-semibold uppercase">Practical Result</div>
+                        <h3 class="text-lg font-bold">Rigid & Non-Functional for Bags</h3>
+                        <p class="opacity-85 text-sm leading-relaxed">
+                            The bioplastic sheet successfully formed after 2–3 days of drying, but it turned out stiff and brittle. While a continuous material layer was synthesized, it lacked the flexibility required for real-world applications like bags or packaging.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Chemical Analysis -->
+            <div class="content-card p-6 md:p-8 mb-8 space-y-6">
+                <h2 class="text-2xl font-bold mb-2 flex items-center gap-2">
+                    <i data-feather="cpu" class="text-cyan-500"></i> Scientific Usability Analysis
+                </h2>
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">1. Acid Hydrolysis Impact (Vinegar)</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Vinegar breaks down branched amylopectin into straight amylose chains. However, excess acid hydrolysis shortening the polymer chains excessively leads to low structural elasticity upon complete drying.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">2. Glycerine Plasticization Efficiency</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        Glycerine adds flexibility by spacing polymer chains apart. In this cornstarch ratio, the plasticizer wasn't sufficient to offset starch retrogradation, resulting in high surface rigidity rather than smooth flexibility.
+                    </p>
+                </div>
+
+                <hr style="border-color: var(--card-border);">
+
+                <div>
+                    <h3 class="text-lg font-semibold mb-2 text-gradient">3. Retrogradation & Starch Crystallization</h3>
+                    <p class="opacity-85 text-sm leading-relaxed">
+                        During slow drying, amylose chains re-align into rigid crystalline regions. This matrix lock gives the sheet shape but makes it susceptible to cracking when bent, making Agar-agar (Version 1.0) far superior for flexible applications.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200">
+        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+            <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme consistency
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+
+        // Feather Icons & Dynamic Year
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

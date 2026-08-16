@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Leuva | Microscope Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            --bg-color: #ffffff; --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8); --text-color: #374151; --header-bg: rgba(255, 255, 255, 0.8); --card-bg: #ffffff; --card-border: #f1f5f9; --accent-gradient: linear-gradient(to right, #0891b2, #3b82f6);
+        }
+        html[data-theme='dark'] {
+            --bg-color: #121212; --bg-image: none; --text-color: #e5e7eb; --header-bg: rgba(18, 18, 18, 0.8); --card-bg: #1e1e1e; --card-border: #2a2a2a; --accent-gradient: linear-gradient(to right, #fb923c, #f97316);
+        }
+        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); background-image: var(--bg-image, none); background-attachment: fixed; }
+        .text-gradient { background: var(--accent-gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        header { background-color: var(--header-bg); border-bottom: 1px solid var(--card-border); }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT SECTION -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- PROJECT TITLE AND SUMMARY -->
+            <h1 class="text-4xl md:text-5xl font-bold mb-2">1800x Microscope</h1>
+            <p class="text-lg mb-8">A custom-built high-magnification microscope, assembled to explore the microscopic world beyond what the naked eye can see.</p>
+            
+
+
+      
+
+            <!-- MAIN PROJECT IMAGE -->
+            <img src="" alt="Main project image of the Microscope" class="w-full rounded-lg shadow-lg mb-12">
+
+            
+
+
+
+
+            <!-- THE "GOAL" SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">The Goal</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <!-- YOUR DATA HERE: Describe your motivation for the project -->
+                <p>The main goal was to build a powerful optical microscope from a kit to understand the principles of optics, including how lenses work together to magnify an image, and to achieve a high level of magnification (1800x) for observing cellular structures.</p>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- THE "PROCESS" SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">My Process & Learnings</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <!-- YOUR DATA HERE: Explain the steps you took and what you learned -->
+                <ul class="list-disc list-inside space-y-2">
+                    <li>Assembled the microscope from a component kit, including the eyepiece, objective lenses, and focusing mechanism.</li>
+                    <li>Learned to properly calibrate the lenses and lighting for clear imaging.</li>
+                    <li>Prepared my own slides with samples like onion skin and cheek cells.</li>
+                    <li>Mastered the fine and coarse adjustment knobs to bring microscopic details into sharp focus.</li>
+                </ul>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+             <!-- IMAGE GALLERY SECTION -->
+            <section class="mb-12">
+                <h2 class="text-2xl font-bold mb-4">Gallery</h2>
+                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <!-- YOUR DATA HERE: Add more images of your project -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                    <img src="https://i.pinimg.com/736x/41/e0/1d/41e01d857ae2737d9d509add2128f6a5.jpg" class="rounded-lg shadow-md">
+                    <img src="https://i.pinimg.com/736x/97/14/04/9714045ae2874f0b48cdd95a2a79c7b0.jpg" class="rounded-lg shadow-md">
+                    <img src="https://i.pinimg.com/736x/52/bb/29/52bb29c922222110eb94fd3829dcdacc.jpg" class="rounded-lg shadow-md">
+                </div>
+                 <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+            <!-- THE "OUTCOME" SECTION -->
+            <section>
+                <h2 class="text-2xl font-bold mb-4">Outcome & Reflection</h2>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+                <!-- YOUR DATA HERE: Describe the final result and what you would do differently -->
+                <p>The microscope is fully functional and capable of providing clear images at high magnifications. This project was a fantastic, hands-on introduction to the world of microscopy and the hidden details of biology.</p>
+                <hr class="border-t border-gray-200 dark:border-gray-700 my-4">
+            </section>
+
+        </div>
+    </main>
+
+    <!-- SCRIPT SECTION -->
+    <script>
+        // This script ensures the theme is consistent across all pages
+        const htmlEl = document.documentElement; 
+        function setTheme(theme) { 
+            if (theme === 'dark') { 
+                htmlEl.setAttribute('data-theme', 'dark'); 
+            } else { 
+                htmlEl.setAttribute('data-theme', 'light'); 
+            } 
+        } 
+        const savedTheme = localStorage.getItem('theme') || 'light'; 
+        setTheme(savedTheme); 
+        
+        // Feather Icons Initialization
+        feather.replace();
+    </script>
+</body>
+</html>

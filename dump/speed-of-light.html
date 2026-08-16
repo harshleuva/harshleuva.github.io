@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Harsh Leuva | Speed of Light Project</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        :root {
+            /* Funky Light Theme */
+            --bg-color: #ffffff; 
+            --bg-image: linear-gradient(45deg, #f3e8ff, #d8b4fe, #a855f7, #7e22ce);
+            --text-color: #1e1b4b; 
+            --header-bg: rgba(255, 255, 255, 0.8); 
+            --card-bg: rgba(255, 255, 255, 0.7); 
+            --card-border: #e9d5ff; 
+            --accent-gradient: linear-gradient(to right, #ec4899, #f59e0b);
+        }
+        html[data-theme='dark'] {
+            /* Funky Dark Theme */
+            --bg-color: #1e1b4b; 
+            --bg-image: linear-gradient(45deg, #312e81, #5b21b6, #a855f7, #ec4899);
+            --text-color: #e0e7ff; 
+            --header-bg: rgba(30, 27, 75, 0.8); 
+            --card-bg: rgba(49, 46, 129, 0.7); 
+            --card-border: #4f46e5; 
+            --accent-gradient: linear-gradient(to right, #f59e0b, #facc15);
+        }
+        body { 
+            font-family: 'Poppins', sans-serif; 
+            background-color: var(--bg-color); 
+            color: var(--text-color); 
+            background-image: var(--bg-image, none); 
+            background-attachment: fixed; 
+        }
+        .text-gradient { 
+            background: var(--accent-gradient); 
+            -webkit-background-clip: text; 
+            -webkit-text-fill-color: transparent; 
+        }
+        header { 
+            background-color: var(--header-bg); 
+            border-bottom: 1px solid var(--card-border); 
+        }
+        .funky-title {
+            font-family: 'Press Start 2P', cursive;
+        }
+        .wip-card {
+            background-color: var(--card-bg);
+            border: 2px dashed var(--card-border);
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <!-- HEADER SECTION -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2">
+                <i data-feather="arrow-left" class="w-5 h-5"></i> Back to Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT SECTION -->
+    <main class="pt-28 pb-20">
+        <div class="container mx-auto px-6 max-w-4xl">
+            <!-- PROJECT TITLE AND SUMMARY -->
+            <h1 class="text-4xl md:text-5xl font-bold mb-2 funky-title text-gradient">Speed of Light Experiment</h1>
+            <p class="text-lg mb-8">An ambitious attempt to measure one of the universe's fundamental constants using accessible materials.</p>
+            
+            <!-- MAIN PROJECT IMAGE -->
+            <img src="https://placehold.co/1200x600/1e1b4b/f59e0b?text=Project+Under+Construction" alt="Work in progress" class="w-full rounded-lg shadow-lg mb-12">
+
+            <!-- WORK IN PROGRESS SECTION -->
+            <section class="wip-card p-8 rounded-lg text-center">
+                <div class="flex justify-center items-center gap-4 mb-4">
+                    <i data-feather="tool" class="w-10 h-10"></i>
+                    <i data-feather="flask-conical" class="w-12 h-12"></i>
+                    <i data-feather="zap" class="w-10 h-10"></i>
+                </div>
+                <h2 class="text-3xl font-bold mb-4">Work In Progress!</h2>
+                <p class="max-w-2xl mx-auto">This is a highly experimental and ongoing project. I'm currently in the research and design phase, exploring different methods to measure the speed of light, such as using a modulated laser and a detector. The goal is to build a setup that is precise enough to get a reasonably accurate measurement. Check back later for updates on my progress!</p>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- SCRIPT SECTION -->
+    <script>
+        // This script ensures the theme is consistent across all pages
+        const htmlEl = document.documentElement; 
+        function setTheme(theme) { 
+            if (theme === 'dark') { 
+                htmlEl.setAttribute('data-theme', 'dark'); 
+            } else { 
+                htmlEl.setAttribute('data-theme', 'light'); 
+            } 
+        } 
+        const savedTheme = localStorage.getItem('theme') || 'light'; 
+        setTheme(savedTheme); 
+        
+        // Feather Icons Initialization
+        feather.replace();
+    </script>
+</body>
+</html>

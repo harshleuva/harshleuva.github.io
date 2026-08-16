@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Closed Ecosystem & Terrarium Guide | Harsh Leuva</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-main: #0f172a;
+            --text-muted: #475569;
+            --text-soft: #64748b;
+
+            --header-bg: rgba(255, 255, 255, 0.94);
+
+            --card-bg: #ffffff;
+            --card-border: #d7dee8;
+
+            --section-bg: #f8fafc;
+
+            --accent-blue: #0369a1;
+            --accent-gradient: linear-gradient(to right, #059669, #0284c7);
+
+            --shadow:
+                0 4px 6px -1px rgba(15, 23, 42, 0.08),
+                0 2px 4px -2px rgba(15, 23, 42, 0.08);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #0b1120;
+            --text-main: #f8fafc;
+            --text-muted: #cbd5e1;
+            --text-soft: #94a3b8;
+
+            --header-bg: rgba(15, 23, 42, 0.94);
+
+            --card-bg: #172033;
+            --card-border: #334155;
+
+            --section-bg: #111827;
+
+            --accent-blue: #38bdf8;
+            --accent-gradient: linear-gradient(to right, #10b981, #38bdf8);
+
+            --shadow:
+                0 8px 20px -8px rgba(0, 0, 0, 0.45);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            -webkit-font-smoothing: antialiased;
+            transition:
+                background-color 0.25s ease,
+                color 0.25s ease;
+        }
+
+        ::selection {
+            background: rgba(16, 185, 129, 0.25);
+            color: var(--text-main);
+        }
+
+        /* Header */
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Cards */
+        .content-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.9rem;
+            box-shadow: var(--shadow);
+            transition:
+                background-color 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .readable-text {
+            color: var(--text-muted);
+        }
+
+        .soft-text {
+            color: var(--text-soft);
+        }
+
+        .section-divider {
+            border: 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .experiment-badge {
+            background-color: rgba(16, 185, 129, 0.10);
+            color: #059669;
+            border: 1px solid rgba(16, 185, 129, 0.22);
+        }
+
+        html[data-theme='dark'] .experiment-badge {
+            background-color: rgba(16, 185, 129, 0.10);
+            color: #34d399;
+            border-color: rgba(16, 185, 129, 0.25);
+        }
+
+        footer {
+            background-color: var(--section-bg);
+            border-top: 1px solid var(--card-border);
+        }
+
+        .back-link {
+            color: var(--text-main);
+            transition: color 0.2s ease, opacity 0.2s ease;
+        }
+
+        .back-link:hover {
+            color: #059669;
+        }
+
+        .img-card {
+            overflow: hidden;
+            border: 1px solid var(--card-border);
+            border-radius: 0.75rem;
+            background-color: var(--card-bg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 right-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+
+            <a
+                href="index.html"
+                class="text-2xl font-bold tracking-tight text-[var(--text-main)]"
+            >
+                Harsh<span class="text-gradient">.</span>
+            </a>
+
+            <a
+                href="projects.html"
+                class="back-link font-semibold flex items-center gap-2"
+            >
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to Projects
+            </a>
+
+        </div>
+    </header>
+
+
+    <!-- Main Content -->
+    <main class="pt-28 pb-20">
+
+        <div class="container mx-auto px-6 max-w-4xl">
+
+            <!-- Hero Title Section -->
+            <div class="mb-10 text-center md:text-left">
+
+                <div
+                    class="experiment-badge inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-4"
+                >
+                    <i data-feather="globe" class="w-3.5 h-3.5"></i>
+                    Self-Sustaining Biosphere & Ecology
+                </div>
+
+                <h1
+                    class="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-[var(--text-main)]"
+                >
+                    Terrarium Construction & Bioactive Ecosystem Design
+                </h1>
+
+                <p
+                    class="text-lg readable-text max-w-2xl font-normal leading-relaxed"
+                >
+                    A comprehensive guide to constructing a self-sustaining miniature biome—exploring closed vs. open systems, drainage layering, substrate formulation, moss selection, and bioactive micro-fauna detritivores.
+                </p>
+
+            </div>
+
+
+            <!-- Photo Gallery Grid -->
+            <div class="mb-10">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]">
+                    <i data-feather="image" class="text-emerald-600 dark:text-emerald-400"></i>
+                    Layer Assembly & Bioactive Setup Process
+                </h2>
+
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <!-- Step 1: False Bottom -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/terrarium_layer1.jpg" 
+                            alt="False Bottom Drainage Gravel" 
+                            class="rounded-md w-full h-36 object-cover"
+                            onerror="this.src='https://via.placeholder.com/300x200?text=1.+Gravel+False+Bottom'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            1. Coarse Gravel Drainage Layer
+                        </p>
+                    </div>
+
+                    <!-- Step 2: Mesh Barrier -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/terrarium_layer2.jpg" 
+                            alt="Mesh Separation Barrier" 
+                            class="rounded-md w-full h-36 object-cover"
+                            onerror="this.src='https://via.placeholder.com/300x200?text=2.+Mesh+Separation+Barrier'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            2. Mesh Screen Barrier
+                        </p>
+                    </div>
+
+                    <!-- Step 3: Sphagnum / Fiber Layer -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/terrarium_layer3.jpg" 
+                            alt="Fiber & Moss Separation" 
+                            class="rounded-md w-full h-36 object-cover"
+                            onerror="this.src='https://via.placeholder.com/300x200?text=3.+Fiber/Grass+Filter+Layer'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            3. Fiber / Substrate Barrier
+                        </p>
+                    </div>
+
+                    <!-- Step 4: Soil & Planting -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/terrarium_layer4.jpg" 
+                            alt="Soil Mix & Micro Plants" 
+                            class="rounded-md w-full h-36 object-cover"
+                            onerror="this.src='https://via.placeholder.com/300x200?text=4.+ABG+Mix+%26+Micro+Plants'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            4. Substrate & Flora Insertion
+                        </p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                    <!-- Top View Mid-Build -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/terrarium_top1.jpg" 
+                            alt="Top view planting arrangement" 
+                            class="rounded-md w-full h-40 object-cover"
+                            onerror="this.src='https://via.placeholder.com/400x250?text=Planting+Layout'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            Hardscape & Tropical Plant Placement
+                        </p>
+                    </div>
+
+                    <!-- Established Bioactive Canopy -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/terrarium_moss.jpg" 
+                            alt="Thriving Moss Bed and Isopod/Springtail Habitat" 
+                            class="rounded-md w-full h-40 object-cover"
+                            onerror="this.src='https://via.placeholder.com/400x250?text=Bioactive+Moss+Bed'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            Dense Cushion Moss carpet & Micro-fauna
+                        </p>
+                    </div>
+
+                    <!-- Established Close-up -->
+                    <div class="img-card p-2 flex flex-col items-center">
+                        <img 
+                            src="assets/terrarium_top2.jpg" 
+                            alt="Established Top View" 
+                            class="rounded-md w-full h-40 object-cover"
+                            onerror="this.src='https://via.placeholder.com/400x250?text=Established+Top+Canopy'"
+                        >
+                        <p class="text-xs soft-text mt-2 font-medium text-center">
+                            Mature Closed Glass Canopy
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Quick Highlights Grid -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10">
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Ecosystem Type
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Closed Bioactive Biome
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Clean-up Crew
+                    </span>
+
+                    <span class="font-bold text-sm text-emerald-600 dark:text-emerald-400">
+                        Springtails & Isopods
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Substrate Mix
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        ABG Tropical Mix
+                    </span>
+                </div>
+
+
+                <div class="content-card p-4 text-center">
+                    <span
+                        class="block text-xs uppercase font-bold soft-text tracking-wider mb-1"
+                    >
+                        Primary Flora
+                    </span>
+
+                    <span class="font-bold text-sm text-[var(--text-main)]">
+                        Bryophytes (Moss)
+                    </span>
+                </div>
+
+            </div>
+
+
+            <!-- What is a Terrarium & Types -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-emerald-500">
+
+                <h2
+                    class="text-2xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="compass"
+                        class="text-emerald-600 dark:text-emerald-400"
+                    ></i>
+
+                    What is a Terrarium & How Does It Work?
+                </h2>
+
+                <div class="space-y-4 text-sm leading-relaxed readable-text">
+                    <p>
+                        A <strong>terrarium</strong> is a miniature, self-contained indoor botanical garden housed inside a transparent glass or plastic container. It operates as a functional micro-ecosystem, replicating fundamental Earth processes such as the water cycle, gas exchange (photosynthesis and cellular respiration), and nutrient recycling.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                        <div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-[var(--card-border)]">
+                            <h3 class="font-bold text-base text-[var(--text-main)] mb-2 flex items-center gap-2">
+                                <i data-feather="lock" class="w-4 h-4 text-emerald-500"></i>
+                                1. Closed Terrariums
+                            </h3>
+                            <p class="text-xs">
+                                Hermetically sealed units that trap moisture. Water transpired by plants and evaporated from soil condenses on the cold glass walls and trickles back down like rain (closed hydrological loop). They require high humidity-loving species like mosses and ferns.
+                            </p>
+                        </div>
+
+                        <div class="p-4 rounded-lg bg-slate-50 dark:bg-slate-800/50 border border-[var(--card-border)]">
+                            <h3 class="font-bold text-base text-[var(--text-main)] mb-2 flex items-center gap-2">
+                                <i data-feather="sun" class="w-4 h-4 text-amber-500"></i>
+                                2. Open Terrariums
+                            </h3>
+                            <p class="text-xs">
+                                Containers left open to ambient air currents. Ideal for arid and semi-arid flora such as succulents, cacti, and air plants (Tillandsias) that cannot tolerate high ambient humidity or stagnant air.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <!-- Layering & Purpose Section -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-emerald-500">
+
+                <h2
+                    class="text-2xl font-bold mb-6 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="layers"
+                        class="text-emerald-600 dark:text-emerald-400"
+                    ></i>
+
+                    Substrate Layering & Mechanical Purpose
+                </h2>
+
+                <div class="space-y-6 text-sm readable-text">
+
+                    <div class="flex gap-4">
+                        <div class="font-bold text-lg text-emerald-600 dark:text-emerald-400">01</div>
+                        <div>
+                            <h3 class="font-bold text-base text-[var(--text-main)]">False Bottom / Drainage Layer (Coarse Gravel / Lava Rock)</h3>
+                            <p class="mt-1">
+                                <strong>Purpose:</strong> Prevents root rot. Standing water collects below the root level in the interstitial spaces between coarse rocks rather than saturating the soil matrix.
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div class="flex gap-4">
+                        <div class="font-bold text-lg text-emerald-600 dark:text-emerald-400">02</div>
+                        <div>
+                            <h3 class="font-bold text-base text-[var(--text-main)]">Physical Separation Barrier (Mesh Screen / Fiberglass Grid)</h3>
+                            <p class="mt-1">
+                                <strong>Purpose:</strong> Separates fine soil particles from sifting down into the drainage gravel over time, ensuring the false bottom remains open for water pooling without clogging.
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div class="flex gap-4">
+                        <div class="font-bold text-lg text-emerald-600 dark:text-emerald-400">03</div>
+                        <div>
+                            <h3 class="font-bold text-base text-[var(--text-main)]">Activated Charcoal & Organic Barrier</h3>
+                            <p class="mt-1">
+                                <strong>Purpose:</strong> Acts as a chemical filter. Activated carbon adsorbs toxins, volatile organic compounds (VOCs), and prevents foul odors caused by anaerobic bacterial decomposition.
+                            </p>
+                        </div>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div class="flex gap-4">
+                        <div class="font-bold text-lg text-emerald-600 dark:text-emerald-400">04</div>
+                        <div>
+                            <h3 class="font-bold text-base text-[var(--text-main)]">Bioactive Substrate Layer (ABG Soil Mix)</h3>
+                            <p class="mt-1">
+                                <strong>Purpose:</strong> Provides anchorage, moisture retention, aeration, and essential macro/micronutrients for plant root systems without compacting under high humidity.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Soil Composition & Moss Section -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-emerald-500">
+
+                <h2
+                    class="text-2xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="feather"
+                        class="text-emerald-600 dark:text-emerald-400"
+                    ></i>
+
+                    Substrate Mix Recipe & Moss Types
+                </h2>
+
+                <div class="space-y-6 text-sm readable-text">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            Custom Soil Composition (Atlanta Botanical Garden / ABG Style)
+                        </h3>
+                        <p class="mb-3">
+                            Standard potting soil compacts quickly and suffocates roots in closed high-humidity environments. A tropical bioactive mix consists of:
+                        </p>
+
+                        <div class="grid grid-cols-2 md:grid-cols-3 gap-2 font-medium text-xs">
+                            <div class="p-2.5 rounded bg-slate-100 dark:bg-slate-800">
+                                <b>2 Parts:</b> Coco Coir / Peat Moss
+                            </div>
+                            <div class="p-2.5 rounded bg-slate-100 dark:bg-slate-800">
+                                <b>2 Parts:</b> Bark Chips (Orchid Bark)
+                            </div>
+                            <div class="p-2.5 rounded bg-slate-100 dark:bg-slate-800">
+                                <b>1 Part:</b> Sphagnum Moss (Milled)
+                            </div>
+                            <div class="p-2.5 rounded bg-slate-100 dark:bg-slate-800">
+                                <b>1 Part:</b> Perlite / Pumice
+                            </div>
+                            <div class="p-2.5 rounded bg-slate-100 dark:bg-slate-800">
+                                <b>1 Part:</b> Charcoal Granules
+                            </div>
+                            <div class="p-2.5 rounded bg-slate-100 dark:bg-slate-800">
+                                <b>0.5 Part:</b> Worm Castings
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            Moss Species Selection
+                        </h3>
+                        <ul class="list-disc pl-5 space-y-1">
+                            <li><strong>Cushion Moss (Leucobryum glaucum):</strong> Forms compact, rounded carpet mounds ideal for hardscape accents.</li>
+                            <li><strong>Java Moss / Christmas Moss (Taxiphyllum):</strong> Thrives under extreme humidity and direct moisture on rocks and wood.</li>
+                            <li><strong>Sheet Moss (Hypnum):</strong> Spreads horizontally, providing complete soil coverage to regulate surface evaporation.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Bioactive Clean-up Crew (Springtails) & Watering -->
+            <div class="content-card p-6 md:p-8 mb-8 border-l-4 border-l-emerald-500">
+
+                <h2
+                    class="text-2xl font-bold mb-4 flex items-center gap-2 text-[var(--text-main)]"
+                >
+                    <i
+                        data-feather="cpu"
+                        class="text-emerald-600 dark:text-emerald-400"
+                    ></i>
+
+                    Bioactive Cleanup Crew & Water Management
+                </h2>
+
+                <div class="space-y-6 text-sm readable-text">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            Why Add Springtails (Collembola) & Isopods?
+                        </h3>
+                        <p>
+                            In a closed environment, warm humidity causes mold, fungal spores, and rotting leaf detritus to rapidly multiply. 
+                            <strong>Springtails</strong> are tiny hexapods that act as the natural cleaning crew. They consume fungal hyphae, mold spores, and decaying matter, preventing fungal outbreaks without damaging live plant tissues. 
+                            <strong>Isopods</strong> (dwarf woodlice) break down larger leaf litter into nutrient-rich castings.
+                        </p>
+                    </div>
+
+                    <hr class="section-divider">
+
+                    <div>
+                        <h3 class="text-base font-bold mb-2 text-[var(--text-main)]">
+                            Water Regulation Strategy
+                        </h3>
+                        <p>
+                            Overwatering is the #1 cause of terrarium failure. The total volume of water added during setup should be approximately <strong>5% to 10% of the container volume</strong>.
+                        </p>
+                        <ul class="list-disc pl-5 space-y-1 mt-2">
+                            <li><strong>Optimal Balance:</strong> Minor condensation should form along the glass during early morning and late evening, clearing up during midday.</li>
+                            <li><strong>Overwatered Sign:</strong> Heavy droplets dripping down all glass walls constantly (Requires opening the lid for 6-12 hours to ventilate).</li>
+                            <li><strong>Underwatered Sign:</strong> Absence of condensation and dry, pale moss cushions.</li>
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <div
+            class="container mx-auto px-6 py-6 text-center soft-text text-sm"
+        >
+            <p>
+                &copy;
+                <span id="year"></span>
+                Harsh Vishalkumar Leuva.
+                All Rights Reserved.
+            </p>
+        </div>
+
+    </footer>
+
+
+    <!-- Scripts -->
+    <script>
+
+        // Theme consistency
+        const htmlEl = document.documentElement;
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        htmlEl.setAttribute('data-theme', savedTheme);
+
+        // Feather Icons
+        feather.replace();
+
+        // Dynamic Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+    </script>
+
+</body>
+</html>
