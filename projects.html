@@ -21,7 +21,7 @@
             --bg-color: #ffffff;
             --bg-image: linear-gradient(to top right, #e0f2fe, #f5f3ff, #fdf2f8);
             --text-color: #374151;
-            --header-bg: rgba(255, 255, 255, 0.8);
+            --header-bg: rgba(255, 255, 255, 0.85);
             --card-bg: #ffffff;
             --card-border: #e2e8f0;
             --row-hover: #f8fafc;
@@ -32,7 +32,7 @@
             --bg-color: #121212;
             --bg-image: none;
             --text-color: #e5e7eb;
-            --header-bg: rgba(18, 18, 18, 0.8);
+            --header-bg: rgba(18, 18, 18, 0.85);
             --card-bg: #1e1e1e;
             --card-border: #2a2a2a;
             --row-hover: #262626;
@@ -47,6 +47,9 @@
             background-attachment: fixed;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
         }
         .text-gradient {
             background: var(--accent-gradient);
@@ -79,563 +82,529 @@
 <body>
 
     <!-- Header -->
-    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
-            <a href="index.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
-                <i data-feather="arrow-left" class="w-5 h-5"></i>
-                Back to Main Portfolio
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50 w-full">
+        <div class="w-full px-3 sm:px-6 py-3 flex justify-between items-center">
+            <a href="index.html" class="text-xl sm:text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="index.html" class="text-xs sm:text-sm font-semibold flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-4 h-4"></i>
+                <span>Back to Portfolio</span>
             </a>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="pt-28 pb-20">
-        <div class="container mx-auto px-6 max-w-5xl">
-            <section class="text-center mb-10">
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">My Projects</h1>
-                <p class="max-w-2xl mx-auto text-lg opacity-80">A comprehensive list of my hands-on builds, experiments, and technical explorations.</p>
-                <p class="text-center mt-2 text-sm italic opacity-60">Note: These projects were built at home. Detailed documentation coming soon.</p>
+    <main class="pt-20 pb-16 w-full px-2 sm:px-6">
+        <div class="w-full max-w-4xl mx-auto">
+            <section class="text-center mb-6 px-2">
+                <h1 class="text-2xl sm:text-4xl md:text-5xl font-bold mb-2">My Projects</h1>
+                <p class="max-w-2xl mx-auto text-xs sm:text-base opacity-80 leading-relaxed">A comprehensive list of my hands-on builds, experiments, and technical explorations[cite: 1].</p>
+                <p class="text-center mt-1.5 text-[11px] sm:text-xs italic opacity-60">Note: These projects were built at home. Detailed documentation coming soon[cite: 1].</p>
             </section>
 
             <!-- Explorer View Container -->
-            <div class="list-container">
+            <div class="list-container w-full">
                 <!-- Table Header -->
-                <div class="grid grid-cols-12 px-6 py-3 font-semibold text-xs border-b uppercase tracking-wider opacity-80" style="border-color: var(--card-border);">
-                    <div class="col-span-1 text-center">#</div>
-                    <div class="col-span-5 md:col-span-5">Name</div>
-                    <div class="col-span-4 md:col-span-3">Category</div>
-                    <div class="hidden md:block md:col-span-2">Status</div>
-                    <div class="col-span-2 md:col-span-1 text-right">Action</div>
+                <div class="grid grid-cols-12 px-3 sm:px-6 py-2.5 font-semibold text-[10px] sm:text-xs border-b uppercase tracking-wider opacity-80" style="border-color: var(--card-border);">
+                    <div class="col-span-2 sm:col-span-1 text-center">#</div>
+                    <div class="col-span-8 sm:col-span-8">Name</div>
+                    <div class="hidden sm:block sm:col-span-2 text-center">Status</div>
+                    <div class="col-span-2 sm:col-span-1 text-right">Action</div>
                 </div>
 
                 <!-- Project Items -->
                 <div class="divide-y" style="border-color: var(--card-border);">
                     
                     <!-- 1 -->
-                    <a href="radioplustransmission-tower.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">01</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="radioplustransmission-tower.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">01</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="cpu" class="w-4 h-4 text-cyan-500 shrink-0"></i>
-                            <span class="truncate">Radio and FM transmission-tower</span>
+                            <span class="truncate text-xs sm:text-sm">Radio and FM transmission-tower</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Mechanical & Electronics</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 2 -->
-                    <a href="tesla-turbine.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">02</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="tesla-turbine.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">02</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="cpu" class="w-4 h-4 text-cyan-500 shrink-0"></i>
-                            <span class="truncate">Tesla Turbine & Coil prototype</span>
+                            <span class="truncate text-xs sm:text-sm">Tesla Turbine & Coil prototype</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Mechanical & Electronics</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 3 -->
-                    <a href="robotic-finger.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">03</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="robotic-finger.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">03</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="cpu" class="w-4 h-4 text-cyan-500 shrink-0"></i>
-                            <span class="truncate">Human Robotic Finger</span>
+                            <span class="truncate text-xs sm:text-sm">Human Robotic Finger</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Mechanical & Electronics</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 4 -->
-                    <a href="microscope.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">04</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="microscope.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">04</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="cpu" class="w-4 h-4 text-cyan-500 shrink-0"></i>
-                            <span class="truncate">180x Microscope</span>
+                            <span class="truncate text-xs sm:text-sm">180x Microscope</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Mechanical & Electronics</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 5 -->
-                    <a href="telescope.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">05</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="telescope.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">05</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="cpu" class="w-4 h-4 text-cyan-500 shrink-0"></i>
-                            <span class="truncate">Newtonian Telescope</span>
+                            <span class="truncate text-xs sm:text-sm">Newtonian Telescope</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Mechanical & Electronics</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Planned</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 6 -->
-                    <a href="micropipette.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">06</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="micropipette.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">06</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="cpu" class="w-4 h-4 text-cyan-500 shrink-0"></i>
-                            <span class="truncate">Micropipette</span>
+                            <span class="truncate text-xs sm:text-sm">Micropipette</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Mechanical & Electronics</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 7 -->
-                    <a href="water-rocket.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">07</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="water-rocket.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">07</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="send" class="w-4 h-4 text-orange-500 shrink-0"></i>
-                            <span class="truncate">Water & Air Rockets</span>
+                            <span class="truncate text-xs sm:text-sm">Water & Air Rockets</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Rocketry</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 8 -->
-                    <a href="alcohol-rocket.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">08</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="alcohol-rocket.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">08</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="send" class="w-4 h-4 text-orange-500 shrink-0"></i>
-                            <span class="truncate">Alcohol-Powered Rocket</span>
+                            <span class="truncate text-xs sm:text-sm">Alcohol-Powered Rocket</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Rocketry</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 9 -->
-                    <a href="cell-membrane.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">09</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="cell-membrane.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">09</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="box" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Cell Membrane Model</span>
+                            <span class="truncate text-xs sm:text-sm">Cell Membrane Model</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Other Creations</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 10 -->
-                    <a href="speed-of-light.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">10</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="speed-of-light.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">10</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="box" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Speed of Light Experiment</span>
+                            <span class="truncate text-xs sm:text-sm">Speed of Light Experiment</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Other Creations</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Planned</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 11 -->
-                    <a href="zeer-pot.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">11</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="zeer-pot.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">11</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="globe" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Zeer Pot</span>
+                            <span class="truncate text-xs sm:text-sm">Zeer Pot</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Environmental & Sustainability</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 12 -->
-                    <a href="greenhouse.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">12</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="greenhouse.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">12</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="globe" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Green House</span>
+                            <span class="truncate text-xs sm:text-sm">Green House</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Environmental & Sustainability</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-gray-500/10 text-gray-500 dark:text-gray-400 font-medium">N/A</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 13 -->
-                    <a href="solar-desalination.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">13</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="solar-desalination.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">13</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="globe" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Solar Desalination</span>
+                            <span class="truncate text-xs sm:text-sm">Solar Desalination</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Environmental & Sustainability</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 14 -->
-                    <a href="pesticide.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">14</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="pesticide.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">14</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="globe" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Pesticide</span>
+                            <span class="truncate text-xs sm:text-sm">Pesticide</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Environmental & Sustainability</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Planned</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 15 -->
-                    <a href="fertilizer.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">15</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="fertilizer.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">15</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="globe" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Fertilizer</span>
+                            <span class="truncate text-xs sm:text-sm">Fertilizer</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Environmental & Sustainability</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Planned</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 16 -->
-                    <a href="soil-erosion.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">16</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="soil-erosion.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">16</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="globe" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Soil Erosion Experiment</span>
+                            <span class="truncate text-xs sm:text-sm">Soil Erosion Experiment</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Environmental & Sustainability</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Planned</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 17 -->
-                    <a href="algae-air-purifier.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">17</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="algae-air-purifier.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">17</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="globe" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Algae Air Purifier</span>
+                            <span class="truncate text-xs sm:text-sm">Algae Air Purifier</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Environmental & Sustainability</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Planned</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 18 -->
-                    <a href="acid-rain-effect.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">18</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="acid-rain-effect.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">18</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="globe" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Acid Rain Effect on Plant</span>
+                            <span class="truncate text-xs sm:text-sm">Acid Rain Effect on Plant</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Environmental & Sustainability</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 19 -->
-                    <a href="lip-balm.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">19</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="lip-balm.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">19</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="layers" class="w-4 h-4 text-purple-500 shrink-0"></i>
-                            <span class="truncate">Lip Balm Formulation</span>
+                            <span class="truncate text-xs sm:text-sm">Lip Balm Formulation</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Material Science</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 20 -->
-                    <a href="recycled-paper.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">20</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="recycled-paper.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">20</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="layers" class="w-4 h-4 text-purple-500 shrink-0"></i>
-                            <span class="truncate">Recycled Paper</span>
+                            <span class="truncate text-xs sm:text-sm">Recycled Paper</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Material Science</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 21 -->
-                    <a href="bioplastic-1.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">21</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="bioplastic-1.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">21</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="layers" class="w-4 h-4 text-purple-500 shrink-0"></i>
-                            <span class="truncate">Bioplastic from agar agar</span>
+                            <span class="truncate text-xs sm:text-sm">Bioplastic from agar agar</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Material Science</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 22 -->
-                    <a href="bioplastic-2.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">22</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="bioplastic-2.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">22</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="layers" class="w-4 h-4 text-purple-500 shrink-0"></i>
-                            <span class="truncate">Bioplastic from cornstarch</span>
+                            <span class="truncate text-xs sm:text-sm">Bioplastic from cornstarch</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Material Science</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 23 -->
-                    <a href="bioplastic-3.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">23</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="bioplastic-3.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">23</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="layers" class="w-4 h-4 text-purple-500 shrink-0"></i>
-                            <span class="truncate">Bioplastic from okra</span>
+                            <span class="truncate text-xs sm:text-sm">Bioplastic from okra</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Material Science</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 24 -->
-                    <a href="salve.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">24</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="salve.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">24</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="layers" class="w-4 h-4 text-purple-500 shrink-0"></i>
-                            <span class="truncate">Herbal Salve</span>
+                            <span class="truncate text-xs sm:text-sm">Herbal Salve</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Material Science</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 25 -->
-                    <a href="thermometer.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">25</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="thermometer.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">25</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="sun" class="w-4 h-4 text-amber-500 shrink-0"></i>
-                            <span class="truncate">Thermometer</span>
+                            <span class="truncate text-xs sm:text-sm">Thermometer</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Weather Instrumentation</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 26 -->
-                    <a href="windvane.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">26</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="windvane.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">26</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="sun" class="w-4 h-4 text-amber-500 shrink-0"></i>
-                            <span class="truncate">Wind Vane</span>
+                            <span class="truncate text-xs sm:text-sm">Wind Vane</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Weather Instrumentation</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 27 -->
-                    <a href="raingauge.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">27</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="raingauge.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">27</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="sun" class="w-4 h-4 text-amber-500 shrink-0"></i>
-                            <span class="truncate">Rain Gauge</span>
+                            <span class="truncate text-xs sm:text-sm">Rain Gauge</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Weather Instrumentation</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 28 -->
-                    <a href="barometer.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">28</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="barometer.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">28</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="sun" class="w-4 h-4 text-amber-500 shrink-0"></i>
-                            <span class="truncate">Barometer</span>
+                            <span class="truncate text-xs sm:text-sm">Barometer</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Weather Instrumentation</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 29 -->
-                    <a href="hygrometer.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">29</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="hygrometer.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">29</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="sun" class="w-4 h-4 text-amber-500 shrink-0"></i>
-                            <span class="truncate">Hygrometer</span>
+                            <span class="truncate text-xs sm:text-sm">Hygrometer</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Weather Instrumentation</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 30 -->
-                    <a href="anemometer.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">30</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="anemometer.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">30</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="sun" class="w-4 h-4 text-amber-500 shrink-0"></i>
-                            <span class="truncate">Anemometer</span>
+                            <span class="truncate text-xs sm:text-sm">Anemometer</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Weather Instrumentation</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 31 -->
-                    <a href="herbarium.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">31</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="herbarium.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">31</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="activity" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Herbarium Collection</span>
+                            <span class="truncate text-xs sm:text-sm">Herbarium Collection</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Applied Biology</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-amber-500/10 text-amber-600 dark:text-amber-400 font-medium">In Progress</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 32 -->
-                    <a href="garden-care.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">32</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="garden-care.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">32</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="activity" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Garden Care & Monitoring</span>
+                            <span class="truncate text-xs sm:text-sm">Garden Care & Monitoring</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Applied Biology</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
                             <span class="px-2.5 py-1 rounded-full bg-purple-500/10 text-purple-600 dark:text-purple-400 font-medium">Planned</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
 
                     <!-- 33 -->
-                    <a href="terrarium.html" class="list-row grid grid-cols-12 px-6 py-4 items-center block">
-                        <div class="col-span-1 text-center font-semibold text-xs opacity-50">33</div>
-                        <div class="col-span-5 md:col-span-5 font-medium flex items-center gap-3">
+                    <a href="terrarium.html" class="list-row grid grid-cols-12 px-3 sm:px-6 py-3 sm:py-4 items-center block">
+                        <div class="col-span-2 sm:col-span-1 text-center font-semibold text-xs opacity-50">33</div>
+                        <div class="col-span-8 sm:col-span-8 font-medium flex items-center gap-2 sm:gap-3">
                             <i data-feather="activity" class="w-4 h-4 text-emerald-500 shrink-0"></i>
-                            <span class="truncate">Closed Terrarium Ecosystem</span>
+                            <span class="truncate text-xs sm:text-sm">Closed Terrarium Ecosystem</span>
                         </div>
-                        <div class="col-span-4 md:col-span-3 text-sm opacity-70">Applied Biology</div>
-                        <div class="hidden md:block md:col-span-2 text-xs">
-                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-1000 font-medium">Completed</span>
+                        <div class="hidden sm:block sm:col-span-2 text-center text-xs">
+                            <span class="px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 font-medium">Completed</span>
                         </div>
-                        <div class="col-span-2 md:col-span-1 text-right">
+                        <div class="col-span-2 sm:col-span-1 text-right">
                             <i data-feather="chevron-right" class="w-4 h-4 inline-block opacity-40"></i>
                         </div>
                     </a>
@@ -646,8 +615,8 @@
     </main>
 
     <!-- Footer -->
-    <footer class="bg-white/60 backdrop-blur-sm border-t border-gray-200 mt-16">
-        <div class="container mx-auto px-6 py-6 text-center text-gray-500">
+    <footer class="bg-white/60 dark:bg-slate-950/60 backdrop-blur-sm border-t border-gray-200 dark:border-gray-800 mt-12 w-full">
+        <div class="w-full px-4 py-4 text-center text-xs text-gray-500 dark:text-gray-400">
             <p>&copy; <span id="year"></span> Harsh Vishalkumar Leuva. All Rights Reserved.</p>
         </div>
     </footer>
