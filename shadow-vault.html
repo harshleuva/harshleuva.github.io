@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault File Locker App | Harsh Leuva</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: ['class', '[data-theme="dark"]']
+        }
+    </script>
+
+    <!-- MathJax for rendering LaTeX math formulas -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    
+    <!-- Google Fonts: Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
+
+    <style>
+        :root {
+            --bg-color: #f8fafc;
+            --bg-image: linear-gradient(135deg, #ecfeff 0%, #f8fafc 45%, #eef2ff 100%);
+            --text-color: #1e293b;
+            --muted-color: #64748b;
+            --header-bg: rgba(255, 255, 255, 0.82);
+            --card-bg: rgba(255, 255, 255, 0.88);
+            --card-border: #dbe4ee;
+            --accent-gradient: linear-gradient(135deg, #0891b2, #2563eb);
+        }
+
+        html[data-theme='dark'] {
+            --bg-color: #0b1120;
+            --bg-image:
+                radial-gradient(circle at 10% 10%, rgba(8, 145, 178, 0.10), transparent 30%),
+                radial-gradient(circle at 90% 20%, rgba(37, 99, 235, 0.10), transparent 30%),
+                linear-gradient(135deg, #0b1120, #111827 55%, #0f172a);
+            --text-color: #e5edf7;
+            --muted-color: #94a3b8;
+            --header-bg: rgba(11, 17, 32, 0.82);
+            --card-bg: rgba(17, 24, 39, 0.88);
+            --card-border: #263449;
+            --accent-gradient: linear-gradient(135deg, #22d3ee, #60a5fa);
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            background-image: var(--bg-image);
+            background-attachment: fixed;
+            -webkit-font-smoothing: antialiased;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            overflow-x: hidden;
+        }
+
+        .text-gradient {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .detail-card {
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 0.875rem;
+            width: 100%;
+            box-shadow: 0 8px 30px rgba(15, 23, 42, 0.04);
+        }
+
+        html[data-theme='dark'] .detail-card {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.16);
+        }
+
+        header {
+            background-color: var(--header-bg);
+            border-bottom: 1px solid var(--card-border);
+        }
+
+        .section-divider {
+            border: 0;
+            border-top: 1px solid var(--card-border);
+        }
+
+        .connection-image {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .connection-image:hover {
+            transform: scale(1.01);
+            box-shadow: 0 12px 35px rgba(8, 145, 178, 0.12);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="backdrop-blur-lg fixed top-0 left-0 right-0 z-50 w-full">
+        <div class="w-full px-4 md:px-8 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-bold">Harsh<span class="text-gradient">.</span></a>
+            <a href="projects.html" class="font-semibold flex items-center gap-2 hover:opacity-80 transition-opacity">
+                <i data-feather="arrow-left" class="w-5 h-5"></i>
+                Back to All Projects
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="pt-24 pb-20 w-full px-3 md:px-6">
+        <div class="w-full">
+            
+            <!-- Title & Metadata -->
+            <section class="mb-8">
+                <div class="flex items-center gap-3 text-sm font-semibold opacity-75 mb-2">
+                    <span class="px-3 py-1 rounded-full bg-gradient-to-r from-cyan-100 to-blue-100 text-cyan-800 border border-cyan-200 dark:from-cyan-950/70 dark:to-blue-950/70 dark:text-cyan-300 dark:border-cyan-800/60">
+                        Software & Cryptography
+                    </span>
+                    <span>•</span>
+                    <span>Desktop App</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Vault App</h1>
+                <p class="text-lg opacity-80">A standalone local file encryption utility built in Python, emulating historical Enigma rotor-stepping algorithms for portable data security.</p>
+            </section>
+
+            <!-- Key Spec Badges -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-10 w-full">
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Status</p>
+                    <p class="font-bold text-emerald-500">Completed</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Language & Packaging</p>
+                    <p class="font-bold">Python, PyInstaller</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Core Encryption</p>
+                    <p class="font-bold">Rotor-Based Cipher Engine</p>
+                </div>
+                <div class="detail-card p-4 text-center">
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Target OS</p>
+                    <p class="font-bold">Windows (Standalone .exe)</p>
+                </div>
+            </div>
+
+            <!-- Visual Showcase Grid (3 Project Photos) -->
+            <div class="mb-10 w-full">
+                <h2 class="text-xl font-bold mb-4 flex items-center gap-2">
+                    <i data-feather="image" class="w-5 h-5 text-cyan-500"></i> App Interface & Concept Visuals
+                </h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
+                    <!-- Photo 1: UI / Main Screen -->
+                    <div class="detail-card p-2 flex flex-col items-center">
+                        <img src="assets/vault_ui.jpg" alt="Vault Application Interface" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/0891b2/ffffff?text=Vault+App+Interface'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Vault Desktop Utility Interface</p>
+                    </div>
+
+                    <!-- Photo 2: File Locker Logic -->
+                    <div class="detail-card p-2 flex flex-col items-center">
+                        <img src="assets/rotor_cipher.jpg" alt="Rotor Cipher Emulation" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/3b82f6/ffffff?text=Rotor+State+Shifting'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Digital Enigma Rotor State Shifting</p>
+                    </div>
+
+                    <!-- Photo 3: Portable Binary -->
+                    <div class="detail-card p-2 flex flex-col items-center">
+                        <img src="assets/standalone_exe.jpg" alt="Standalone EXE Package" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/10b981/ffffff?text=Portable+USB+Binary'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Portable PyInstaller Executable Build</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Sections -->
+            <div class="space-y-8 w-full">
+                
+                <!-- Overview -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
+                        <i data-feather="file-text" class="w-5 h-5 text-cyan-500"></i> Project Overview
+                    </h2>
+                    <p class="leading-relaxed opacity-85">
+                        Vault is a standalone local file-locking utility designed to secure documents, images, and sensitive data directly on your computer. By reading local files and applying a custom byte-scrambling pipeline based on historical rotor cipher mechanics, Vault renders data completely unreadable without proper credentials. Packaged via PyInstaller using a <code>--onefile</code> and <code>--noconsole</code> configuration, it executes as a silent, self-contained background tool that can be run from a USB drive on any Windows system without requiring a Python installation.
+                    </p>
+                </div>
+
+                <!-- Motivation & Utility -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="target" class="w-5 h-5 text-cyan-500"></i> Motivation & Core Purpose
+                    </h2>
+                    <div class="space-y-4 text-sm leading-relaxed opacity-85">
+                        <p>
+                            <strong>Data Privacy on Shared Hardware:</strong> Built to conceal personal files, financial logs, and private code bases from casual observers, automated search indexers, or family members sharing the same desktop profile.
+                        </p>
+                        
+                        <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 pt-2">Key Project Goals:</h3>
+                        <ul class="list-disc list-inside space-y-2">
+                            <li><strong>Hands-on Cryptographic Exploration:</strong> Translating historical electromechanical cipher mechanics into automated software logic to bridge classical cryptography and modern Python execution.</li>
+                            <li><strong>Zero-Dependency Portability:</strong> Self-contained <code>.exe</code> distribution allows instant deployment across machines without installing Python libraries or environment setup.</li>
+                            <li><strong>Local File Locking:</strong> Provides a lightweight gatekeeper to immediately obscure files into encrypted byte blocks on disk.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Theory Section: Historical Enigma & Rotor Mechanics -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="lock" class="w-5 h-5 text-cyan-500"></i> Cryptographic Foundations: The Enigma Rotor Concept
+                    </h2>
+                    <div class="space-y-6 text-sm leading-relaxed opacity-85">
+                        
+                        <div>
+                            <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 mb-2">1. Mechanical History & Rotor Stepping</h3>
+                            <p>
+                                The WWII German Enigma machine relied on rotating disc rotors with internal wiring to obscure plaintext characters. Crucially, with every keypress, the rightmost rotor stepped forward by one notch. This dynamic state movement ensured that typing identical consecutive characters produced completely different output bytes, breaking simple frequency analysis.
+                            </p>
+                        </div>
+
+                        <hr class="section-divider">
+
+                        <div>
+                            <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 mb-2">2. Digital Emulation & Reversibility</h3>
+                            <p>
+                                Vault mathematically translates mechanical brass rotors into programmatic state shifts applied to incoming binary file data:
+                            </p>
+                            <ul class="list-disc list-inside space-y-2 mt-2">
+                                <li><strong>Dynamic State Shifting:</strong> As files are processed block-by-block, substitution layers continuously rotate to simulate mechanical rotor stepping across byte indices.</li>
+                                <li><strong>Mathematical Reversibility:</strong> Mimicking the Enigma's reflector mechanics, the exact inverse mathematical operations are applied during decryption when supplied with the matching initial key state.</li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Security Layers & Technical Features -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="shield" class="w-5 h-5 text-cyan-500"></i> Protection Architecture & Security Features
+                    </h2>
+                    <ul class="space-y-3 list-disc list-inside opacity-85">
+                        <li><strong>Standalone Binary Packaging:</strong> Compiled via PyInstaller to obscure raw <code>.py</code> source code and prevent simple inspection via text editors.</li>
+                        <li><strong>Silent Background Execution:</strong> Configured with <code>--noconsole</code> flags for clean background operations during encryption/decryption cycles.</li>
+                        <li><strong>Data Integrity Handling:</strong> Built-in input validation prevents partial reads from dropping unreadable garbage data back onto the disk.</li>
+                        <li><strong>Portable USB Compatibility:</strong> Can be dropped directly into any directory or USB flash drive to lock down files on the go.</li>
+                    </ul>
+                </div>
+
+                <!-- Specifications & Specifications Table -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="sliders" class="w-5 h-5 text-cyan-500"></i> App Technical Specifications
+                    </h2>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-sm text-left opacity-85 border-collapse">
+                            <thead>
+                                <tr class="border-b border-slate-300 dark:border-slate-700">
+                                    <th class="py-2 font-bold">Component</th>
+                                    <th class="py-2 font-bold">Specification</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
+                                <tr>
+                                    <td class="py-2 font-semibold">Core Language</td>
+                                    <td class="py-2">Python 3.x</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-semibold">Compilation Mode</td>
+                                    <td class="py-2">PyInstaller (<code>--onefile</code>, <code>--noconsole</code>)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-semibold">Cryptographic Logic</td>
+                                    <td class="py-2">Dynamic Byte-Substitution Rotor Stepping Cipher</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-semibold">Supported OS</td>
+                                    <td class="py-2">Windows (Native Portable Executable)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-semibold">Target File Types</td>
+                                    <td class="py-2">Arbitrary Binary Data (Documents, Images, Archives, Databases)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- GitHub Repository -->
+                <div class="detail-card p-6 md:p-8 relative overflow-hidden">
+                    <div class="absolute -right-16 -top-16 w-40 h-40 bg-cyan-400/10 rounded-full blur-3xl"></div>
+
+                    <div class="relative flex flex-col md:flex-row md:items-center md:justify-between gap-5">
+                        <div>
+                            <div class="flex items-center gap-2 mb-2">
+                                <i data-feather="github" class="w-5 h-5 text-gray-800 dark:text-white"></i>
+                                <h2 class="text-2xl font-bold">Source Code & Releases</h2>
+                            </div>
+
+                            <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300 max-w-2xl">
+                                The full Python source code, PyInstaller build scripts, setup guidelines, 
+                                and standalone releases are hosted on GitHub.
+                            </p>
+                        </div>
+
+                        <a
+                            href="YOUR_GITHUB_REPOSITORY_URL"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl
+                                   bg-gray-900 hover:bg-gray-800
+                                   dark:bg-white dark:hover:bg-gray-100
+                                   text-white dark:text-gray-900
+                                   font-semibold text-sm
+                                   transition-all duration-200
+                                   shadow-lg shadow-gray-900/10"
+                        >
+                            <i data-feather="github" class="w-4 h-4"></i>
+                            View on GitHub
+                            <i data-feather="external-link" class="w-4 h-4"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Connection / System Workflow Diagram -->
+                <div class="detail-card p-6 md:p-8">
+                    <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-3 mb-5">
+                        <div>
+                            <h2 class="text-2xl font-bold flex items-center gap-2">
+                                <i data-feather="git-branch" class="w-5 h-5 text-cyan-500"></i>
+                                Encryption Pipeline & System Architecture
+                            </h2>
+
+                            <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
+                                High-level data processing flow from raw binary input to encrypted output.
+                            </p>
+                        </div>
+
+                        <span class="inline-flex items-center gap-2 self-start px-3 py-1.5 rounded-full
+                                     bg-cyan-50 text-cyan-700 border border-cyan-200
+                                     dark:bg-cyan-950/50 dark:text-cyan-300 dark:border-cyan-800/60
+                                     text-xs font-semibold">
+                            <i data-feather="image" class="w-3.5 h-3.5"></i>
+                            Workflow Reference
+                        </span>
+                    </div>
+
+                    <div class="rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700
+                                bg-slate-50 dark:bg-slate-900/60 p-2">
+
+                        <a
+                            href="assets/vault_workflow.jpg"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            title="Open system architecture in full size"
+                        >
+                            <img
+                                src="assets/vault_workflow.jpg"
+                                alt="Vault App System Architecture Flowchart"
+                                class="connection-image w-full max-h-[700px] object-contain rounded-lg cursor-zoom-in"
+                                onerror="this.parentElement.innerHTML = `
+                                    <div class='min-h-[300px] flex flex-col items-center justify-center text-center p-8'>
+                                        <div class='w-14 h-14 rounded-2xl bg-cyan-100 dark:bg-cyan-950/60
+                                                    flex items-center justify-center mb-4'>
+                                            <i data-feather='image' class='w-7 h-7 text-cyan-600 dark:text-cyan-300'></i>
+                                        </div>
+                                        <h3 class='font-semibold text-slate-800 dark:text-slate-100 mb-1'>
+                                            Workflow Diagram
+                                        </h3>
+                                        <p class='text-sm text-slate-500 dark:text-slate-400'>
+                                            Add your workflow diagram image at
+                                            <code class='font-mono text-cyan-600 dark:text-cyan-300'>
+                                                assets/vault_workflow.jpg
+                                            </code>
+                                        </p>
+                                    </div>
+                                `; feather.replace();"
+                            >
+                        </a>
+                    </div>
+
+                    <div class="mt-4 flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
+                        <i data-feather="zoom-in" class="w-3.5 h-3.5"></i>
+                        Click the diagram to view full resolution.
+                    </div>
+                </div>
+
+                <!-- Build Steps / Process -->
+                <div class="detail-card p-6 md:p-8">
+                    <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
+                        <i data-feather="tool" class="w-5 h-5 text-cyan-500"></i> Development Methodology & Build Steps
+                    </h2>
+                    <ol class="space-y-4 list-decimal list-inside opacity-85">
+                        <span class="block"><strong>1. Algorithm Design:</strong> Constructed a custom mathematical cipher engine simulating rotor stepping transformations on binary file data stream chunks.</span>
+                        <span class="block"><strong>2. File Input/Output System:</strong> Developed safe file handling procedures with error checking to prevent file corruption during processing.</span>
+                        <span class="block"><strong>3. User Interface & State Management:</strong> Built a lightweight user interaction layer to select files, input key states, and execute locks/unlocks.</span>
+                        <span class="block"><strong>4. Executable Packaging:</strong> Compiled the Python environment into an isolated Windows binary using PyInstaller with <code>--onefile</code> and <code>--noconsole</code> parameters.</span>
+                    </ol>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white/50 dark:bg-slate-950/50 backdrop-blur-sm border-t border-slate-200 dark:border-slate-800 mt-16 w-full">
+        <div class="w-full px-6 py-6 text-center text-slate-500 dark:text-slate-400">
+            <p>
+                &copy; <span id="year"></span>
+                Harsh Vishalkumar Leuva. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // Theme handler
+        const htmlEl = document.documentElement;
+        function setTheme(theme) {
+            if (theme === 'dark') {
+                htmlEl.setAttribute('data-theme', 'dark');
+            } else {
+                htmlEl.setAttribute('data-theme', 'light');
+            }
+        }
+        setTheme(localStorage.getItem('theme') || 'light');
+
+        feather.replace();
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
