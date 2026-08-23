@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vault File Locker App | Harsh Leuva</title>
+    <title>Shadow Vault | Harsh Leuva</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -134,8 +134,8 @@
                     <span>•</span>
                     <span>Desktop App</span>
                 </div>
-                <h1 class="text-4xl md:text-5xl font-bold mb-4">Vault App</h1>
-                <p class="text-lg opacity-80">A standalone local file encryption utility built in Python, emulating historical Enigma rotor-stepping algorithms for portable data security.</p>
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">Shadow Vault</h1>
+                <p class="text-lg opacity-80">A local, offline password manager built in Python — everything is encrypted and stored only on your own machine. No cloud, no account, no internet dependency to open your vault.</p>
             </section>
 
             <!-- Key Spec Badges -->
@@ -145,16 +145,16 @@
                     <p class="font-bold text-emerald-500">Completed</p>
                 </div>
                 <div class="detail-card p-4 text-center">
-                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Language & Packaging</p>
-                    <p class="font-bold">Python, PyInstaller</p>
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Built With</p>
+                    <p class="font-bold">Python, Tkinter</p>
                 </div>
                 <div class="detail-card p-4 text-center">
-                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Core Encryption</p>
-                    <p class="font-bold">Rotor-Based Cipher Engine</p>
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Encryption</p>
+                    <p class="font-bold">AES-256-GCM + Argon2id</p>
                 </div>
                 <div class="detail-card p-4 text-center">
-                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Target OS</p>
-                    <p class="font-bold">Windows (Standalone .exe)</p>
+                    <p class="text-xs uppercase opacity-60 font-semibold mb-1">Runs On</p>
+                    <p class="font-bold">Windows, Linux</p>
                 </div>
             </div>
 
@@ -166,20 +166,20 @@
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 w-full">
                     <!-- Photo 1: UI / Main Screen -->
                     <div class="detail-card p-2 flex flex-col items-center">
-                        <img src="assets/vault_ui.jpg" alt="Vault Application Interface" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/0891b2/ffffff?text=Vault+App+Interface'">
-                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Vault Desktop Utility Interface</p>
+                        <img src="assets/vault_ui.jpg" alt="Shadow Vault Dashboard" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/0891b2/ffffff?text=Vault+Dashboard'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Main Dashboard — stored logins, notes, Wi-Fi & license entries</p>
                     </div>
 
-                    <!-- Photo 2: File Locker Logic -->
+                    <!-- Photo 2: SafeAuth / QR setup -->
                     <div class="detail-card p-2 flex flex-col items-center">
-                        <img src="assets/rotor_cipher.jpg" alt="Rotor Cipher Emulation" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/3b82f6/ffffff?text=Rotor+State+Shifting'">
-                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Digital Enigma Rotor State Shifting</p>
+                        <img src="assets/rotor_cipher.jpg" alt="SafeAuth Two-Factor Setup" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/3b82f6/ffffff?text=SafeAuth+2FA+Setup'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">SafeAuth — scan-a-QR two-factor login setup</p>
                     </div>
 
-                    <!-- Photo 3: Portable Binary -->
+                    <!-- Photo 3: Security Audit -->
                     <div class="detail-card p-2 flex flex-col items-center">
-                        <img src="assets/standalone_exe.jpg" alt="Standalone EXE Package" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/10b981/ffffff?text=Portable+USB+Binary'">
-                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Portable PyInstaller Executable Build</p>
+                        <img src="assets/standalone_exe.jpg" alt="Security Audit Report" class="rounded-md w-full h-56 object-cover" onerror="this.src='https://placehold.co/600x400/10b981/ffffff?text=Security+Audit'">
+                        <p class="text-xs opacity-75 mt-2 font-medium text-center">Security Audit — finds weak, reused & breached passwords</p>
                     </div>
                 </div>
             </div>
@@ -190,56 +190,54 @@
                 <!-- Overview -->
                 <div class="detail-card p-6 md:p-8">
                     <h2 class="text-2xl font-bold mb-3 flex items-center gap-2">
-                        <i data-feather="file-text" class="w-5 h-5 text-cyan-500"></i> Project Overview
+                        <i data-feather="file-text" class="w-5 h-5 text-cyan-500"></i> What is Shadow Vault?
                     </h2>
                     <p class="leading-relaxed opacity-85">
-                        Vault is a standalone local file-locking utility designed to secure documents, images, and sensitive data directly on your computer. By reading local files and applying a custom byte-scrambling pipeline based on historical rotor cipher mechanics, Vault renders data completely unreadable without proper credentials. Packaged via PyInstaller using a <code>--onefile</code> and <code>--noconsole</code> configuration, it executes as a silent, self-contained background tool that can be run from a USB drive on any Windows system without requiring a Python installation.
+                        Shadow Vault is a password manager that runs entirely on your own computer — there's no server, no account, and no syncing over the internet. You set one master password, and everything else (saved logins, notes, Wi-Fi passwords, license keys) is encrypted and stored in a single local file. The app derives the actual encryption key from your master password using Argon2id, and encrypts your data with AES-256-GCM — the same kind of encryption used by modern password managers and secure messaging apps. On top of that, you can turn on an optional 6-digit authenticator code (SafeAuth) so opening the vault needs your phone as well as your password.
                     </p>
                 </div>
 
                 <!-- Motivation & Utility -->
                 <div class="detail-card p-6 md:p-8">
                     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                        <i data-feather="target" class="w-5 h-5 text-cyan-500"></i> Motivation & Core Purpose
+                        <i data-feather="target" class="w-5 h-5 text-cyan-500"></i> Why I Built This
                     </h2>
                     <div class="space-y-4 text-sm leading-relaxed opacity-85">
                         <p>
-                            <strong>Data Privacy on Shared Hardware:</strong> Built to conceal personal files, financial logs, and private code bases from casual observers, automated search indexers, or family members sharing the same desktop profile.
+                            I wanted a password manager I could fully trust and understand — one where my passwords never leave my own machine, and I know exactly how they're encrypted because I wrote the encryption myself. Most password managers ask you to trust a company's cloud servers; Shadow Vault removes that trust requirement entirely by keeping everything local.
                         </p>
-                        
-                        <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 pt-2">Key Project Goals:</h3>
+
+                        <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 pt-2">Goals for the project:</h3>
                         <ul class="list-disc list-inside space-y-2">
-                            <li><strong>Hands-on Cryptographic Exploration:</strong> Translating historical electromechanical cipher mechanics into automated software logic to bridge classical cryptography and modern Python execution.</li>
-                            <li><strong>Zero-Dependency Portability:</strong> Self-contained <code>.exe</code> distribution allows instant deployment across machines without installing Python libraries or environment setup.</li>
-                            <li><strong>Local File Locking:</strong> Provides a lightweight gatekeeper to immediately obscure files into encrypted byte blocks on disk.</li>
+                            <li><strong>Learn real cryptography, not toy examples:</strong> Implementing Argon2id key derivation and AES-GCM authenticated encryption properly — including salts, nonces, and integrity checks — instead of a simple XOR cipher.</li>
+                            <li><strong>Zero cloud dependency:</strong> The vault file lives on your disk. Nothing is uploaded anywhere, so there's no server to be breached and no account to lose access to.</li>
+                            <li><strong>Actually usable day-to-day:</strong> Beyond just storing passwords, it needed to cover the things I actually do — generating strong passwords, checking if a password has leaked, tracking login history, and encrypting random files when needed.</li>
                         </ul>
                     </div>
                 </div>
 
-                <!-- Theory Section: Historical Enigma & Rotor Mechanics -->
+                <!-- Enigma Backup Engine -->
                 <div class="detail-card p-6 md:p-8">
                     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                        <i data-feather="lock" class="w-5 h-5 text-cyan-500"></i> Cryptographic Foundations: The Enigma Rotor Concept
+                        <i data-feather="lock" class="w-5 h-5 text-cyan-500"></i> The Enigma Backup Engine
                     </h2>
                     <div class="space-y-6 text-sm leading-relaxed opacity-85">
-                        
+
                         <div>
-                            <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 mb-2">1. Mechanical History & Rotor Stepping</h3>
+                            <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 mb-2">A side project inside the project</h3>
                             <p>
-                                The WWII German Enigma machine relied on rotating disc rotors with internal wiring to obscure plaintext characters. Crucially, with every keypress, the rightmost rotor stepped forward by one notch. This dynamic state movement ensured that typing identical consecutive characters produced completely different output bytes, breaking simple frequency analysis.
+                                The main vault is protected by AES-256-GCM — that part doesn't need anything extra. But I also wanted a way to export the vault for offline backup that added a second, independent layer of obfuscation on top, just for fun and as a cryptography exercise. So I built a 9-rotor substitution cipher engine loosely inspired by the WWII Enigma machine: each "rotor" is a 256-byte substitution table, and data passes through all 9 in sequence, then back through their inverses to decrypt.
                             </p>
                         </div>
 
                         <hr class="section-divider">
 
                         <div>
-                            <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 mb-2">2. Digital Emulation & Reversibility</h3>
-                            <p>
-                                Vault mathematically translates mechanical brass rotors into programmatic state shifts applied to incoming binary file data:
-                            </p>
+                            <h3 class="font-bold text-base text-gray-900 dark:text-gray-100 mb-2">How it works</h3>
                             <ul class="list-disc list-inside space-y-2 mt-2">
-                                <li><strong>Dynamic State Shifting:</strong> As files are processed block-by-block, substitution layers continuously rotate to simulate mechanical rotor stepping across byte indices.</li>
-                                <li><strong>Mathematical Reversibility:</strong> Mimicking the Enigma's reflector mechanics, the exact inverse mathematical operations are applied during decryption when supplied with the matching initial key state.</li>
+                                <li><strong>9 fixed rotors:</strong> Each rotor is a deterministic byte-shuffling table, generated once from a seeded pseudo-random sequence.</li>
+                                <li><strong>Fully reversible:</strong> Decryption runs the same rotors in reverse order using their inverse tables, so the original backup can always be reconstructed exactly.</li>
+                                <li><strong>Backup-only, not the primary defense:</strong> This is an extra obfuscation layer for exported backups — the vault's real security always comes from AES-256-GCM + Argon2id.</li>
                             </ul>
                         </div>
 
@@ -249,20 +247,25 @@
                 <!-- Security Layers & Technical Features -->
                 <div class="detail-card p-6 md:p-8">
                     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                        <i data-feather="shield" class="w-5 h-5 text-cyan-500"></i> Protection Architecture & Security Features
+                        <i data-feather="shield" class="w-5 h-5 text-cyan-500"></i> What's Inside
                     </h2>
                     <ul class="space-y-3 list-disc list-inside opacity-85">
-                        <li><strong>Standalone Binary Packaging:</strong> Compiled via PyInstaller to obscure raw <code>.py</code> source code and prevent simple inspection via text editors.</li>
-                        <li><strong>Silent Background Execution:</strong> Configured with <code>--noconsole</code> flags for clean background operations during encryption/decryption cycles.</li>
-                        <li><strong>Data Integrity Handling:</strong> Built-in input validation prevents partial reads from dropping unreadable garbage data back onto the disk.</li>
-                        <li><strong>Portable USB Compatibility:</strong> Can be dropped directly into any directory or USB flash drive to lock down files on the go.</li>
+                        <li><strong>AES-256-GCM encryption:</strong> The vault file is encrypted with a key derived from your master password using Argon2id — a memory-hard function designed to resist brute-force and GPU cracking attempts.</li>
+                        <li><strong>SafeAuth (optional 2FA):</strong> Turn on a 6-digit authenticator code, scanned once via QR, that's required alongside your master password at login.</li>
+                        <li><strong>Four entry types:</strong> Logins, secure notes, Wi-Fi credentials, and license/serial keys — all in one place.</li>
+                        <li><strong>Password generator & strength meter:</strong> Generate strong random passwords with adjustable length and character sets.</li>
+                        <li><strong>Breach checking (Have I Been Pwned):</strong> Checks your saved passwords against known data breaches, sending only a partial hash of the password — never the password itself.</li>
+                        <li><strong>Security Audit tab:</strong> Scans your whole vault at once and flags weak, reused, or breached passwords.</li>
+                        <li><strong>Audit Logs:</strong> A local log of logins, SafeAuth changes, and file encryption/decryption events, so you can see exactly when the vault was accessed.</li>
+                        <li><strong>Standalone file encryption:</strong> Encrypt or decrypt any file on your disk using the same AES-GCM scheme, independent of the vault.</li>
+                        <li><strong>Auto-lock & clipboard safety:</strong> The app locks itself after a period of inactivity, and anything copied to your clipboard clears automatically after a short timeout.</li>
                     </ul>
                 </div>
 
                 <!-- Specifications & Specifications Table -->
                 <div class="detail-card p-6 md:p-8">
                     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                        <i data-feather="sliders" class="w-5 h-5 text-cyan-500"></i> App Technical Specifications
+                        <i data-feather="sliders" class="w-5 h-5 text-cyan-500"></i> Technical Specifications
                     </h2>
                     <div class="overflow-x-auto">
                         <table class="w-full text-sm text-left opacity-85 border-collapse">
@@ -274,24 +277,40 @@
                             </thead>
                             <tbody class="divide-y divide-slate-200 dark:divide-slate-800">
                                 <tr>
-                                    <td class="py-2 font-semibold">Core Language</td>
+                                    <td class="py-2 font-semibold">Language</td>
                                     <td class="py-2">Python 3.x</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 font-semibold">Compilation Mode</td>
-                                    <td class="py-2">PyInstaller (<code>--onefile</code>, <code>--noconsole</code>)</td>
+                                    <td class="py-2 font-semibold">Interface</td>
+                                    <td class="py-2">Tkinter (native desktop GUI)</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 font-semibold">Cryptographic Logic</td>
-                                    <td class="py-2">Dynamic Byte-Substitution Rotor Stepping Cipher</td>
+                                    <td class="py-2 font-semibold">Key Derivation</td>
+                                    <td class="py-2">Argon2id (memory-hard, GPU-resistant)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-semibold">Vault Encryption</td>
+                                    <td class="py-2">AES-256-GCM (authenticated encryption)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-semibold">Two-Factor Auth</td>
+                                    <td class="py-2">TOTP (RFC 6238) via QR-based SafeAuth setup</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-semibold">Backup Layer</td>
+                                    <td class="py-2">Custom 9-rotor substitution cipher (offline export only)</td>
+                                </tr>
+                                <tr>
+                                    <td class="py-2 font-semibold">Breach Checking</td>
+                                    <td class="py-2">Have I Been Pwned API (k-anonymity, hash-prefix only)</td>
                                 </tr>
                                 <tr>
                                     <td class="py-2 font-semibold">Supported OS</td>
-                                    <td class="py-2">Windows (Native Portable Executable)</td>
+                                    <td class="py-2">Windows, Linux (macOS should work, untested)</td>
                                 </tr>
                                 <tr>
-                                    <td class="py-2 font-semibold">Target File Types</td>
-                                    <td class="py-2">Arbitrary Binary Data (Documents, Images, Archives, Databases)</td>
+                                    <td class="py-2 font-semibold">Data Handled</td>
+                                    <td class="py-2">Logins, notes, Wi-Fi credentials, license keys, arbitrary files</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -310,8 +329,7 @@
                             </div>
 
                             <p class="text-sm leading-relaxed text-slate-600 dark:text-slate-300 max-w-2xl">
-                                The full Python source code, PyInstaller build scripts, setup guidelines, 
-                                and standalone releases are hosted on GitHub.
+                                The full Python source code, setup instructions, and dependency list are hosted on GitHub — clone it and run it locally with your own vault.
                             </p>
                         </div>
 
@@ -340,11 +358,11 @@
                         <div>
                             <h2 class="text-2xl font-bold flex items-center gap-2">
                                 <i data-feather="git-branch" class="w-5 h-5 text-cyan-500"></i>
-                                Encryption Pipeline & System Architecture
+                                How the Encryption Flow Works
                             </h2>
 
                             <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">
-                                High-level data processing flow from raw binary input to encrypted output.
+                                From your master password to the encrypted vault file on disk.
                             </p>
                         </div>
 
@@ -368,7 +386,7 @@
                         >
                             <img
                                 src="assets/vault_workflow.jpg"
-                                alt="Vault App System Architecture Flowchart"
+                                alt="Shadow Vault Encryption Flow Diagram"
                                 class="connection-image w-full max-h-[700px] object-contain rounded-lg cursor-zoom-in"
                                 onerror="this.parentElement.innerHTML = `
                                     <div class='min-h-[300px] flex flex-col items-center justify-center text-center p-8'>
@@ -377,7 +395,7 @@
                                             <i data-feather='image' class='w-7 h-7 text-cyan-600 dark:text-cyan-300'></i>
                                         </div>
                                         <h3 class='font-semibold text-slate-800 dark:text-slate-100 mb-1'>
-                                            Workflow Diagram
+                                            Encryption Flow Diagram
                                         </h3>
                                         <p class='text-sm text-slate-500 dark:text-slate-400'>
                                             Add your workflow diagram image at
@@ -400,13 +418,15 @@
                 <!-- Build Steps / Process -->
                 <div class="detail-card p-6 md:p-8">
                     <h2 class="text-2xl font-bold mb-4 flex items-center gap-2">
-                        <i data-feather="tool" class="w-5 h-5 text-cyan-500"></i> Development Methodology & Build Steps
+                        <i data-feather="tool" class="w-5 h-5 text-cyan-500"></i> How It Was Built
                     </h2>
                     <ol class="space-y-4 list-decimal list-inside opacity-85">
-                        <span class="block"><strong>1. Algorithm Design:</strong> Constructed a custom mathematical cipher engine simulating rotor stepping transformations on binary file data stream chunks.</span>
-                        <span class="block"><strong>2. File Input/Output System:</strong> Developed safe file handling procedures with error checking to prevent file corruption during processing.</span>
-                        <span class="block"><strong>3. User Interface & State Management:</strong> Built a lightweight user interaction layer to select files, input key states, and execute locks/unlocks.</span>
-                        <span class="block"><strong>4. Executable Packaging:</strong> Compiled the Python environment into an isolated Windows binary using PyInstaller with <code>--onefile</code> and <code>--noconsole</code> parameters.</span>
+                        <span class="block"><strong>1. Encryption core:</strong> Implemented Argon2id key derivation and AES-256-GCM encryption/decryption for the vault file, with a fresh random salt and nonce on every save.</span>
+                        <span class="block"><strong>2. Vault & entry management:</strong> Built the data model for the four entry types (logins, notes, Wi-Fi, licenses), and safe atomic file writes so the vault can't get corrupted mid-save.</span>
+                        <span class="block"><strong>3. Desktop UI:</strong> Built the whole interface in Tkinter — login screen, dashboard, entry forms, and a tabbed settings panel.</span>
+                        <span class="block"><strong>4. SafeAuth (2FA):</strong> Added TOTP-based two-factor authentication with QR code setup, verification, and the ability to reset or disable it later.</span>
+                        <span class="block"><strong>5. Security tooling:</strong> Added the password generator, strength checker, Have I Been Pwned breach lookup, the full security audit report, and a local audit log for login/security events.</span>
+                        <span class="block"><strong>6. Extras:</strong> Added standalone file encryption/decryption, the 9-rotor backup cipher for offline exports, session auto-lock, and clipboard auto-clear.</span>
                     </ol>
                 </div>
 
