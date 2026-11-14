@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="SNAKE — Independent, privacy-focused desktop applications engineered for clarity, reliability, and complete user control."
+  />
+  <title>SNAKE — Powerful Tools. Complete Control.</title>
+
+  <!-- Modern Geometric Sans + Classic Editorial Serif & Monospace Typography -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,400;1,500;1,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'Plus Jakarta Sans', '-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'sans-serif'],
+            serif: ['Cormorant Garamond', 'Georgia', 'Times New Roman', 'serif'],
+            mono: ['IBM Plex Mono', 'ui-monospace', 'SFMono-Regular', 'monospace'],
+          },
+          colors: {
+            snake: {
+              white: '#FFFFFF',
+              alabaster: '#F6F9F7',
+              forest: '#164B32',
+              emerald: '#247A50',
+              obsidian: '#0D1B14',
+              slate: '#4A5D53',
+              moss: '#71837A',
+            },
+          },
+          boxShadow: {
+            'glass-sm': '0 6px 24px -6px rgba(13, 27, 20, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.95)',
+            'glass-md': '0 12px 36px -12px rgba(13, 27, 20, 0.08), inset 0 1px 0 0 rgba(255, 255, 255, 0.95)',
+            'glass-lg': '0 22px 54px -16px rgba(13, 27, 20, 0.11), 0 4px 16px -4px rgba(22, 75, 50, 0.06), inset 0 1px 0 0 rgba(255, 255, 255, 0.98)',
+          },
+        },
+      },
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg-white: #FFFFFF;
+      --bg-alabaster: #F6F9F7;
+      --accent-forest: #164B32;
+      --accent-emerald: #247A50;
+      --text-primary: #0D1B14;
+      --text-secondary: #4A5D53;
+      --text-muted: #71837A;
+      --glass-border: rgba(22, 75, 50, 0.12);
+      --glass-border-hover: rgba(36, 122, 80, 0.32);
+      --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      background: linear-gradient(180deg, #F6F9F7 0%, #FFFFFF 34%, #F7FAF8 70%, #FFFFFF 100%);
+      color: var(--text-primary);
+      font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
+    }
+
+    ::selection {
+      background-color: rgba(36, 122, 80, 0.16);
+      color: #0D1B14;
+    }
+
+    /* =========================================================================
+       LUMINOUS WHITE & ALABASTER SOFT GLASS SYSTEM
+       ========================================================================= */
+    .glass-nav {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.84) 0%,
+        rgba(246, 249, 247, 0.74) 100%
+      );
+      backdrop-filter: blur(28px) saturate(185%);
+      -webkit-backdrop-filter: blur(28px) saturate(185%);
+      border: 1px solid rgba(22, 75, 50, 0.12);
+      box-shadow:
+        0 10px 32px -10px rgba(13, 27, 20, 0.08),
+        0 2px 8px -2px rgba(22, 75, 50, 0.04),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.98);
+    }
+
+    .glass-panel {
+      position: relative;
+      background: linear-gradient(
+        155deg,
+        rgba(255, 255, 255, 0.84) 0%,
+        rgba(246, 249, 247, 0.72) 55%,
+        rgba(255, 255, 255, 0.78) 100%
+      );
+      backdrop-filter: blur(28px) saturate(185%);
+      -webkit-backdrop-filter: blur(28px) saturate(185%);
+      border: 1px solid var(--glass-border);
+      box-shadow:
+        0 12px 36px -12px rgba(13, 27, 20, 0.08),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.95),
+        inset 1px 0 0 0 rgba(255, 255, 255, 0.65);
+      transition:
+        transform 0.42s var(--ease-apple),
+        border-color 0.35s var(--ease-apple),
+        box-shadow 0.42s var(--ease-apple),
+        background 0.35s var(--ease-apple);
+    }
+
+    .glass-card-interactive:hover {
+      transform: translateY(-4px);
+      border-color: var(--glass-border-hover);
+      background: linear-gradient(
+        155deg,
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(243, 248, 245, 0.82) 55%,
+        rgba(255, 255, 255, 0.88) 100%
+      );
+      box-shadow:
+        0 22px 52px -14px rgba(13, 27, 20, 0.12),
+        0 6px 20px -6px rgba(36, 122, 80, 0.12),
+        inset 0 1px 0 0 rgba(255, 255, 255, 1);
+    }
+
+    .glass-pill {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.85) 0%,
+        rgba(246, 249, 247, 0.72) 100%
+      );
+      backdrop-filter: blur(28px) saturate(185%);
+      -webkit-backdrop-filter: blur(28px) saturate(185%);
+      border: 1px solid rgba(22, 75, 50, 0.12);
+      box-shadow:
+        0 6px 20px -6px rgba(13, 27, 20, 0.06),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+    }
+
+    .glass-subtle {
+      background: linear-gradient(
+        165deg,
+        rgba(255, 255, 255, 0.78) 0%,
+        rgba(246, 249, 247, 0.68) 100%
+      );
+      backdrop-filter: blur(24px) saturate(180%);
+      -webkit-backdrop-filter: blur(24px) saturate(180%);
+      border: 1px solid rgba(22, 75, 50, 0.11);
+      box-shadow:
+        0 6px 22px -8px rgba(13, 27, 20, 0.06),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.95);
+      transition: all 0.32s var(--ease-apple);
+    }
+
+    .glass-subtle:hover {
+      background: linear-gradient(
+        165deg,
+        rgba(255, 255, 255, 0.94) 0%,
+        rgba(241, 247, 244, 0.84) 100%
+      );
+      border-color: rgba(36, 122, 80, 0.3);
+      box-shadow:
+        0 12px 28px -8px rgba(13, 27, 20, 0.09),
+        0 4px 12px -4px rgba(36, 122, 80, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 1);
+      transform: translateY(-1px);
+    }
+
+    /* Forest Green Glass Primary CTA Button */
+    .btn-primary {
+      background: linear-gradient(
+        180deg,
+        rgba(36, 122, 80, 0.94) 0%,
+        rgba(22, 75, 50, 0.98) 100%
+      );
+      backdrop-filter: blur(20px) saturate(175%);
+      -webkit-backdrop-filter: blur(20px) saturate(175%);
+      border: 1px solid rgba(22, 75, 50, 0.85);
+      color: #FFFFFF;
+      box-shadow:
+        0 10px 26px -6px rgba(22, 75, 50, 0.32),
+        0 2px 6px -1px rgba(13, 27, 20, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.32);
+      transition: all 0.32s var(--ease-apple);
+    }
+
+    .btn-primary:hover {
+      background: linear-gradient(
+        180deg,
+        rgba(42, 136, 90, 0.98) 0%,
+        rgba(25, 86, 57, 1) 100%
+      );
+      box-shadow:
+        0 14px 32px -6px rgba(22, 75, 50, 0.4),
+        0 4px 10px -2px rgba(13, 27, 20, 0.12),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.4);
+      transform: translateY(-1px);
+    }
+
+    .btn-primary:active {
+      transform: translateY(0);
+    }
+
+    /* Frosted White Glass Secondary CTA Button */
+    .btn-secondary {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.86) 0%,
+        rgba(246, 249, 247, 0.74) 100%
+      );
+      backdrop-filter: blur(24px) saturate(185%);
+      -webkit-backdrop-filter: blur(24px) saturate(185%);
+      border: 1px solid rgba(22, 75, 50, 0.15);
+      color: #0D1B14;
+      box-shadow:
+        0 8px 22px -8px rgba(13, 27, 20, 0.08),
+        inset 0 1px 0 0 rgba(255, 255, 255, 0.96);
+      transition: all 0.32s var(--ease-apple);
+    }
+
+    .btn-secondary:hover {
+      background: linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.98) 0%,
+        rgba(242, 247, 244, 0.9) 100%
+      );
+      border-color: rgba(36, 122, 80, 0.34);
+      box-shadow:
+        0 12px 28px -8px rgba(13, 27, 20, 0.11),
+        0 4px 12px -4px rgba(36, 122, 80, 0.1),
+        inset 0 1px 0 0 rgba(255, 255, 255, 1);
+      transform: translateY(-1px);
+    }
+
+    /* Frosted Crystal Hero Emblem Medallion */
+    .hero-medallion {
+      background: linear-gradient(
+        150deg,
+        rgba(255, 255, 255, 0.92) 0%,
+        rgba(246, 249, 247, 0.78) 55%,
+        rgba(235, 244, 239, 0.86) 100%
+      );
+      backdrop-filter: blur(28px) saturate(185%);
+      -webkit-backdrop-filter: blur(28px) saturate(185%);
+      border: 1px solid rgba(22, 75, 50, 0.16);
+      box-shadow:
+        0 20px 50px -14px rgba(22, 75, 50, 0.18),
+        0 6px 18px -6px rgba(13, 27, 20, 0.07),
+        inset 0 1px 0 0 rgba(255, 255, 255, 1),
+        inset 0 -1px 0 0 rgba(22, 75, 50, 0.08);
+    }
+
+    /* =========================================================================
+       OLD-STYLE CUSTOM CRAFTSMANSHIP (CORNER TICKS & ENGRAVED DIVIDERS)
+       ========================================================================= */
+    .atelier-frame {
+      position: relative;
+    }
+
+    .atelier-tick {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-color: rgba(22, 75, 50, 0.24);
+      pointer-events: none;
+    }
+
+    .atelier-tick-tl {
+      top: 12px;
+      left: 12px;
+      border-top: 1px solid;
+      border-left: 1px solid;
+      border-top-left-radius: 2px;
+    }
+
+    .atelier-tick-tr {
+      top: 12px;
+      right: 12px;
+      border-top: 1px solid;
+      border-right: 1px solid;
+      border-top-right-radius: 2px;
+    }
+
+    .atelier-tick-bl {
+      bottom: 12px;
+      left: 12px;
+      border-bottom: 1px solid;
+      border-left: 1px solid;
+      border-bottom-left-radius: 2px;
+    }
+
+    .atelier-tick-br {
+      bottom: 12px;
+      right: 12px;
+      border-bottom: 1px solid;
+      border-right: 1px solid;
+      border-bottom-right-radius: 2px;
+    }
+
+    .engraved-divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
+
+    .engraved-divider::before,
+    .engraved-divider::after {
+      content: '';
+      height: 1px;
+      flex: 1;
+      background: linear-gradient(
+        90deg,
+        transparent 0%,
+        rgba(22, 75, 50, 0.16) 50%,
+        transparent 100%
+      );
+    }
+
+    /* Subtle Botanical Grid Texture */
+    .bg-botanical-grid {
+      background-image:
+        linear-gradient(to right, rgba(22, 75, 50, 0.032) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(22, 75, 50, 0.032) 1px, transparent 1px);
+      background-size: 64px 64px;
+    }
+
+    /* Slow Drifting Pale Sage & Soft Emerald Ambient Orbs */
+    @keyframes ambientFloatOne {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1);
+      }
+      50% {
+        transform: translate3d(22px, -16px, 0) scale(1.05);
+      }
+    }
+
+    @keyframes ambientFloatTwo {
+      0%, 100% {
+        transform: translate3d(0, 0, 0) scale(1.03);
+      }
+      50% {
+        transform: translate3d(-20px, 14px, 0) scale(0.97);
+      }
+    }
+
+    .ambient-orb-1 {
+      animation: ambientFloatOne 16s ease-in-out infinite;
+    }
+
+    .ambient-orb-2 {
+      animation: ambientFloatTwo 20s ease-in-out infinite;
+    }
+
+    /* Smooth View Fade Transition */
+    .view-transition {
+      animation: viewFadeIn 0.38s var(--ease-apple) forwards;
+    }
+
+    @keyframes viewFadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .ambient-orb-1,
+      .ambient-orb-2,
+      .view-transition {
+        animation: none !important;
+      }
+      .glass-panel,
+      .btn-primary,
+      .btn-secondary {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body class="text-snake-obsidian antialiased">
+  <!-- =====================================================================
+       SHARED BRAND SVG DEFINITIONS
+       Unified forest-to-emerald geometric snake emblem + app squircles
+       ===================================================================== -->
+  <svg aria-hidden="true" class="pointer-events-none fixed -left-[9999px] -top-[9999px] h-0 w-0 overflow-hidden">
+    <defs>
+      <!-- Deep Forest (#164B32) to Emerald (#247A50) Serpent Gradient -->
+      <linearGradient id="snake-brand-grad" x1="12%" y1="8%" x2="88%" y2="92%">
+        <stop offset="0%" stop-color="#164B32" />
+        <stop offset="52%" stop-color="#1D6341" />
+        <stop offset="100%" stop-color="#247A50" />
+      </linearGradient>
+
+      <!-- Frosted Crystal Squircle Backdrop for Application Badges -->
+      <linearGradient id="squircle-glass-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="#FFFFFF" />
+        <stop offset="55%" stop-color="#F2F7F4" />
+        <stop offset="100%" stop-color="#E4EFE9" />
+      </linearGradient>
+
+      <linearGradient id="squircle-border-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+        <stop offset="0%" stop-color="rgba(22, 75, 50, 0.24)" />
+        <stop offset="50%" stop-color="rgba(36, 122, 80, 0.34)" />
+        <stop offset="100%" stop-color="rgba(22, 75, 50, 0.14)" />
+      </linearGradient>
+
+      <!--
+        CORE UNIFIED SNAKE EMBLEM (120x120 viewBox)
+        Balanced S-curved serpent silhouette with sculpted head, precision eye
+        cutout, consistent channel geometry, and tapered tail.
+      -->
+      <symbol id="snake-emblem" viewBox="0 0 120 120">
+        <path
+          fill="url(#snake-brand-grad)"
+          fill-rule="evenodd"
+          d="
+            M 84 17.5
+            C 91.5 17.5, 96.5 21.2, 96.5 25.5
+            C 96.5 29.8, 91.5 33.5, 84 33.5
+            C 80.5 33.5, 78 31.8, 74.5 31.8
+            L 46 31.8
+            C 40.1 31.8, 35.3 36.6, 35.3 42.5
+            C 35.3 48.4, 40.1 53.2, 46 53.2
+            L 74 53.2
+            C 87.4 53.2, 98.3 64.1, 98.3 77.5
+            C 98.3 90.9, 87.4 101.8, 74 101.8
+            L 49 101.8
+            C 37.5 101.8, 25.5 98.5, 23.5 95.2
+            C 25.5 91.9, 37.5 88.6, 49 88.6
+            L 74 88.6
+            C 80.1 88.6, 85.1 83.6, 85.1 77.5
+            C 85.1 71.4, 80.1 66.4, 74 66.4
+            L 46 66.4
+            C 32.8 66.4, 22.1 55.7, 22.1 42.5
+            C 22.1 29.3, 32.8 18.6, 46 18.6
+            L 74.5 18.6
+            C 78 18.6, 80.5 17.5, 84 17.5
+            Z
+            M 84.5 22.2
+            A 2.1 2.1 0 1 0 84.5 26.4
+            A 2.1 2.1 0 1 0 84.5 22.2
+            Z
+          "
+        />
+      </symbol>
+
+      <!-- APPLICATION ICON 1: SNAKE VAULT -->
+      <symbol id="app-icon-vault" viewBox="0 0 96 96">
+        <rect x="2" y="2" width="92" height="92" rx="22" fill="url(#squircle-glass-grad)" />
+        <rect x="2" y="2" width="92" height="92" rx="22" fill="none" stroke="url(#squircle-border-grad)" stroke-width="1.5" />
+        <circle cx="48" cy="48" r="35" fill="none" stroke="rgba(22, 75, 50, 0.24)" stroke-width="1.2" stroke-dasharray="3 4.5" />
+        <circle cx="48" cy="48" r="29" fill="none" stroke="rgba(36, 122, 80, 0.16)" stroke-width="1" />
+        <use href="#snake-emblem" x="18" y="18" width="60" height="60" />
+      </symbol>
+
+      <!-- APPLICATION ICON 2: SNAKE TILER -->
+      <symbol id="app-icon-tiler" viewBox="0 0 96 96">
+        <rect x="2" y="2" width="92" height="92" rx="22" fill="url(#squircle-glass-grad)" />
+        <rect x="2" y="2" width="92" height="92" rx="22" fill="none" stroke="url(#squircle-border-grad)" stroke-width="1.5" />
+        <rect x="16" y="16" width="64" height="64" rx="8" fill="none" stroke="rgba(22, 75, 50, 0.22)" stroke-width="1.15" />
+        <line x1="48" y1="16" x2="48" y2="80" stroke="rgba(36, 122, 80, 0.18)" stroke-width="1" stroke-dasharray="2.5 3" />
+        <line x1="16" y1="48" x2="80" y2="48" stroke="rgba(36, 122, 80, 0.18)" stroke-width="1" stroke-dasharray="2.5 3" />
+        <use href="#snake-emblem" x="18" y="18" width="60" height="60" />
+      </symbol>
+
+      <!-- APPLICATION ICON 3: SNAKE PDF STUDIO -->
+      <symbol id="app-icon-pdf-studio" viewBox="0 0 96 96">
+        <rect x="2" y="2" width="92" height="92" rx="22" fill="url(#squircle-glass-grad)" />
+        <rect x="2" y="2" width="92" height="92" rx="22" fill="none" stroke="url(#squircle-border-grad)" stroke-width="1.5" />
+        <rect x="21" y="14" width="54" height="68" rx="7" fill="none" stroke="rgba(22, 75, 50, 0.15)" stroke-width="1" />
+        <path
+          d="M 25 18 H 61 L 71 28 V 74 A 4 4 0 0 1 67 78 H 25 A 4 4 0 0 1 21 74 V 22 A 4 4 0 0 1 25 18 Z"
+          fill="none"
+          stroke="rgba(22, 75, 50, 0.25)"
+          stroke-width="1.15"
+        />
+        <use href="#snake-emblem" x="18" y="18" width="60" height="60" />
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- =====================================================================
+       AMBIENT PALE SAGE & SOFT EMERALD LIGHTING LAYER
+       ===================================================================== -->
+  <div aria-hidden="true" class="pointer-events-none fixed inset-0 -z-10 overflow-hidden">
+    <div class="bg-botanical-grid absolute inset-0 opacity-85"></div>
+    <div
+      class="ambient-orb-1 absolute -top-28 left-1/2 h-[500px] w-[780px] -translate-x-1/2 rounded-full blur-[110px]"
+      style="background: radial-gradient(circle, rgba(36, 122, 80, 0.085) 0%, rgba(22, 75, 50, 0.04) 52%, transparent 76%);"
+    ></div>
+    <div
+      class="ambient-orb-2 absolute bottom-[-140px] right-[-100px] h-[480px] w-[620px] rounded-full blur-[120px]"
+      style="background: radial-gradient(circle, rgba(22, 75, 50, 0.065) 0%, rgba(36, 122, 80, 0.03) 58%, transparent 78%);"
+    ></div>
+    <div
+      class="absolute left-[-120px] top-[42%] h-[420px] w-[480px] rounded-full blur-[120px]"
+      style="background: radial-gradient(circle, rgba(36, 122, 80, 0.05) 0%, transparent 72%);"
+    ></div>
+  </div>
+
+  <!-- =====================================================================
+       A. COMPACT FLOATING FROSTED GLASS NAVIGATION BAR
+       ===================================================================== -->
+  <header class="sticky top-0 z-50 px-3 pt-2.5 sm:px-5 lg:px-8">
+    <nav
+      aria-label="Primary Navigation"
+      class="glass-nav mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-3.5 py-1.5 sm:px-5"
+    >
+      <!-- Left: SNAKE Squircle Icon + Bold Tracked Wordmark -->
+      <a
+        href="#home"
+        data-nav-action="home"
+        class="group flex items-center gap-2.5 rounded-xl py-0.5 pr-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-snake-emerald"
+      >
+        <div
+          class="flex h-8 w-8 items-center justify-center rounded-xl border border-snake-forest/15 bg-gradient-to-br from-white to-[#ECF4EF] shadow-[inset_0_1px_0_rgba(255,255,255,1),0_2px_6px_rgba(22,75,50,0.08)] transition-all duration-300 group-hover:border-snake-emerald/40 group-hover:shadow-[0_4px_12px_rgba(36,122,80,0.16)]"
+        >
+          <svg class="h-5 w-5" viewBox="0 0 120 120" aria-hidden="true">
+            <use href="#snake-emblem" />
+          </svg>
+        </div>
+        <div class="flex items-baseline gap-2">
+          <span class="text-sm font-bold tracking-[0.2em] text-snake-obsidian sm:text-[15px]">SNAKE</span>
+          <span class="hidden font-mono text-[10px] tracking-widest text-snake-moss lg:inline">MMXXVI</span>
+        </div>
+      </a>
+
+      <!-- Right: Desktop Navigation Links + Forest Green Glass Explore Button -->
+      <div class="hidden items-center gap-0.5 md:flex lg:gap-1">
+        <a
+          href="#home"
+          data-nav-action="home"
+          class="nav-link rounded-xl px-3 py-1.5 text-sm font-medium text-snake-slate transition-colors duration-200 hover:bg-snake-forest/[0.05] hover:text-snake-obsidian"
+        >
+          Home
+        </a>
+        <a
+          href="#applications"
+          data-nav-action="section"
+          data-target="applications"
+          class="nav-link rounded-xl px-3 py-1.5 text-sm font-medium text-snake-slate transition-colors duration-200 hover:bg-snake-forest/[0.05] hover:text-snake-obsidian"
+        >
+          Applications
+        </a>
+        <a
+          href="#about"
+          data-nav-action="section"
+          data-target="about"
+          class="nav-link rounded-xl px-3 py-1.5 text-sm font-medium text-snake-slate transition-colors duration-200 hover:bg-snake-forest/[0.05] hover:text-snake-obsidian"
+        >
+          About
+        </a>
+        <a
+          href="#contact"
+          data-nav-action="section"
+          data-target="contact"
+          class="nav-link rounded-xl px-3 py-1.5 text-sm font-medium text-snake-slate transition-colors duration-200 hover:bg-snake-forest/[0.05] hover:text-snake-obsidian"
+        >
+          Contact
+        </a>
+
+        <div class="mx-1.5 h-4 w-px bg-snake-forest/15" aria-hidden="true"></div>
+
+        <button
+          type="button"
+          data-nav-action="section"
+          data-target="applications"
+          class="btn-primary rounded-xl px-3.5 py-1.5 text-sm font-medium focus:outline-none focus-visible:ring-2 focus-visible:ring-snake-emerald"
+        >
+          Explore
+        </button>
+      </div>
+
+      <!-- Mobile Menu Toggle -->
+      <div class="flex items-center gap-2 md:hidden">
+        <button
+          type="button"
+          data-nav-action="section"
+          data-target="applications"
+          class="btn-primary rounded-xl px-3 py-1.5 text-xs font-medium"
+        >
+          Explore
+        </button>
+        <button
+          id="mobile-menu-btn"
+          type="button"
+          aria-label="Toggle Navigation Menu"
+          aria-expanded="false"
+          aria-controls="mobile-menu-drawer"
+          class="flex h-8 w-8 items-center justify-center rounded-xl border border-snake-forest/15 bg-white/80 text-snake-obsidian transition-colors hover:bg-white"
+        >
+          <svg id="menu-icon-open" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M4 7h16M4 12h16M4 17h16" />
+          </svg>
+          <svg id="menu-icon-close" class="hidden h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+      </div>
+    </nav>
+
+    <!-- Responsive Mobile Frosted Glass Drawer -->
+    <div
+      id="mobile-menu-drawer"
+      class="glass-nav mx-auto mt-2 hidden max-w-6xl rounded-2xl p-2.5 md:hidden"
+    >
+      <div class="flex flex-col space-y-1">
+        <a
+          href="#home"
+          data-nav-action="home"
+          class="rounded-xl px-3.5 py-2 text-sm font-medium text-snake-obsidian transition-colors hover:bg-snake-forest/[0.05]"
+        >
+          Home
+        </a>
+        <a
+          href="#applications"
+          data-nav-action="section"
+          data-target="applications"
+          class="rounded-xl px-3.5 py-2 text-sm font-medium text-snake-slate transition-colors hover:bg-snake-forest/[0.05] hover:text-snake-obsidian"
+        >
+          Applications
+        </a>
+        <a
+          href="#about"
+          data-nav-action="section"
+          data-target="about"
+          class="rounded-xl px-3.5 py-2 text-sm font-medium text-snake-slate transition-colors hover:bg-snake-forest/[0.05] hover:text-snake-obsidian"
+        >
+          About
+        </a>
+        <a
+          href="#contact"
+          data-nav-action="section"
+          data-target="contact"
+          class="rounded-xl px-3.5 py-2 text-sm font-medium text-snake-slate transition-colors hover:bg-snake-forest/[0.05] hover:text-snake-obsidian"
+        >
+          Contact
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- =====================================================================
+       MAIN LANDING PAGE VIEW
+       ===================================================================== -->
+  
+
+    <!-- Engraved Hairline Section Divider -->
+    <div class="engraved-divider mx-auto max-w-4xl px-6" aria-hidden="true">
+      <span class="font-serif text-xs italic text-snake-forest/55">&loz;</span>
+    </div>
+
+    <!-- -------------------------------------------------------------------
+         C. APPLICATIONS SECTION (THREE DISTINCT PRODUCTS)
+         ------------------------------------------------------------------- -->
+    <section id="applications" class="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div class="mx-auto max-w-6xl">
+        <!-- Section Heading with Roman Numeral Marker -->
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="font-serif text-sm italic tracking-widest text-snake-forest">I.</span>
+          <h2 class="mt-1 text-3xl font-semibold tracking-[-0.025em] text-snake-obsidian sm:text-4xl">
+            Our Applications
+          </h2>
+          <p class="mt-2 font-serif text-lg italic text-snake-slate sm:text-xl">
+            Three tools. Different purposes. One ecosystem.
+          </p>
+        </div>
+
+        <!-- Three Separate Frosted Glass Application Cards -->
+        <div class="mt-9 grid grid-cols-1 gap-6 lg:grid-cols-3">
+          <!-- APPLICATION 1: SNAKE VAULT -->
+          <article class="glass-panel glass-card-interactive atelier-frame flex flex-col justify-between rounded-3xl p-6 sm:p-7">
+            <span class="atelier-tick atelier-tick-tl" aria-hidden="true"></span>
+            <span class="atelier-tick atelier-tick-tr" aria-hidden="true"></span>
+            <div>
+              <!-- Card Header: App Squircle Icon + Category Badge -->
+              <div class="flex items-start justify-between gap-4">
+                <svg class="h-14 w-14 shrink-0 rounded-2xl shadow-glass-sm" viewBox="0 0 96 96" role="img" aria-label="SNAKE Vault Application Icon">
+                  <use href="#app-icon-vault" />
+                </svg>
+                <span
+                  class="glass-pill rounded-full px-3 py-1 text-xs font-medium text-snake-forest"
+                >
+                  Privacy &amp; Security
+                </span>
+              </div>
+
+              <!-- Title & Tagline -->
+              <div class="mt-5">
+                <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-snake-moss">Application 01</div>
+                <h3 class="mt-0.5 text-xl font-semibold tracking-tight text-snake-obsidian">SNAKE VAULT</h3>
+                <p class="mt-1 text-sm font-medium text-snake-emerald">
+                  Your digital security, under your control.
+                </p>
+              </div>
+
+              <!-- Feature Highlights -->
+              <ul class="mt-5 space-y-2.5 border-t border-snake-forest/10 pt-5 text-sm text-snake-slate">
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>
+                    Enigma-inspired password management system <span class="text-xs text-snake-moss">(mechanical rotor-inspired interface &amp; design concept)</span>
+                  </span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Complex configurable password combinations</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Secure file encryption and decryption</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Optional authenticator code generation (TOTP)</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Local-first storage and privacy-focused design</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Action Button -->
+            <div class="mt-6 pt-2">
+              <button
+                type="button"
+                data-open-app="vault"
+                class="btn-secondary group flex w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium text-snake-obsidian"
+              >
+                <span>Explore Vault</span>
+                <svg
+                  class="h-4 w-4 text-snake-moss transition-transform duration-300 group-hover:translate-x-1 group-hover:text-snake-forest"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- APPLICATION 2: SNAKE TILER -->
+          <article class="glass-panel glass-card-interactive atelier-frame flex flex-col justify-between rounded-3xl p-6 sm:p-7">
+            <span class="atelier-tick atelier-tick-tl" aria-hidden="true"></span>
+            <span class="atelier-tick atelier-tick-tr" aria-hidden="true"></span>
+            <div>
+              <!-- Card Header -->
+              <div class="flex items-start justify-between gap-4">
+                <svg class="h-14 w-14 shrink-0 rounded-2xl shadow-glass-sm" viewBox="0 0 96 96" role="img" aria-label="SNAKE Tiler Application Icon">
+                  <use href="#app-icon-tiler" />
+                </svg>
+                <span
+                  class="glass-pill rounded-full px-3 py-1 text-xs font-medium text-snake-forest"
+                >
+                  Image &amp; Print Utility
+                </span>
+              </div>
+
+              <!-- Title & Tagline -->
+              <div class="mt-5">
+                <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-snake-moss">Application 02</div>
+                <h3 class="mt-0.5 text-xl font-semibold tracking-tight text-snake-obsidian">SNAKE TILER</h3>
+                <p class="mt-1 text-sm font-medium text-snake-emerald">
+                  Turn any image into a large printable poster.
+                </p>
+              </div>
+
+              <!-- Feature Highlights -->
+              <ul class="mt-5 space-y-2.5 border-t border-snake-forest/10 pt-5 text-sm text-snake-slate">
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Split large images into multiple printable pages</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Support A4 and other paper sizes</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Custom poster dimensions</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>High-resolution output</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Generate multi-page PDF files</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Print individual pages and assemble them into one large poster</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Action Button -->
+            <div class="mt-6 pt-2">
+              <button
+                type="button"
+                data-open-app="tiler"
+                class="btn-secondary group flex w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium text-snake-obsidian"
+              >
+                <span>Explore Tiler</span>
+                <svg
+                  class="h-4 w-4 text-snake-moss transition-transform duration-300 group-hover:translate-x-1 group-hover:text-snake-forest"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+
+          <!-- APPLICATION 3: SNAKE PDF STUDIO -->
+          <article class="glass-panel glass-card-interactive atelier-frame flex flex-col justify-between rounded-3xl p-6 sm:p-7">
+            <span class="atelier-tick atelier-tick-tl" aria-hidden="true"></span>
+            <span class="atelier-tick atelier-tick-tr" aria-hidden="true"></span>
+            <div>
+              <!-- Card Header -->
+              <div class="flex items-start justify-between gap-4">
+                <svg class="h-14 w-14 shrink-0 rounded-2xl shadow-glass-sm" viewBox="0 0 96 96" role="img" aria-label="SNAKE PDF Studio Application Icon">
+                  <use href="#app-icon-pdf-studio" />
+                </svg>
+                <span
+                  class="glass-pill rounded-full px-3 py-1 text-xs font-medium text-snake-forest"
+                >
+                  PDF &amp; Productivity
+                </span>
+              </div>
+
+              <!-- Title & Tagline -->
+              <div class="mt-5">
+                <div class="font-mono text-[10px] uppercase tracking-[0.2em] text-snake-moss">Application 03</div>
+                <h3 class="mt-0.5 text-xl font-semibold tracking-tight text-snake-obsidian">SNAKE PDF STUDIO</h3>
+                <p class="mt-1 text-sm font-medium text-snake-emerald">
+                  Everything you need to work with documents.
+                </p>
+              </div>
+
+              <!-- Feature Highlights -->
+              <ul class="mt-5 space-y-2 border-t border-snake-forest/10 pt-5 text-sm text-snake-slate">
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Merge and split PDF files</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Compress and convert PDFs</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Organize and rotate pages</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Image format conversion</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>QR code and barcode generation</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Bulk file renaming</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Offline image background removal</span>
+                </li>
+                <li class="flex items-start gap-2.5">
+                  <svg class="mt-0.5 h-4 w-4 shrink-0 text-snake-emerald" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                  </svg>
+                  <span>Additional document utilities</span>
+                </li>
+              </ul>
+            </div>
+
+            <!-- Action Button -->
+            <div class="mt-6 pt-2">
+              <button
+                type="button"
+                data-open-app="pdf-studio"
+                class="btn-secondary group flex w-full items-center justify-between rounded-2xl px-4 py-3 text-sm font-medium text-snake-obsidian"
+              >
+                <span>Explore PDF Studio</span>
+                <svg
+                  class="h-4 w-4 text-snake-moss transition-transform duration-300 group-hover:translate-x-1 group-hover:text-snake-forest"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  stroke-width="2"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engraved Hairline Section Divider -->
+    <div class="engraved-divider mx-auto max-w-4xl px-6" aria-hidden="true">
+      <span class="font-serif text-xs italic text-snake-forest/55">&loz;</span>
+    </div>
+
+    <!-- -------------------------------------------------------------------
+         E. WHY SNAKE SECTION
+         ------------------------------------------------------------------- -->
+    <section id="why-snake" class="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div class="mx-auto max-w-6xl">
+        <div class="mx-auto max-w-2xl text-center">
+          <span class="font-serif text-sm italic tracking-widest text-snake-forest">II.</span>
+          <h2 class="mt-1 text-3xl font-semibold tracking-[-0.025em] text-snake-obsidian sm:text-4xl">
+            Designed with purpose. <span class="font-serif font-medium italic text-snake-forest">Built with control.</span>
+          </h2>
+        </div>
+
+        <div class="mt-9 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <!-- Principle 1 -->
+          <div class="glass-panel rounded-3xl p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl border border-snake-forest/15 bg-snake-forest/[0.06] text-snake-forest shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M12 3l7 4v5c0 4.97-3.05 9.18-7 10.5C8.05 21.18 5 16.97 5 12V7l7-4z" />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-base font-semibold text-snake-obsidian">Privacy First</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-snake-slate">
+              Applications designed around local processing and user control.
+            </p>
+          </div>
+
+          <!-- Principle 2 -->
+          <div class="glass-panel rounded-3xl p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl border border-snake-forest/15 bg-snake-forest/[0.06] text-snake-forest shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M9.75 3.104v5.714a2.25 2.25 0 01-.659 1.591L5 14.5M9.75 3.104c-.251.023-.501.05-.75.082m.75-.082a24.301 24.301 0 014.5 0m0 0v5.714c0 .597.237 1.17.659 1.591L19.8 15.3M14.25 3.104c.251.023.501.05.75.082M4.5 19.5h15" />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-base font-semibold text-snake-obsidian">Thoughtful Engineering</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-snake-slate">
+              Practical tools with carefully designed workflows.
+            </p>
+          </div>
+
+          <!-- Principle 3 -->
+          <div class="glass-panel rounded-3xl p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl border border-snake-forest/15 bg-snake-forest/[0.06] text-snake-forest shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h10M4 18h14" />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-base font-semibold text-snake-obsidian">Simple Experience</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-snake-slate">
+              Powerful functionality without unnecessary complexity.
+            </p>
+          </div>
+
+          <!-- Principle 4 -->
+          <div class="glass-panel rounded-3xl p-6">
+            <div class="flex h-10 w-10 items-center justify-center rounded-2xl border border-snake-forest/15 bg-snake-forest/[0.06] text-snake-forest shadow-[inset_0_1px_0_rgba(255,255,255,0.9)]">
+              <svg class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.75">
+                <rect x="4" y="4" width="6.5" height="6.5" rx="1.5" />
+                <rect x="13.5" y="4" width="6.5" height="6.5" rx="1.5" />
+                <rect x="4" y="13.5" width="6.5" height="6.5" rx="1.5" />
+                <rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1.5" />
+              </svg>
+            </div>
+            <h3 class="mt-4 text-base font-semibold text-snake-obsidian">One Consistent Ecosystem</h3>
+            <p class="mt-1.5 text-sm leading-relaxed text-snake-slate">
+              A unified visual identity across all SNAKE applications.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Engraved Hairline Section Divider -->
+    <div class="engraved-divider mx-auto max-w-4xl px-6" aria-hidden="true">
+      <span class="font-serif text-xs italic text-snake-forest/55">&loz;</span>
+    </div>
+
+    <!-- -------------------------------------------------------------------
+         F. ABOUT & DIRECT CONTACT SECTION
+         ------------------------------------------------------------------- -->
+    <section id="about" class="px-4 py-12 sm:px-6 lg:px-8 lg:py-16">
+      <div class="mx-auto max-w-4xl">
+        <div class="glass-panel atelier-frame relative overflow-hidden rounded-[30px] p-7 sm:p-10 lg:p-11">
+          <span class="atelier-tick atelier-tick-tl" aria-hidden="true"></span>
+          <span class="atelier-tick atelier-tick-tr" aria-hidden="true"></span>
+          <span class="atelier-tick atelier-tick-bl" aria-hidden="true"></span>
+          <span class="atelier-tick atelier-tick-br" aria-hidden="true"></span>
+
+          <div class="relative flex flex-col items-start gap-8 md:flex-row md:items-center md:justify-between">
+            <div class="max-w-2xl">
+              <div class="flex items-center gap-2.5">
+                <span class="font-serif text-sm italic tracking-widest text-snake-forest">III.</span>
+                <span class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-snake-emerald">
+                  About SNAKE
+                </span>
+              </div>
+              <h2 class="mt-2 text-2xl font-semibold tracking-[-0.02em] text-snake-obsidian sm:text-3xl lg:text-4xl">
+                A different approach to <span class="font-serif font-medium italic text-snake-forest">everyday software.</span>
+              </h2>
+              <p class="mt-3.5 text-base leading-relaxed text-snake-slate sm:text-[17px] sm:leading-relaxed">
+                SNAKE is an independent software initiative focused on building practical desktop applications. Our goal is to create useful, thoughtfully designed tools that give users more control over their digital workflows.
+              </p>
+
+              <!-- Developer Credit Pill -->
+              <div class="glass-pill mt-6 inline-flex items-center gap-3 rounded-2xl px-4 py-2">
+                <svg class="h-5 w-5 shrink-0" viewBox="0 0 120 120" aria-hidden="true">
+                  <use href="#snake-emblem" />
+                </svg>
+                <span class="text-sm font-medium text-snake-obsidian">
+                  Created by Harsh Leuva <span class="mx-1.5 text-snake-moss">|</span> <span class="text-snake-slate">IISER Pune</span>
+                </span>
+              </div>
+            </div>
+
+            <!-- Classic Botanical Atelier Seal -->
+            <div class="hidden shrink-0 md:flex">
+              <div class="glass-pill flex h-28 w-28 flex-col items-center justify-center rounded-full border border-snake-forest/20 p-2.5 text-center">
+                <div class="flex h-full w-full flex-col items-center justify-center rounded-full border border-dashed border-snake-forest/25">
+                  <svg class="h-8 w-8" viewBox="0 0 120 120" aria-hidden="true">
+                    <use href="#snake-emblem" />
+                  </svg>
+                  <span class="mt-1 font-mono text-[8px] uppercase tracking-[0.2em] text-snake-forest">SNAKE &middot; PUNE</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DIRECT CONTACT & INTERACTIVE EMAIL COMPOSER -->
+    <section id="contact" class="px-4 pb-20 pt-2 sm:px-6 lg:px-8 lg:pb-24">
+      <div class="mx-auto max-w-4xl">
+        <div class="glass-panel atelier-frame rounded-[30px] p-7 sm:p-10">
+          <span class="atelier-tick atelier-tick-tl" aria-hidden="true"></span>
+          <span class="atelier-tick atelier-tick-tr" aria-hidden="true"></span>
+          <span class="atelier-tick atelier-tick-bl" aria-hidden="true"></span>
+          <span class="atelier-tick atelier-tick-br" aria-hidden="true"></span>
+
+          <div class="grid grid-cols-1 gap-8 lg:grid-cols-12 lg:items-start">
+            <div class="lg:col-span-5">
+              <div class="flex items-center gap-2.5">
+                <span class="font-serif text-sm italic tracking-widest text-snake-forest">IV.</span>
+                <span class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-snake-emerald">
+                  Correspondence
+                </span>
+              </div>
+              <h2 class="mt-2 text-2xl font-semibold tracking-[-0.02em] text-snake-obsidian sm:text-3xl">
+                Write to <span class="font-serif font-medium italic text-snake-forest">SNAKE.</span>
+              </h2>
+              <p class="mt-2.5 text-sm leading-relaxed text-snake-slate">
+                Questions about SNAKE Vault, SNAKE Tiler, or SNAKE PDF Studio? Compose a message below or launch your default mail client directly.
+              </p>
+
+              <!-- Direct Email Card + Copy Email Button -->
+              <div class="glass-subtle mt-5 rounded-2xl p-4">
+                <div class="font-mono text-[10px] uppercase tracking-[0.18em] text-snake-moss">Direct Email</div>
+                <div class="mt-1 font-mono text-xs font-medium text-snake-obsidian sm:text-sm">
+                  hh6060348@gmail.com
+                </div>
+                <div class="mt-3 flex flex-wrap items-center gap-2">
+                  <a
+                    href="mailto:hh6060348@gmail.com?subject=SNAKE%20Software%20Inquiry"
+                    class="btn-primary inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-medium"
+                  >
+                    <span>Open Mail App</span>
+                    <svg class="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                      <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                    </svg>
+                  </a>
+                  <button
+                    id="copy-email-btn"
+                    type="button"
+                    class="btn-secondary inline-flex items-center gap-1.5 rounded-xl px-3 py-1.5 text-xs font-medium"
+                  >
+                    <svg class="h-3.5 w-3.5 text-snake-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                      <rect x="9" y="9" width="13" height="13" rx="2" />
+                      <path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1" />
+                    </svg>
+                    <span id="copy-email-label">Copy Email</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Pre-Filled Mailto Composer -->
+            <form id="contact-form" class="space-y-3.5 lg:col-span-7" novalidate>
+              <div>
+                <label for="contact-subject" class="mb-1 block text-xs font-medium text-snake-slate">
+                  Subject
+                </label>
+                <input
+                  id="contact-subject"
+                  type="text"
+                  placeholder="Inquiry regarding SNAKE applications"
+                  class="w-full rounded-xl border border-snake-forest/15 bg-white/80 px-3.5 py-2 text-sm text-snake-obsidian placeholder-snake-moss/70 backdrop-blur-md transition-colors focus:border-snake-emerald focus:bg-white focus:outline-none"
+                />
+              </div>
+
+              <div>
+                <label for="contact-message" class="mb-1 block text-xs font-medium text-snake-slate">
+                  Message
+                </label>
+                <textarea
+                  id="contact-message"
+                  rows="3"
+                  placeholder="Write your message for hh6060348@gmail.com..."
+                  class="w-full rounded-xl border border-snake-forest/15 bg-white/80 px-3.5 py-2 text-sm text-snake-obsidian placeholder-snake-moss/70 backdrop-blur-md transition-colors focus:border-snake-emerald focus:bg-white focus:outline-none"
+                ></textarea>
+              </div>
+
+              <div class="flex flex-wrap items-center justify-between gap-3 pt-1">
+                <button
+                  type="submit"
+                  class="btn-primary inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-sm font-medium"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>Compose Email</span>
+                </button>
+                <span id="contact-feedback" role="status" aria-live="polite" class="text-xs font-medium text-snake-forest"></span>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- =====================================================================
+       D. DEDICATED APPLICATION DETAIL VIEW (NO PREVIEW MOCKUPS)
+       ===================================================================== -->
+  <section id="view-detail" hidden class="view-transition px-4 pb-20 pt-7 sm:px-6 lg:px-8 lg:pb-24 lg:pt-9">
+    <div class="mx-auto max-w-5xl">
+      <!-- Top Navigation Bar: Back to Ecosystem + Application Switcher Pills -->
+      <div class="mb-7 flex flex-col justify-between gap-3 sm:flex-row sm:items-center">
+        <button
+          type="button"
+          data-nav-action="home"
+          class="btn-secondary inline-flex w-fit items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium text-snake-obsidian"
+        >
+          <svg class="h-4 w-4 text-snake-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+          </svg>
+          <span>Back to Ecosystem</span>
+        </button>
+
+        <!-- Quick Switcher Between All Three SNAKE Applications -->
+        <div class="glass-pill flex flex-wrap items-center gap-1 rounded-2xl p-1">
+          <button
+            type="button"
+            data-open-app="vault"
+            data-detail-tab="vault"
+            class="detail-tab rounded-xl px-3.5 py-1.5 text-xs font-medium transition-all"
+          >
+            SNAKE Vault
+          </button>
+          <button
+            type="button"
+            data-open-app="tiler"
+            data-detail-tab="tiler"
+            class="detail-tab rounded-xl px-3.5 py-1.5 text-xs font-medium transition-all"
+          >
+            SNAKE Tiler
+          </button>
+          <button
+            type="button"
+            data-open-app="pdf-studio"
+            data-detail-tab="pdf-studio"
+            class="detail-tab rounded-xl px-3.5 py-1.5 text-xs font-medium transition-all"
+          >
+            SNAKE PDF Studio
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Application Detail Mount (Header, Features, System Requirements, Availability) -->
+      <div id="detail-content-mount"></div>
+    </div>
+  </section>
+
+  <!-- =====================================================================
+       G. FOOTER
+       ===================================================================== -->
+  <footer class="border-t border-snake-forest/12 bg-white/75 px-4 py-12 backdrop-blur-2xl sm:px-6 lg:px-8">
+    <div class="mx-auto max-w-6xl">
+      <div class="grid grid-cols-1 gap-8 md:grid-cols-12">
+        <!-- Brand Column -->
+        <div class="md:col-span-5">
+          <a href="#home" data-nav-action="home" class="inline-flex items-center gap-2.5">
+            <div class="flex h-8 w-8 items-center justify-center rounded-xl border border-snake-forest/15 bg-gradient-to-br from-white to-[#ECF4EF] shadow-[inset_0_1px_0_rgba(255,255,255,1)]">
+              <svg class="h-5 w-5" viewBox="0 0 120 120" aria-hidden="true">
+                <use href="#snake-emblem" />
+              </svg>
+            </div>
+            <span class="text-base font-bold tracking-[0.2em] text-snake-obsidian">SNAKE</span>
+          </a>
+          <p class="mt-3 max-w-sm text-sm leading-relaxed text-snake-slate">
+            Independent, privacy-focused desktop utilities engineered for clarity, reliability, and complete local control.
+          </p>
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="md:col-span-3">
+          <h3 class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-snake-obsidian">Navigation</h3>
+          <ul class="mt-3.5 space-y-2 text-sm text-snake-slate">
+            <li>
+              <a href="#home" data-nav-action="home" class="transition-colors hover:text-snake-forest">Home</a>
+            </li>
+            <li>
+              <a href="#applications" data-nav-action="section" data-target="applications" class="transition-colors hover:text-snake-forest">Applications</a>
+            </li>
+            <li>
+              <a href="#about" data-nav-action="section" data-target="about" class="transition-colors hover:text-snake-forest">About</a>
+            </li>
+            <li>
+              <a href="#contact" data-nav-action="section" data-target="contact" class="transition-colors hover:text-snake-forest">Contact</a>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Application Links -->
+        <div class="md:col-span-4">
+          <h3 class="font-mono text-xs font-semibold uppercase tracking-[0.16em] text-snake-obsidian">Applications</h3>
+          <ul class="mt-3.5 space-y-2 text-sm text-snake-slate">
+            <li>
+              <button type="button" data-open-app="vault" class="transition-colors hover:text-snake-forest">
+                SNAKE Vault
+              </button>
+            </li>
+            <li>
+              <button type="button" data-open-app="tiler" class="transition-colors hover:text-snake-forest">
+                SNAKE Tiler
+              </button>
+            </li>
+            <li>
+              <button type="button" data-open-app="pdf-studio" class="transition-colors hover:text-snake-forest">
+                SNAKE PDF Studio
+              </button>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Copyright & Developer Credit Bar -->
+      <div class="mt-10 flex flex-col items-start justify-between gap-3 border-t border-snake-forest/10 pt-6 text-xs text-snake-moss sm:flex-row sm:items-center">
+        <p>&copy; 2026 SNAKE. All rights reserved.</p>
+        <p class="font-medium text-snake-obsidian">Created by Harsh Leuva <span class="text-snake-moss">|</span> <span class="text-snake-slate">IISER Pune</span></p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- =====================================================================
+       APPLICATION DATA & INTERACTIVE CONTROLLER
+       ===================================================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      const CONTACT_EMAIL = 'hh6060348@gmail.com';
+
+      const APPLICATIONS = {
+        vault: {
+          id: 'vault',
+          numeral: 'Application I',
+          name: 'SNAKE VAULT',
+          category: 'Privacy & Security',
+          iconId: 'app-icon-vault',
+          tagline: 'Your digital security, under your control.',
+          detailedDescription:
+            'SNAKE Vault is a local-first desktop security utility built for individuals who prefer direct custody over their credentials and sensitive files. Inspired by the tactile precision of mechanical Enigma rotors as an interface and design concept—while relying on modern cryptographic standards—it brings structured password generation, file encryption, and optional TOTP authentication together in one calm workspace.',
+          features: [
+            {
+              title: 'Enigma-Inspired Design Concept',
+              detail:
+                'Features a tactile, mechanical rotor-inspired interface and organizational metaphor for structuring credentials. (The Enigma reference describes the visual and interactive design concept, not historical Enigma cipher cryptography.)',
+            },
+            {
+              title: 'Configurable Password Combinations',
+              detail:
+                'Generate complex, high-entropy passwords with fine-grained rules for length, character sets, passphrases, and deterministic structures.',
+            },
+            {
+              title: 'Secure File Encryption & Decryption',
+              detail:
+                'Protect private documents, archives, and sensitive folders directly on your desktop prior to storage or transfer.',
+            },
+            {
+              title: 'Optional Authenticator Generation (TOTP)',
+              detail:
+                'Generate time-based one-time verification codes locally alongside your credentials without relying on a separate mobile device.',
+            },
+            {
+              title: 'Local-First Storage & Privacy Design',
+              detail:
+                'Your encrypted vault remains stored locally on your machine under your direct control, with zero mandatory cloud accounts.',
+            },
+          ],
+          systemRequirements: [
+            { label: 'Operating Systems', value: 'Windows 10 / 11 (64-bit), macOS 12+, or modern Linux distributions' },
+            { label: 'Architecture', value: 'x86_64 and Apple Silicon (ARM64)' },
+            { label: 'Execution Model', value: '100% local offline execution; no internet connection required' },
+            { label: 'Footprint', value: 'Lightweight native desktop runtime with minimal memory and storage overhead' },
+          ],
+          releaseNote:
+            'Desktop installers for SNAKE Vault are currently in final preparation. No public download binaries are hosted on this page yet.',
+        },
+        tiler: {
+          id: 'tiler',
+          numeral: 'Application II',
+          name: 'SNAKE TILER',
+          category: 'Image & Print Utility',
+          iconId: 'app-icon-tiler',
+          tagline: 'Turn any image into a large printable poster.',
+          detailedDescription:
+            'SNAKE Tiler transforms high-resolution artwork, diagrams, blueprints, and photographs into multi-page printable poster layouts. Configure your target poster dimensions, select standard paper formats such as A4, and export crisp, ready-to-print multi-page PDF documents designed for effortless physical assembly.',
+          features: [
+            {
+              title: 'Multi-Page Image Splitting',
+              detail:
+                'Automatically divides large images across a clean grid of individual printable sheets with accurate alignment.',
+            },
+            {
+              title: 'A4 & Standard Paper Sizes',
+              detail:
+                'Built-in support for A4, A3, Letter, Legal, and Tabloid paper formats in both portrait and landscape orientations.',
+            },
+            {
+              title: 'Custom Poster Dimensions',
+              detail:
+                'Define exact physical poster width and height in centimeters, millimeters, or inches, or specify exact page grid counts.',
+            },
+            {
+              title: 'High-Resolution Output',
+              detail:
+                'Preserves sharp image clarity and print-ready DPI scaling across every generated tile without muddy upscaling artifacts.',
+            },
+            {
+              title: 'Multi-Page PDF Generation',
+              detail:
+                'Exports a single, cleanly ordered multi-page PDF ready for any home, office, or print-shop printer.',
+            },
+            {
+              title: 'Print & Assemble Workflow',
+              detail:
+                'Designed so you can print individual sheets on standard paper and join them seamlessly into one large wall poster.',
+            },
+          ],
+          systemRequirements: [
+            { label: 'Operating Systems', value: 'Windows 10 / 11 (64-bit), macOS 12+, or modern Linux distributions' },
+            { label: 'Supported Inputs', value: 'PNG, JPEG, TIFF, WebP, and high-resolution raster artwork' },
+            { label: 'Output Format', value: 'Print-ready multi-page PDF documents' },
+            { label: 'Execution Model', value: '100% local desktop processing; images never leave your computer' },
+          ],
+          releaseNote:
+            'Desktop installers for SNAKE Tiler are currently in preparation. Use the inquiry button below to request updates on availability.',
+        },
+        'pdf-studio': {
+          id: 'pdf-studio',
+          numeral: 'Application III',
+          name: 'SNAKE PDF STUDIO',
+          category: 'PDF & Productivity',
+          iconId: 'app-icon-pdf-studio',
+          tagline: 'Everything you need to work with documents.',
+          detailedDescription:
+            'SNAKE PDF Studio brings essential document, image, and file-preparation utilities together in a focused desktop workbench. From merging, splitting, compressing, and organizing PDFs to converting image formats, generating QR codes and barcodes, bulk renaming files, and removing image backgrounds offline, every operation runs locally on your machine.',
+          features: [
+            {
+              title: 'Merge & Split PDF Files',
+              detail:
+                'Combine multiple PDF documents into one cohesive file or extract specific page ranges into standalone documents.',
+            },
+            {
+              title: 'Compress & Convert PDFs',
+              detail:
+                'Reduce PDF file sizes for clean sharing and convert documents across standard formats without uploading sensitive files.',
+            },
+            {
+              title: 'Organize & Rotate Pages',
+              detail:
+                'Reorder, rotate, duplicate, or remove individual PDF pages with direct visual precision.',
+            },
+            {
+              title: 'Image Format Conversion',
+              detail:
+                'Batch convert images cleanly between PNG, JPEG, WebP, TIFF, and other common desktop formats.',
+            },
+            {
+              title: 'QR Code & Barcode Generation',
+              detail:
+                'Generate crisp, high-resolution QR codes and standard barcodes locally for labels, documents, and print assets.',
+            },
+            {
+              title: 'Bulk File Renaming',
+              detail:
+                'Rename large batches of files consistently using structured numbering, prefixes, suffixes, and pattern rules.',
+            },
+            {
+              title: 'Offline Image Background Removal',
+              detail:
+                'Isolate subjects and remove image backgrounds directly on your desktop with zero cloud uploads.',
+            },
+            {
+              title: 'Additional Document Utilities',
+              detail:
+                'Includes practical everyday helpers for inspecting metadata, extracting assets, and preparing clean document packages.',
+            },
+          ],
+          systemRequirements: [
+            { label: 'Operating Systems', value: 'Windows 10 / 11 (64-bit), macOS 12+, or modern Linux distributions' },
+            { label: 'Memory', value: '4 GB RAM minimum (8 GB recommended for batch image & offline background tasks)' },
+            { label: 'Execution Model', value: '100% local offline processing; documents remain private on your machine' },
+            { label: 'Footprint', value: 'Self-contained desktop installation with zero cloud subscriptions' },
+          ],
+          releaseNote:
+            'Desktop installers for SNAKE PDF Studio are currently in preparation. Reach out via email below to inquire about upcoming releases.',
+        },
+      };
+
+      const viewHome = document.getElementById('view-home');
+      const viewDetail = document.getElementById('view-detail');
+      const detailMount = document.getElementById('detail-content-mount');
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenuDrawer = document.getElementById('mobile-menu-drawer');
+      const menuIconOpen = document.getElementById('menu-icon-open');
+      const menuIconClose = document.getElementById('menu-icon-close');
+
+      function copyToClipboard(text) {
+        try {
+          const helper = document.createElement('textarea');
+          helper.value = text;
+          helper.setAttribute('readonly', '');
+          helper.style.position = 'fixed';
+          helper.style.opacity = '0';
+          document.body.appendChild(helper);
+          helper.select();
+          document.execCommand('copy');
+          document.body.removeChild(helper);
+          return true;
+        } catch (_) {
+          return false;
+        }
+      }
+
+      function setMobileMenuOpen(isOpen) {
+        if (!mobileMenuDrawer || !mobileMenuBtn) return;
+        mobileMenuDrawer.classList.toggle('hidden', !isOpen);
+        mobileMenuBtn.setAttribute('aria-expanded', String(isOpen));
+        menuIconOpen?.classList.toggle('hidden', isOpen);
+        menuIconClose?.classList.toggle('hidden', !isOpen);
+      }
+
+      mobileMenuBtn?.addEventListener('click', () => {
+        const currentlyOpen = mobileMenuBtn.getAttribute('aria-expanded') === 'true';
+        setMobileMenuOpen(!currentlyOpen);
+      });
+
+      function showHomeView(sectionId, updateHash = true) {
+        setMobileMenuOpen(false);
+        viewDetail.hidden = true;
+        viewHome.hidden = false;
+
+        viewHome.classList.remove('view-transition');
+        void viewHome.offsetWidth;
+        viewHome.classList.add('view-transition');
+
+        if (updateHash) {
+          const nextHash = sectionId ? `#${sectionId}` : '#home';
+          if (window.location.hash !== nextHash) {
+            history.pushState({ view: 'home', section: sectionId || 'home' }, '', nextHash);
+          }
+        }
+
+        if (sectionId) {
+          const targetEl = document.getElementById(sectionId);
+          if (targetEl) {
+            targetEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            return;
+          }
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      function openApplicationDetail(appId, updateHash = true) {
+        const app = APPLICATIONS[appId];
+        if (!app) return;
+
+        setMobileMenuOpen(false);
+        renderApplicationDetail(app);
+
+        viewHome.hidden = true;
+        viewDetail.hidden = false;
+
+        viewDetail.classList.remove('view-transition');
+        void viewDetail.offsetWidth;
+        viewDetail.classList.add('view-transition');
+
+        document.querySelectorAll('.detail-tab').forEach((tab) => {
+          const isActive = tab.getAttribute('data-detail-tab') === appId;
+          tab.className = isActive
+            ? 'detail-tab rounded-xl px-3.5 py-1.5 text-xs font-semibold bg-snake-forest text-white shadow-sm transition-all'
+            : 'detail-tab rounded-xl px-3.5 py-1.5 text-xs font-medium text-snake-slate hover:text-snake-obsidian hover:bg-snake-forest/[0.05] transition-all';
+        });
+
+        if (updateHash) {
+          const nextHash = `#${appId}`;
+          if (window.location.hash !== nextHash) {
+            history.pushState({ view: 'detail', appId }, '', nextHash);
+          }
+        }
+
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+      /* Renders clean detail view WITHOUT any application preview/screenshot mockup */
+      function renderApplicationDetail(app) {
+        const featuresHtml = app.features
+          .map(
+            (feat, index) => `
+              <div class="glass-panel rounded-2xl p-5">
+                <div class="flex items-start gap-3.5">
+                  <div class="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-xl border border-snake-forest/15 bg-snake-forest/[0.06] font-mono text-[11px] font-medium text-snake-forest">
+                    0${index + 1}
+                  </div>
+                  <div>
+                    <h4 class="text-sm font-semibold text-snake-obsidian sm:text-base">${feat.title}</h4>
+                    <p class="mt-1.5 text-sm leading-relaxed text-snake-slate">${feat.detail}</p>
+                  </div>
+                </div>
+              </div>
+            `
+          )
+          .join('');
+
+        const reqsHtml = app.systemRequirements
+          .map(
+            (req) => `
+              <div class="flex flex-col justify-between gap-1 border-b border-snake-forest/10 py-3 last:border-b-0 sm:flex-row sm:items-center sm:gap-4">
+                <span class="text-xs font-medium uppercase tracking-wider text-snake-moss">${req.label}</span>
+                <span class="text-sm text-snake-obsidian sm:text-right">${req.value}</span>
+              </div>
+            `
+          )
+          .join('');
+
+        const mailtoHref = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(`${app.name} — Desktop Release Inquiry`)}`;
+
+        detailMount.innerHTML = `
+          <!-- 1. Application Identity Header -->
+          <div class="glass-panel atelier-frame relative overflow-hidden rounded-[30px] p-7 sm:p-10">
+            <span class="atelier-tick atelier-tick-tl" aria-hidden="true"></span>
+            <span class="atelier-tick atelier-tick-tr" aria-hidden="true"></span>
+            <span class="atelier-tick atelier-tick-bl" aria-hidden="true"></span>
+            <span class="atelier-tick atelier-tick-br" aria-hidden="true"></span>
+
+            <div class="relative flex flex-col gap-6 sm:flex-row sm:items-center sm:justify-between">
+              <div class="flex flex-col gap-5 sm:flex-row sm:items-center">
+                <svg class="h-20 w-20 shrink-0 rounded-[22px] shadow-glass-md" viewBox="0 0 96 96" role="img" aria-label="${app.name} Icon">
+                  <use href="#${app.iconId}" />
+                </svg>
+                <div>
+                  <div class="flex flex-wrap items-center gap-2.5">
+                    <span class="font-serif text-xs italic tracking-widest text-snake-forest">${app.numeral}</span>
+                    <span class="text-snake-moss">&middot;</span>
+                    <span class="glass-pill inline-flex items-center rounded-full px-3 py-0.5 text-xs font-medium text-snake-forest">
+                      ${app.category}
+                    </span>
+                  </div>
+                  <h1 class="mt-2 text-3xl font-semibold tracking-[-0.025em] text-snake-obsidian sm:text-4xl">
+                    ${app.name}
+                  </h1>
+                  <p class="mt-1 font-serif text-lg italic text-snake-emerald sm:text-xl">${app.tagline}</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="relative mt-6 max-w-3xl border-t border-snake-forest/10 pt-6 text-base leading-relaxed text-snake-slate">
+              ${app.detailedDescription}
+            </p>
+          </div>
+
+          <!-- 2. Complete Feature Breakdown -->
+          <div class="mt-10">
+            <div class="mb-5">
+              <span class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-snake-emerald">Capabilities</span>
+              <h2 class="mt-1 text-2xl font-semibold tracking-tight text-snake-obsidian">Key Features</h2>
+            </div>
+            <div class="grid grid-cols-1 gap-4 md:grid-cols-2">
+              ${featuresHtml}
+            </div>
+          </div>
+
+          <!-- 3. System Requirements & 4. Release Availability -->
+          <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-12">
+            <!-- System Requirements -->
+            <div class="glass-panel rounded-3xl p-6 sm:p-8 lg:col-span-7">
+              <span class="font-mono text-xs font-medium uppercase tracking-[0.2em] text-snake-emerald">Specifications</span>
+              <h3 class="mt-1 text-xl font-semibold text-snake-obsidian">System Requirements</h3>
+              <div class="mt-4">
+                ${reqsHtml}
+              </div>
+            </div>
+
+            <!-- Honest Release & Availability Card -->
+            <div class="glass-panel atelier-frame flex flex-col justify-between rounded-3xl p-6 sm:p-8 lg:col-span-5">
+              <span class="atelier-tick atelier-tick-tr" aria-hidden="true"></span>
+              <span class="atelier-tick atelier-tick-br" aria-hidden="true"></span>
+              <div>
+                <div class="inline-flex items-center gap-2 rounded-full border border-snake-forest/15 bg-snake-forest/[0.05] px-3 py-1 text-xs font-medium text-snake-forest">
+                  <span class="h-1.5 w-1.5 rounded-full bg-snake-emerald"></span>
+                  <span>Release Status</span>
+                </div>
+                <h3 class="mt-4 text-xl font-semibold text-snake-obsidian">Desktop Installers</h3>
+                <p class="mt-2.5 text-sm leading-relaxed text-snake-slate">
+                  ${app.releaseNote}
+                </p>
+              </div>
+
+              <div class="mt-6 border-t border-snake-forest/10 pt-5">
+                <a
+                  href="${mailtoHref}"
+                  class="btn-primary flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-medium"
+                >
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                  </svg>
+                  <span>Inquire via Email</span>
+                </a>
+                <p class="mt-2.5 text-center font-mono text-[11px] text-snake-moss">
+                  Direct contact: ${CONTACT_EMAIL}
+                </p>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      // Global Navigation & Application Card Delegation
+      document.addEventListener('click', (event) => {
+        const openAppTrigger = event.target.closest('[data-open-app]');
+        if (openAppTrigger) {
+          event.preventDefault();
+          const appId = openAppTrigger.getAttribute('data-open-app');
+          openApplicationDetail(appId, true);
+          return;
+        }
+
+        const navTrigger = event.target.closest('[data-nav-action]');
+        if (navTrigger) {
+          event.preventDefault();
+          const action = navTrigger.getAttribute('data-nav-action');
+          if (action === 'home') {
+            showHomeView(null, true);
+          } else if (action === 'section') {
+            const target = navTrigger.getAttribute('data-target');
+            showHomeView(target, true);
+          }
+        }
+      });
+
+      // One-Click Copy Email Button
+      const copyEmailBtn = document.getElementById('copy-email-btn');
+      const copyEmailLabel = document.getElementById('copy-email-label');
+      copyEmailBtn?.addEventListener('click', () => {
+        const ok = copyToClipboard(CONTACT_EMAIL);
+        if (ok && copyEmailLabel) {
+          copyEmailLabel.textContent = 'Copied';
+          setTimeout(() => {
+            copyEmailLabel.textContent = 'Copy Email';
+          }, 2200);
+        }
+      });
+
+      // Interactive Email Composer Form -> Launches pre-filled mailto:hh6060348@gmail.com
+      const contactForm = document.getElementById('contact-form');
+      const contactFeedback = document.getElementById('contact-feedback');
+      contactForm?.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const subjectInput = document.getElementById('contact-subject');
+        const messageInput = document.getElementById('contact-message');
+
+        const rawSubject = (subjectInput?.value || '').trim() || 'SNAKE Software Inquiry';
+        const rawMessage = (messageInput?.value || '').trim();
+
+        if (!rawMessage) {
+          if (contactFeedback) {
+            contactFeedback.textContent = 'Please write a short message first.';
+          }
+          messageInput?.focus();
+          return;
+        }
+
+        const mailtoUrl = `mailto:${CONTACT_EMAIL}?subject=${encodeURIComponent(rawSubject)}&body=${encodeURIComponent(rawMessage)}`;
+        window.location.href = mailtoUrl;
+
+        if (contactFeedback) {
+          contactFeedback.textContent = `Opening email draft to ${CONTACT_EMAIL}...`;
+        }
+      });
+
+      // Sync Initial URL Hash & Browser Back/Forward Buttons
+      function syncFromHash() {
+        const hash = window.location.hash.replace('#', '').trim();
+        if (APPLICATIONS[hash]) {
+          openApplicationDetail(hash, false);
+        } else if (hash && hash !== 'home') {
+          showHomeView(hash, false);
+        } else {
+          viewDetail.hidden = true;
+          viewHome.hidden = false;
+        }
+      }
+
+      window.addEventListener('popstate', syncFromHash);
+      window.addEventListener('DOMContentLoaded', syncFromHash);
+    })();
+  </script>
+</body>
+</html>
