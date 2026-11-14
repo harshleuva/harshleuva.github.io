@@ -527,9 +527,6 @@
         </div>
       </a>
 
-      <!-- Right: Desktop Navigation Links + Forest Green Glass Explore Button -->
-      
-
       <!-- Mobile Menu Toggle -->
       <div class="flex items-center gap-2 md:hidden">
         <button
@@ -602,10 +599,9 @@
   <!-- =====================================================================
        MAIN LANDING PAGE VIEW
        ===================================================================== -->
-  
-
+  <main id="view-home">
     <!-- Engraved Hairline Section Divider -->
-    <div class="engraved-divider mx-auto max-w-4xl px-6" aria-hidden="true">
+    <div class="engraved-divider mx-auto max-w-4xl px-6 pt-6" aria-hidden="true">
       <span class="font-serif text-xs italic text-snake-forest/55">&loz;</span>
     </div>
 
@@ -690,8 +686,19 @@
               </ul>
             </div>
 
-            <!-- Action Button -->
-            <div class="mt-6 pt-2">
+            <!-- Action Buttons -->
+            <div class="mt-6 flex flex-col gap-2.5 pt-2">
+              <!-- REPLACE '#' WITH YOUR SNAKE VAULT DOWNLOAD LINK -->
+              <a
+                href="#"
+                class="btn-primary group flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-medium"
+              >
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+                </svg>
+                <span>Download Vault</span>
+              </a>
+
               <button
                 type="button"
                 data-open-app="vault"
@@ -778,8 +785,19 @@
               </ul>
             </div>
 
-            <!-- Action Button -->
-            <div class="mt-6 pt-2">
+            <!-- Action Buttons -->
+            <div class="mt-6 flex flex-col gap-2.5 pt-2">
+              <!-- REPLACE '#' WITH YOUR SNAKE TILER DOWNLOAD LINK -->
+              <a
+                href="#"
+                class="btn-primary group flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-medium"
+              >
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+                </svg>
+                <span>Download Tiler</span>
+              </a>
+
               <button
                 type="button"
                 data-open-app="tiler"
@@ -878,8 +896,19 @@
               </ul>
             </div>
 
-            <!-- Action Button -->
-            <div class="mt-6 pt-2">
+            <!-- Action Buttons -->
+            <div class="mt-6 flex flex-col gap-2.5 pt-2">
+              <!-- REPLACE '#' WITH YOUR SNAKE PDF STUDIO DOWNLOAD LINK -->
+              <a
+                href="#"
+                class="btn-primary group flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-medium"
+              >
+                <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+                </svg>
+                <span>Download PDF Studio</span>
+              </a>
+
               <button
                 type="button"
                 data-open-app="pdf-studio"
@@ -1183,7 +1212,7 @@
         </div>
       </div>
 
-      <!-- Dynamic Application Detail Mount (Header, Features, System Requirements, Availability) -->
+      <!-- Dynamic Application Detail Mount (Header, Features, System Requirements, Download) -->
       <div id="detail-content-mount"></div>
     </div>
   </section>
@@ -1275,6 +1304,7 @@
           name: 'SNAKE VAULT',
           category: 'Privacy & Security',
           iconId: 'app-icon-vault',
+          downloadUrl: 'https://drive.google.com/file/d/1SB7KNN9Q2yd_f7TGhAS8Hk19u4PGHx_A/view?usp=sharing', // <-- REPLACE '#' WITH YOUR SNAKE VAULT DOWNLOAD LINK
           tagline: 'Your digital security, under your control.',
           detailedDescription:
             'SNAKE Vault is a local-first desktop security utility built for individuals who prefer direct custody over their credentials and sensitive files. Inspired by the tactile precision of mechanical Enigma rotors as an interface and design concept—while relying on modern cryptographic standards—it brings structured password generation, file encryption, and optional TOTP authentication together in one calm workspace.',
@@ -1312,7 +1342,7 @@
             { label: 'Footprint', value: 'Lightweight native desktop runtime with minimal memory and storage overhead' },
           ],
           releaseNote:
-            'Desktop installers for SNAKE Vault are currently in final preparation. No public download binaries are hosted on this page yet.',
+            'Download the desktop installer for SNAKE Vault directly below, or reach out via email if you have questions about supported platforms.',
         },
         tiler: {
           id: 'tiler',
@@ -1320,6 +1350,7 @@
           name: 'SNAKE TILER',
           category: 'Image & Print Utility',
           iconId: 'app-icon-tiler',
+          downloadUrl: 'https://drive.google.com/file/d/1nryMWFOipRQz6uxr360TQFeYddCFsYdc/view?usp=sharing', // <-- REPLACE '#' WITH YOUR SNAKE TILER DOWNLOAD LINK
           tagline: 'Turn any image into a large printable poster.',
           detailedDescription:
             'SNAKE Tiler transforms high-resolution artwork, diagrams, blueprints, and photographs into multi-page printable poster layouts. Configure your target poster dimensions, select standard paper formats such as A4, and export crisp, ready-to-print multi-page PDF documents designed for effortless physical assembly.',
@@ -1362,7 +1393,7 @@
             { label: 'Execution Model', value: '100% local desktop processing; images never leave your computer' },
           ],
           releaseNote:
-            'Desktop installers for SNAKE Tiler are currently in preparation. Use the inquiry button below to request updates on availability.',
+            'Download the desktop installer for SNAKE Tiler directly below, or reach out via email if you have questions about supported platforms.',
         },
         'pdf-studio': {
           id: 'pdf-studio',
@@ -1370,6 +1401,7 @@
           name: 'SNAKE PDF STUDIO',
           category: 'PDF & Productivity',
           iconId: 'app-icon-pdf-studio',
+          downloadUrl: 'https://drive.google.com/file/d/1VffVbCVVLOorF9m83GSQFiolymPqCOgu/view', // <-- REPLACE '#' WITH YOUR SNAKE PDF STUDIO DOWNLOAD LINK
           tagline: 'Everything you need to work with documents.',
           detailedDescription:
             'SNAKE PDF Studio brings essential document, image, and file-preparation utilities together in a focused desktop workbench. From merging, splitting, compressing, and organizing PDFs to converting image formats, generating QR codes and barcodes, bulk renaming files, and removing image backgrounds offline, every operation runs locally on your machine.',
@@ -1422,7 +1454,7 @@
             { label: 'Footprint', value: 'Self-contained desktop installation with zero cloud subscriptions' },
           ],
           releaseNote:
-            'Desktop installers for SNAKE PDF Studio are currently in preparation. Reach out via email below to inquire about upcoming releases.',
+            'Download the desktop installer for SNAKE PDF Studio directly below, or reach out via email if you have questions about supported platforms.',
         },
       };
 
@@ -1466,12 +1498,13 @@
 
       function showHomeView(sectionId, updateHash = true) {
         setMobileMenuOpen(false);
-        viewDetail.hidden = true;
-        viewHome.hidden = false;
-
-        viewHome.classList.remove('view-transition');
-        void viewHome.offsetWidth;
-        viewHome.classList.add('view-transition');
+        if (viewDetail) viewDetail.hidden = true;
+        if (viewHome) {
+          viewHome.hidden = false;
+          viewHome.classList.remove('view-transition');
+          void viewHome.offsetWidth;
+          viewHome.classList.add('view-transition');
+        }
 
         if (updateHash) {
           const nextHash = sectionId ? `#${sectionId}` : '#home';
@@ -1497,12 +1530,13 @@
         setMobileMenuOpen(false);
         renderApplicationDetail(app);
 
-        viewHome.hidden = true;
-        viewDetail.hidden = false;
-
-        viewDetail.classList.remove('view-transition');
-        void viewDetail.offsetWidth;
-        viewDetail.classList.add('view-transition');
+        if (viewHome) viewHome.hidden = true;
+        if (viewDetail) {
+          viewDetail.hidden = false;
+          viewDetail.classList.remove('view-transition');
+          void viewDetail.offsetWidth;
+          viewDetail.classList.add('view-transition');
+        }
 
         document.querySelectorAll('.detail-tab').forEach((tab) => {
           const isActive = tab.getAttribute('data-detail-tab') === appId;
@@ -1599,7 +1633,7 @@
             </div>
           </div>
 
-          <!-- 3. System Requirements & 4. Release Availability -->
+          <!-- 3. System Requirements & 4. Download / Release Card -->
           <div class="mt-10 grid grid-cols-1 gap-6 lg:grid-cols-12">
             <!-- System Requirements -->
             <div class="glass-panel rounded-3xl p-6 sm:p-8 lg:col-span-7">
@@ -1610,32 +1644,42 @@
               </div>
             </div>
 
-            <!-- Honest Release & Availability Card -->
+            <!-- Download & Inquiry Card -->
             <div class="glass-panel atelier-frame flex flex-col justify-between rounded-3xl p-6 sm:p-8 lg:col-span-5">
               <span class="atelier-tick atelier-tick-tr" aria-hidden="true"></span>
               <span class="atelier-tick atelier-tick-br" aria-hidden="true"></span>
               <div>
                 <div class="inline-flex items-center gap-2 rounded-full border border-snake-forest/15 bg-snake-forest/[0.05] px-3 py-1 text-xs font-medium text-snake-forest">
                   <span class="h-1.5 w-1.5 rounded-full bg-snake-emerald"></span>
-                  <span>Release Status</span>
+                  <span>Desktop Release</span>
                 </div>
-                <h3 class="mt-4 text-xl font-semibold text-snake-obsidian">Desktop Installers</h3>
+                <h3 class="mt-4 text-xl font-semibold text-snake-obsidian">Download ${app.name}</h3>
                 <p class="mt-2.5 text-sm leading-relaxed text-snake-slate">
                   ${app.releaseNote}
                 </p>
               </div>
 
-              <div class="mt-6 border-t border-snake-forest/10 pt-5">
+              <div class="mt-6 flex flex-col gap-2.5 border-t border-snake-forest/10 pt-5">
                 <a
-                  href="${mailtoHref}"
+                  href="${app.downloadUrl}"
                   class="btn-primary flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-3 text-sm font-medium"
                 >
-                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                  <svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2M7 10l5 5m0 0l5-5m-5 5V3" />
+                  </svg>
+                  <span>Download ${app.name}</span>
+                </a>
+
+                <a
+                  href="${mailtoHref}"
+                  class="btn-secondary flex w-full items-center justify-center gap-2 rounded-2xl px-4 py-2.5 text-xs font-medium text-snake-obsidian"
+                >
+                  <svg class="h-3.5 w-3.5 text-snake-forest" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                   <span>Inquire via Email</span>
                 </a>
-                <p class="mt-2.5 text-center font-mono text-[11px] text-snake-moss">
+                <p class="mt-1 text-center font-mono text-[11px] text-snake-moss">
                   Direct contact: ${CONTACT_EMAIL}
                 </p>
               </div>
@@ -1715,8 +1759,8 @@
         } else if (hash && hash !== 'home') {
           showHomeView(hash, false);
         } else {
-          viewDetail.hidden = true;
-          viewHome.hidden = false;
+          if (viewDetail) viewDetail.hidden = true;
+          if (viewHome) viewHome.hidden = false;
         }
       }
 
